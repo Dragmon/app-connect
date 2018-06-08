@@ -1,11 +1,12 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {
-  Text,
-  View,
-  Image,
-  StyleSheet,
-  TouchableWithoutFeedback
+    Text,
+    View,
+    Image,
+    StyleSheet,
+    TouchableWithoutFeedback,
+    SafeAreaView
 } from 'react-native';
 
 
@@ -30,11 +31,11 @@ const HeaderInterno = props => (
 )
 const styles = StyleSheet.create({
   containerheader: {
-    flexDirection: 'row',
-    height: 60,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#3581BC',
+      flexDirection: 'row',
+      height: 60,
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      backgroundColor: '#3581BC',
   },
   iconbars: {
     marginLeft: 10,

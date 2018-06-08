@@ -11,7 +11,9 @@ import {
     ListView,
     ScrollView,
     StatusBar,
-    Button
+    Button,
+    SafeAreaView,
+    Platform
 } from 'react-native';
 
 var totalHeight = Dimensions.get('window').height;
@@ -55,7 +57,7 @@ class Notificaciones extends Component{
 
     _renderLoadingDataView() {
         return (
-            <View>
+            <SafeAreaView style={styles.safeArea}>
                 <HeaderInterno
                     onPress = {() => this.props.navigation.goBack()}
                 />
@@ -74,7 +76,7 @@ class Notificaciones extends Component{
                 <View style={styles.menuSection}>
                     <Text>Cargando notificaciones...</Text>
                 </View>
-            </View>
+            </SafeAreaView>
         );
     }
 
@@ -107,7 +109,7 @@ class Notificaciones extends Component{
         }
         else {
             return (
-                <View>
+                <SafeAreaView style={styles.safeArea}>
                     <HeaderInterno
                         onPress = {() => this.props.navigation.goBack()}
                     />
@@ -135,7 +137,7 @@ class Notificaciones extends Component{
                             </ScrollView>
                         </View>
                     </View>
-                </View>
+                </SafeAreaView>
             );
         }
     }
@@ -145,7 +147,8 @@ const styles = StyleSheet.create({
     containerTitle:{
         flexDirection: 'row',
         backgroundColor: '#E44858',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: Platform.OS === 'ios' ? 100 : 0,
     },
 
     sectionTitleText:{
@@ -191,6 +194,10 @@ const styles = StyleSheet.create({
 
     notificationMicroResume: {
         fontWeight: 'normal',
+    },
+
+    safeArea:{
+        flex:1,
     }
 });
 
