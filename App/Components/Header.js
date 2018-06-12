@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
       height: 60,
       alignItems: 'center',
       justifyContent: 'space-between',
-      backgroundColor: '#3581BC',
+      backgroundColor: '#1B323A',
       flex:1,
   },
   iconbars: {

@@ -20,8 +20,8 @@ class Menu extends Component{
       <SafeAreaView style={styles.contmenu}>
         <View style={styles.contbackgroundimage}>
           <Image
-            style={{flex: 1,}}
-            source={require('../Img/Menu/background_menu.png')}
+              style={{flex: 1,}}
+              source={require('../Img/Menu/background_menu.png')}
           />
         </View>
         <View style={styles.containermenu}>
