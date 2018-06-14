@@ -5,6 +5,8 @@ import SideMenu from 'react-native-side-menu';
 import Header from './Header';
 import Body from './Body';
 import Menu from './Menu-fondo';
+import Footer from './Footer';
+
 var totalWidth = Dimensions.get('window').width;
 var slideMenudisplace = totalWidth*.90;
 import {
@@ -48,6 +50,7 @@ updateMenu(isOpen){
         >
           <Header navigation={this.props.navigation} toggle={this.toggle.bind(this)}/>
           <Body navigation={this.props.navigation} />
+          <Footer/>
         </SideMenu>
       </SafeAreaView>
     );

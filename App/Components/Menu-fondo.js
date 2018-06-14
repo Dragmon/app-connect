@@ -8,9 +8,12 @@ import{
     TouchableOpacity,
     Image,
     SafeAreaView,
-    Platform
+    Platform,
+    NativeModules
 } from 'react-native'
 var totalHeight = Dimensions.get('window').height;
+var toatlWidth = Dimensions.get('window').width;
+var aspectRatio = totalHeight/toatlWidth;
 
 class Menu extends Component{
 
@@ -123,9 +126,18 @@ const styles = StyleSheet.create({
 
     },
     innerTextStyle:{
-        fontSize: Platform.OS === 'ios' ? 20 : 15,
+        ...Platform.select({
+            ios:{
+                //condición para aplicar css en ipad y iphone
+                fontSize: aspectRatio <= 1.6 ? 14 : 20,
+                padding: aspectRatio <= 1.6 ? 11 : 20,
+            },
+            android:{
+                fontSize: 15,
+                padding: 12,
+            }
+        }),
         left: 30,
-        padding: Platform.OS === 'ios' ? 20 : 12,
         color: 'white',
         backgroundColor: 'rgba(0, 0, 0, 0.0)'
     }
