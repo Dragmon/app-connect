@@ -41,7 +41,7 @@ class Body extends Component{
           {/*Menu de bloques*/}
           {/*Hot-Results*/}
           <View style={styles.horizontalHomeBlock}>
-            <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('HotResults')}>
+            <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('IbooksComponent')}>
               <View style={[styles.horizontalImageSection, {backgroundColor: '#F5AB2D'}]}>
                 <View style={styles.imageContentSection}>
                   <Image

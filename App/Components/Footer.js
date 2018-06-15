@@ -30,7 +30,7 @@ var styles = StyleSheet.create({
     },
     safearea:{
         flex: 1,
-        backgroundColor: '#1B323A',
+        backgroundColor: '#1B323A'
     }
 });
 

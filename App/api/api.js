@@ -66,7 +66,12 @@ const api = {
       tracker.trackEvent('API', 'Obtener Catalogo Regiona Android');
       const url = 'https://apihavas.televisaventas.tv/api/v1/catalogo-android/regional/obtener';
       return fetch(url).then((response) => response.json())
-    }
+    },
+    getIbooks(){
+        tracker.trackEvent('API', 'Obtener Ibooks');
+        var url = `https://connect.televisaventas.tv/api/v1/ibooks/obtener`;
+        return fetch(url).then((res) => res.json())
+    },
 }
 
 

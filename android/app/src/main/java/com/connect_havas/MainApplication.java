@@ -3,6 +3,7 @@ package com.connect_havas;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.rnfs.RNFSPackage;
 import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import org.wonday.pdf.RCTPdfView;
@@ -32,6 +33,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNFSPackage(),
             new GoogleAnalyticsBridgePackage(),
             new RNFetchBlobPackage(),
             new RCTPdfView(),
