@@ -16,7 +16,10 @@ import {
     AlertIOS,
     NativeModules
 } from 'react-native';
-import GoogleAnalytics from 'react-native-google-analytics-bridge';
+
+import {GoogleAnalyticsTracker} from "react-native-google-analytics-bridge";
+import Analytics from '../api/analytics';
+let tracker = new GoogleAnalyticsTracker(Analytics.Metric.CodeAnalytics);
 
 var DocumentController = NativeModules.DocumentController;
 
@@ -172,7 +175,7 @@ class IBooksComponent extends React.Component{
             console.log(existFile);
             if(existFile && jobDownloadId===-1){
                 //Termino la descarga
-                GoogleAnalytics.trackEvent('APP', 'iBook descargado', {titulo: ibook.titulo});
+                tracker.trackEvent('APP', 'iBook descargado', {label: ibook.titulo });
                 this.setState({ loaded:false })
                 dataUpdated = this.state.dataSourceCopy;
                 for (var i=0; i<dataUpdated.length; i++) {
@@ -193,7 +196,7 @@ class IBooksComponent extends React.Component{
             }else{
                 //Descargamos el archivo
                 if(jobDownloadId===-1){
-                    GoogleAnalytics.trackEvent('APP', 'Inicia la descarga del iBook', {titulo: ibook.titulo});
+                    tracker.trackEvent('APP', 'Inicia la descarga del iBook', {label: ibook.titulo });
                     AlertIOS.alert('Descargar iBook','Ha comenzado la descarga de tu iBook. Éste proceso puede demorar mucho tiempo dependiendo de tu conexión a Internet. Si deseas detener la descarga vuelve a dar clic sobre el iBook que has descargado.');
                     this.setState({ currentIbook:ibookDestination })
                     RNFS.mkdir(ibooksDirPath).then(success => {
@@ -215,7 +218,7 @@ class IBooksComponent extends React.Component{
                             console.log(res);
                         }).then(content => {
                             //Termino la descarga
-                            GoogleAnalytics.trackEvent('APP', 'Terminó la descarga del iBook', {titulo: ibook.titulo});
+                            tracker.trackEvent('APP', 'Terminó la descarga del iBook', {label: ibook.titulo });
                             this.setState({ loaded:false })
                             dataUpdated = this.state.dataSourceCopy;
                             for (var i=0; i<dataUpdated.length; i++) {
@@ -241,7 +244,7 @@ class IBooksComponent extends React.Component{
                     }).catch(err => this.showError(err));
                 }else{
                     //Detenemos la descarga
-                    GoogleAnalytics.trackEvent('APP', 'Se ha cancelado la descarga del iBook', {titulo: ibook.titulo});
+                    tracker.trackEvent('APP', 'Se ha cancelado la descarga del iBook', {label: ibook.titulo });
                     this.setState({ loaded:false })
                     dataUpdated = this.state.dataSourceCopy;
                     for (var i=0; i<dataUpdated.length; i++) {

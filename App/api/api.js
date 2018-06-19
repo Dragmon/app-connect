@@ -69,7 +69,7 @@ const api = {
     },
     getIbooks(){
         tracker.trackEvent('API', 'Obtener Ibooks');
-        var url = `https://connect.televisaventas.tv/api/v1/ibooks/obtener`;
+        var url = `https://apihavas.televisaventas.tv/api/v1/ibooks/obtener`;
         return fetch(url).then((res) => res.json())
     },
 }
