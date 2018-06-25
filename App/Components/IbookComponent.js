@@ -16,6 +16,7 @@ import {
     AlertIOS,
     NativeModules
 } from 'react-native';
+import RNFetchBlob from 'rn-fetch-blob';
 
 import {GoogleAnalyticsTracker} from "react-native-google-analytics-bridge";
 import Analytics from '../api/analytics';

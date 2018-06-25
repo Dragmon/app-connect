@@ -52,7 +52,7 @@ import CatalogoView from './Components/catalogoview';
 
 import CatalogosRegional from './Components/CatalogosRegional';
 
-import IbooksComponent from './Components/IbookMainContainer';
+import Ibooks from './Components/Ibooks';
 
 {/* Turns this.props.navigation.state.params into this.params.<x>  */}
 const paramsToProps = (MyComponent) => {
@@ -113,7 +113,7 @@ const Index = StackNavigator({
 
   CatalogosRegional: {screen:CatalogosRegional},
 
-  IbooksComponent:{screen:IbooksComponent}
+    Ibooks:{screen:Ibooks}
 
 },{
   headerMode: 'screen'
