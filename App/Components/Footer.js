@@ -3,8 +3,11 @@ import {
     View,
     Image,
     StyleSheet,
-    SafeAreaView
+    SafeAreaView,
+    Dimensions
 } from 'react-native';
+
+let totalHeight = Dimensions.get('window').height;
 
 class Footer extends Component{
     render(){
@@ -25,8 +28,8 @@ var styles = StyleSheet.create({
     footer: {
         backgroundColor: '#1B323A',
         alignItems: 'center',
-        paddingTop: 6,
-        paddingBottom: 6,
+        paddingTop: (totalHeight * .015),
+        paddingBottom: (totalHeight * .015),
     },
     safearea:{
         flex: 1,
