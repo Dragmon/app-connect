@@ -6,8 +6,11 @@ import {
     View,
     Dimensions,
     Image,
-    ScrollView
-} from 'react-native';
+    ScrollView,
+    SafeAreaView,
+    Platform,
+    ImageBackground }
+    from 'react-native';
 import {GoogleAnalyticsTracker} from "react-native-google-analytics-bridge";
 import Analytics from '../api/analytics';
 let tracker = new GoogleAnalyticsTracker(Analytics.Metric.CodeAnalytics);
@@ -28,15 +31,19 @@ class NotificacionesDetalle extends Component{
     render(){
         tracker.trackEvent('APP', 'Ver Notificación', {label: this.props.notification.titulo });
         return (
-            <View>
+            <SafeAreaView>
                 <HeaderInterno
                     onPress = {() => this.props.navigation.goBack()}
                 />
-
+                <Image
+                    style={styles.titleseccion}
+                    source={require('../Img/Notificaciones/encabezado-notificaciones.png')}
+                />
+                {/*
                 <View style={styles.containerTitle}>
                     <Text style={styles.sectionTitleText}>Notificación</Text>
                 </View>
-
+                */}
                 <View style={styles.notificationOutterWrapper}>
                     <Image
                         style={styles.notificationMainImage}
@@ -59,7 +66,7 @@ class NotificacionesDetalle extends Component{
                         </ScrollView>
                     </View>
                 </View>
-            </View>
+            </SafeAreaView>
         );
     }
 }
@@ -120,6 +127,15 @@ const styles = StyleSheet.create({
         fontWeight:'normal',
         fontSize:11,
         color:'#5A5A5A',
+    },
+
+    titleseccion:{
+        width: totalWidth,
+    },
+
+    safeArea:{
+        flex:1,
+        backgroundColor: '#1B323A',
     }
 });
 

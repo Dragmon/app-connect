@@ -13,7 +13,8 @@ import {
     StatusBar,
     Button,
     SafeAreaView,
-    Platform
+    Platform,
+    ImageBackground
 } from 'react-native';
 
 var totalHeight = Dimensions.get('window').height;
@@ -61,11 +62,15 @@ class Notificaciones extends Component{
                 <HeaderInterno
                     onPress = {() => this.props.navigation.goBack()}
                 />
-
+                <Image
+                    style={styles.titleseccion}
+                    source={require('../Img/Notificaciones/encabezado-notificaciones.png')}
+                />
+                {/*
                 <View style={styles.containerTitle}>
                     <Text style={styles.sectionTitleText}>Notificaciones</Text>
                 </View>
-
+                */}
                 <View style={styles.contBackgroundImage}>
                     <Image
                         style={{flex: 1,}}
@@ -113,11 +118,15 @@ class Notificaciones extends Component{
                     <HeaderInterno
                         onPress = {() => this.props.navigation.goBack()}
                     />
-
+                    <Image
+                        style={styles.titleseccion}
+                        source={require('../Img/Notificaciones/encabezado-notificaciones.png')}
+                    />
+                    {/*
                     <View style={styles.containerTitle}>
                         <Text style={styles.sectionTitleText}>Notificaciones</Text>
                     </View>
-
+                    */}
                     <View style={styles.contBackgroundImage}>
                         <Image
                             style={{flex: 1,}}
@@ -143,6 +152,25 @@ class Notificaciones extends Component{
     }
 }
 
+{/*
+<TouchableHighlight
+	onPress={this._onPress}
+	style={HomeStyle.touchableMargins}>
+	<ImageBackground
+		source={this.props.source}
+	    style={HomeStyle.backgroundItemList}>
+		<View style={HomeStyle.halfItemContainer}></View>
+		<ImageBackground
+			source={require('../../media/global/gradiant.png')}
+			style={HomeStyle.ListItemImageHalf}>
+			<Text style={HomeStyle.slideTitle}>{this.props.obra}</Text>
+			<Text style={HomeStyle.slideDetail}>{this.props.teatro}</Text>
+			<Text style={HomeStyle.slideDetail}>{this.props.hora}</Text>
+		</ImageBackground>
+	</ImageBackground>
+</TouchableHighlight>
+*/}
+
 const styles = StyleSheet.create({
     containerTitle:{
         flexDirection: 'row',
@@ -167,6 +195,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
 
+    titleseccion:{
+        width: totalWidth,
+    },
+
     menuSection:{
         position: 'absolute',
         left: 0,
@@ -174,6 +206,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         // paddingLeft: '5%'
+        marginTop: Platform.OS === 'ios' ? (totalHeight * .055) : 0,
     },
 
     listNotifications: {},
@@ -187,7 +220,7 @@ const styles = StyleSheet.create({
 
     notificationTitle: {
         padding: 20,
-      	backgroundColor: '#f68934',
+      	backgroundColor: '#036666',
       	color: '#ffffff',
       	fontWeight: 'bold',
     },
@@ -198,6 +231,7 @@ const styles = StyleSheet.create({
 
     safeArea:{
         flex:1,
+        backgroundColor: '#1B323A',
     }
 });
 
