@@ -15,6 +15,7 @@ import {
     Platform
 } from 'react-native';
 import RNFetchBlob from 'react-native-fetch-blob';
+import ImageView from "./ImageView";
 
 let totalHeight = Dimensions.get('window').height;
 let totalWidth = Dimensions.get('window').width;
@@ -42,6 +43,7 @@ class Ibooks extends Component{
                 rowHasChanged: (row1, row2) => row1 != row2
             }),
             imgdownload : require('../Img/ibooks/ver-ibook.png'),
+            changeimage : false
         }
     }
 
@@ -88,26 +90,50 @@ class Ibooks extends Component{
         //console.log("valor del item: ", item)
 
         return (
-            <TouchableOpacity onPress={() => this._showPresentation(item)}>
-                <View>
-                    <Image
-                        style={styles.presentationItemImage}
-                        source={{uri: item.imagen}}
-                    />
-                    <Text style={styles.presentationTitle}>
-                        {item.titulo}{"\n"}
-                        <Text style={styles.presentationMicroResume}>
-                            Ver {item.categoria} - {item.fecha}
-                        </Text>
+            <View>
+                <Image
+                    style={styles.presentationItemImage}
+                    source={{uri: item.imagen}}
+                />
+                <Text style={styles.presentationTitle}>
+                    {item.titulo}{"\n"}
+                    <Text style={styles.presentationMicroResume}>
+                        {item.fecha}
                     </Text>
-                    <Image
-                        //source={require('../Img/ibooks/descarga-ibook.png')}
-                        source={this.state.imgdownload}
-                    />
-                </View>
-            </TouchableOpacity>
+                </Text>
+                <TouchableOpacity onPress={() => this._showPresentation(item)}>
+                    <View>
+                        {/*
+                        <Image
+                            //source={require('../Img/ibooks/descarga-ibook.png')}
+                            source={this.state.imgdownload}
+                        />
+                        */}
+                        {this._changeImageIbook()}
+                    </View>
+                </TouchableOpacity>
+            </View>
         );
     }
+
+    _changeImageIbook(){
+        console.log("state", this.state.changeimage);
+
+        if (this.state.changeimage == false){
+            return(
+                <Image
+                    source={require('../Img/ibooks/ver-ibook.png')}
+                />
+            );
+        }else{
+            return(
+                <Image
+                   source={require('../Img/ibooks/descarga-ibook.png')}
+                />
+            );
+        }
+    }
+
 
     _showPresentation(presentation) {
         let urldownload = presentation.url;
@@ -118,11 +144,12 @@ class Ibooks extends Component{
         console.log("urldonwload : ",urldownload);
 
         this.setState({
-            imgdownload : require('../Img/ibooks/descarga-ibook.png')
+            changeimage : true,
         })
 
-        /* Descarga del archivo si no existe*/
+        console.log("estado en el showpresntation", this.state.changeimage)
 
+        /* Descarga del archivo si no existe*/
 
         RNFetchBlob.fs.exists(dirfile)
             .then((exist) => {
@@ -145,7 +172,7 @@ class Ibooks extends Component{
                         })
                         // listen to download progress event
                         .progress((received, total) => {
-                            console.log('progress', received / total * 100)
+                            console.log('progress', (received / total ) * 100)
                         })
                         .then((res) => {
                             // the temp file path
@@ -154,16 +181,12 @@ class Ibooks extends Component{
                                     console.log("error ", err)
                                 })
                             console.log('The file saved to ', res.path())
-                            this.setState({
-                                imgdownload : require('../Img/ibooks/ver-ibook.png')
-                            })
                         })
                         .catch((err) => {
                             console.log("error ", err)
                         })
 
                 }  else {
-                    //RNFetchBlob.ios.previewDocument(dirs.DocumentDir + '/' + namefile + extencion)
                     RNFetchBlob.ios.previewDocument(dirfile)
                         .catch((err) => {
                             console.log("error ", err)
@@ -176,8 +199,7 @@ class Ibooks extends Component{
     };
 
     render(){
-        console.log("height : ",totalHeight);
-        console.log("width : ", totalWidth);
+
         if(!this.state.isLoading) {
             return this._renderLoadingDataView()
         }
@@ -187,11 +209,15 @@ class Ibooks extends Component{
                     <HeaderInterno
                         onPress = {() => this.props.navigation.goBack()}
                     />
-
+                    <Image
+                        style={styles.titleseccion}
+                        source={require('../Img/Herramientas/encabezado-herramientas.png')}
+                    />
+                    {/*
                     <View style={styles.containerTitle}>
                         <Text style={styles.sectionTitleText}>Ibooks</Text>
                     </View>
-
+                    */}
                     <View style={styles.contBackgroundImage}>
                         <Image
                             style={{flex: 1,}}
@@ -242,6 +268,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
 
+    titleseccion:{
+        width: totalWidth,
+    },
+
     menuSection:{
         position: 'absolute',
         left: 0,
@@ -249,7 +279,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         // paddingLeft: '5%'
-        marginTop: Platform.OS === 'ios' ? (totalHeight * .035) : 0,
+        marginTop: Platform.OS === 'ios' ? (totalHeight * .055) : 0,
     },
 
     listPresentations: {},
