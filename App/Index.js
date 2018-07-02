@@ -54,6 +54,8 @@ import CatalogosRegional from './Components/CatalogosRegional';
 
 import Ibooks from './Components/Ibooks';
 
+import Circulares from './Components/Circulares';
+
 {/* Turns this.props.navigation.state.params into this.params.<x>  */}
 const paramsToProps = (MyComponent) => {
     return class extends React.Component {
@@ -113,7 +115,9 @@ const Index = StackNavigator({
 
   CatalogosRegional: {screen:CatalogosRegional},
 
-    Ibooks:{screen:Ibooks}
+    Ibooks:{screen:Ibooks},
+
+    Circulares:{screen:Circulares}
 
 },{
   headerMode: 'screen'

@@ -12,7 +12,9 @@ import ImageView from "./ImageView";
 
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
-var thirdWidth = totalWidth * .334;
+var widthOption = (totalWidth / 3);
+var heightOption = (widthOption - 16);
+var heightModuleIcon = (totalHeight * .07);
 
 console.log("heaight : ", totalHeight);
 console.log("width : ", totalWidth);
@@ -35,11 +37,11 @@ class Body extends Component{
 		  />
 
 		  {/* Primer módulo */}
-		  <View style={styles.firstModule}>
+		  <View style={styles.blockModule}>
 
               {/* Notificaciones */}
               <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Notificaciones')}>
-                  <View style={[styles.firstModuleIcon, styles.buttonNotifications]}>
+                  <View style={[styles.moduleIcon, styles.buttonNotifications]}>
                       <Image
                           source={require('../Img/Home/notificaciones.png')}
                       />
@@ -48,7 +50,7 @@ class Body extends Component{
 
               {/* Plan Comercial */}
               <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Notificaciones')}>
-                  <View style={[styles.firstModuleIcon, styles.buttonPlanComercial]}>
+                  <View style={[styles.moduleIcon, styles.buttonPlanComercial]}>
                       <Image
                           source={require('../Img/Home/plancomercial.png')}
                       />
@@ -57,7 +59,7 @@ class Body extends Component{
 
               {/* Herramientas */}
               <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Notificaciones')}>
-                  <View style={[styles.firstModuleIcon, styles.buttonTools]}>
+                  <View style={[styles.moduleIcon, styles.buttonTools]}>
                       <Image
                           style={styles.icons}
                           source={require('../Img/Home/herramientas.png')}
@@ -69,17 +71,18 @@ class Body extends Component{
           {/* Segundo módulo */}
 
           <Image
+              style={styles.banner}
               source={require('../Img/Home/barra-connect.png')}
           />
 
           {/* Tercer módulo */}
-          <View style={styles.firstModule}>
-              <View style={styles.blockMenu}>
+          <View style={styles.blockModule}>
 
                   {/* Catalogos */}
                   <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Catalogos')}>
                       <View style={styles.menuModule}>
                           <Image
+                              style={styles.imgOption}
                               source={require('../Img/Home/icono-catalogo.png')}
                           />
                       </View>
@@ -89,6 +92,7 @@ class Body extends Component{
                   <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Presentaciones')}>
                       <View style={styles.menuModule}>
                           <Image
+                              style={styles.imgOption}
                               source={require('../Img/Home/icono-presentaciones.png')}
                           />
                       </View>
@@ -98,13 +102,47 @@ class Body extends Component{
                   <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('Videos')}>
                       <View style={styles.menuModule}>
                           <Image
+                              style={styles.imgOption}
                               source={require('../Img/Home/icono-videos.png')}
                           />
                       </View>
                   </TouchableHighlight>
 
+          </View>
 
-              </View>
+          {/* Cuarto módulo */}
+          <View style={styles.blockModule}>
+
+              {/* Networks */}
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Networks')}>
+                  <View style={styles.menuModule}>
+                      <Image
+                          style={styles.imgOption}
+                          source={require('../Img/Home/icono-networks.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
+
+              {/* Regional */}
+              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('Regional')}>
+                  <View style={styles.menuModule}>
+                      <Image
+                          style={styles.imgOption}
+                          source={require('../Img/Home/icono-regional.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
+
+              {/* Circulares */}
+              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('Circulares')}>
+                  <View style={styles.menuModule}>
+                      <Image
+                          style={styles.imgOption}
+                          source={require('../Img/Home/icono-circulares.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
+
           </View>
 	  </View>
 	)
@@ -114,24 +152,31 @@ class Body extends Component{
 var styles = StyleSheet.create({
 
     mainImage:{
-      width:totalWidth,
+        width:totalWidth,
     },
-    firstModule:{
+    banner:{
+        width:totalWidth,
+    },
+    blockModule:{
         flexDirection: 'row',
     },
-    blockMenu:{
-        flexDirection: 'row',
-    },
-    firstModuleIcon:{
+    moduleIcon:{
         justifyContent: 'center',
         alignItems: 'center',
-        width: (totalWidth / 3),
-        height: (totalHeight * .07),
+        width: widthOption,
+        height: heightModuleIcon,
     },
     menuModule:{
         justifyContent: 'center',
         alignItems: 'center',
-        width: (totalWidth / 3),
+        width: widthOption,
+        height: heightOption,
+    },
+    imgOption:{
+        width: widthOption,
+        height: heightOption,
+        justifyContent : 'center',
+        alignItems: 'center',
     },
 
 

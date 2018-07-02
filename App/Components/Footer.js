@@ -8,6 +8,9 @@ import {
 } from 'react-native';
 
 let totalHeight = Dimensions.get('window').height;
+let totalWidth = Dimensions.get('window').width;
+let marginFooter = (totalHeight * .015);
+let widthImgFooter = (totalWidth * .10);
 
 class Footer extends Component{
     render(){
@@ -15,6 +18,7 @@ class Footer extends Component{
             <SafeAreaView style={styles.safearea}>
                 <View style={styles.footer}>
                     <Image
+                        style={styles.imgFooter}
                         source={require('../Img/footer/logo_footer.png')}
                     />
                 </View>
@@ -28,12 +32,14 @@ var styles = StyleSheet.create({
     footer: {
         backgroundColor: '#1B323A',
         alignItems: 'center',
-        paddingTop: (totalHeight * .015),
-        paddingBottom: (totalHeight * .015),
+        marginTop: marginFooter,
+        marginBottom: marginFooter,
     },
     safearea:{
         flex: 1,
         backgroundColor: '#1B323A'
+    },
+    imgFooter:{
     }
 });
 

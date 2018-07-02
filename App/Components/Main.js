@@ -8,6 +8,7 @@ import Menu from './Menu-fondo';
 import Footer from './Footer';
 
 var totalWidth = Dimensions.get('window').width;
+var totalHeight = Dimensions.get('window').height;
 var slideMenudisplace = totalWidth*.90;
 import {
   Platform,
@@ -61,5 +62,6 @@ const styles = StyleSheet.create({
   container: {
       flex: 1,
       backgroundColor: '#3581BC',
+      height: totalHeight,
   },
 });
