@@ -61,7 +61,7 @@ updateMenu(isOpen){
 const styles = StyleSheet.create({
   container: {
       flex: 1,
-      backgroundColor: '#3581BC',
+      backgroundColor: '#036666',
       height: totalHeight,
   },
 });

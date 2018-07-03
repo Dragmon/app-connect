@@ -40,6 +40,7 @@ var styles = StyleSheet.create({
         backgroundColor: '#1B323A'
     },
     imgFooter:{
+        resizeMode : 'contain',
     }
 });
 

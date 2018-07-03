@@ -1,21 +1,23 @@
 import React, {Component} from 'react'
-import{
-  Text,
-  View,
-  StyleSheet,
-  TouchableHighlight,
-  Dimensions,
-  Alert,
-  Image
+import {
+    Text,
+    View,
+    StyleSheet,
+    TouchableHighlight,
+    Dimensions,
+    Alert,
+    Image,
+    Paltform, Platform
 } from 'react-native'
 import ImageView from "./ImageView";
 
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
 var widthOption = (totalWidth / 3);
-var heightOption = (widthOption - 16);
-var heightModuleIcon = (totalHeight * .07);
+var heightModuleIcon = (totalHeight * .08);
+var aspectRatio = (totalHeight/totalWidth).toFixed(1);
 
+console.log("aspectRatio : ", aspectRatio);
 console.log("heaight : ", totalHeight);
 console.log("width : ", totalWidth);
 console.log("widht /3 :" , totalWidth/3)
@@ -32,9 +34,9 @@ class Body extends Component{
 
 		  {/* Imagen principal */}
 		  <Image
-			  style={styles.mainImage}
-			  source={require('../Img/Home/image-home.png')}
-		  />
+              style={styles.mainImage}
+              source={require('../Img/Home/image-home.png')}
+          />
 
 		  {/* Primer módulo */}
 		  <View style={styles.blockModule}>
@@ -149,13 +151,33 @@ class Body extends Component{
   }
 }
 
+/*
+* Resolucion 1.6 ipad
+* Resolución 1.8 iphone 5, 5s, 6, 6s, 7, 7+, 8, 8+
+* Resolución 2.2 iphone X
+*
+*/
+
 var styles = StyleSheet.create({
 
+    mainContainer:{
+        backgroundColor: '#1B323A',
+    },
     mainImage:{
         width:totalWidth,
+        resizeMode : 'contain',
+        //marginBottom: aspectRatio <= 1.8 ? -10 : 0,
+        //marginBottom: aspectRatio <= 1.8 ? -10 : aspectRatio <= 2.2 ? -10 : 0,
+        marginBottom : -10,
+        marginTop: aspectRatio <= 1.8 ? -10 : 0,
     },
     banner:{
         width:totalWidth,
+        resizeMode : 'contain',
+        //marginBottom: aspectRatio <= 1.8 ? -2 : -2,
+        //marginTop: aspectRatio <= 1.8 ? -3 : -3,
+        marginTop: -3,
+        marginBottom: -2,
     },
     blockModule:{
         flexDirection: 'row',
@@ -170,11 +192,9 @@ var styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: widthOption,
-        height: heightOption,
     },
     imgOption:{
         width: widthOption,
-        height: heightOption,
         justifyContent : 'center',
         alignItems: 'center',
     },
