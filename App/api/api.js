@@ -62,6 +62,11 @@ const api = {
       const url = 'https://apihavas.televisaventas.tv/api/v1/plancomercial-android/obtener';
       return fetch(url).then((response) => response.json())
     },
+    getPlanComercialIOS() {
+        tracker.trackEvent('API', 'Obtener Plan Comercial IOS');
+        const url = 'https://apihavas.televisaventas.tv/api/v1/plancomercial-ios/obtener';
+        return fetch(url).then((response) => response.json())
+    },
     getCatalogosRegional() {
       tracker.trackEvent('API', 'Obtener Catalogo Regiona Android');
       const url = 'https://apihavas.televisaventas.tv/api/v1/catalogo-android/regional/obtener';

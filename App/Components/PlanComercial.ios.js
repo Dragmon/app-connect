@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import HeaderInterno from './HeaderInterno';
+import showIbook from '../api/downloadIbook';
 import {
     StyleSheet,
     Text,
@@ -28,7 +29,7 @@ const api = require('../api/api');
 const   dirs = RNFetchBlob.fs.dirs,
     extencion = '.ibooks';
 
-class Ibooks extends Component{
+class PlanComercialIos extends Component{
     static navigationOptions = {
         header: null,
         headerMode: null
@@ -49,7 +50,7 @@ class Ibooks extends Component{
 
     componentWillMount() {
         api
-            .getIbooks()
+            .getPlanComercialIOS()
             .then((response) => this.handleResponse(response))
             .catch((rejection) => { this.setState({ isLoading: false }) })
     }
@@ -67,6 +68,7 @@ class Ibooks extends Component{
                 <HeaderInterno
                     onPress = {() => this.props.navigation.goBack()}
                 />
+
                 <Image
                     style={styles.titleseccion}
                     source={require('../Img/Herramientas/encabezado-herramientas.png')}
@@ -84,7 +86,7 @@ class Ibooks extends Component{
                 </View>
 
                 <View style={styles.menuSection}>
-                    <Text>Cargando ibooks...</Text>
+                    <Text>Cargando ibook...</Text>
                 </View>
             </SafeAreaView>
         );
@@ -105,6 +107,7 @@ class Ibooks extends Component{
                         {item.fecha}
                     </Text>
                 </Text>
+                {/*<TouchableOpacity onPress={() => this.showIbook(item)}>*/}
                 <TouchableOpacity onPress={() => this._showPresentation(item)}>
                     <View>
                         {/*
@@ -311,4 +314,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Ibooks
+export default PlanComercialIos

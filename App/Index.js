@@ -71,49 +71,49 @@ const paramsToProps = (MyComponent) => {
 }
 
 const Index = StackNavigator({
-  Home: {screen: Main},
+    Home: {screen: Main},
 
-  Newsletter: {screen: Newsletter},
-  NewsletterMensual: {screen: NewsletterMensual},
-  NewsletterDetail: {screen: paramsToProps (NewsletterDetail)},
+    Newsletter: {screen: Newsletter},
+    NewsletterMensual: {screen: NewsletterMensual},
+    NewsletterDetail: {screen: paramsToProps (NewsletterDetail)},
 
-  NewsletterClientes: {screen: NewsletterClientes},
+    NewsletterClientes: {screen: NewsletterClientes},
 
-  Notificaciones: {screen: Notificaciones},
-  NotificionesDetalle: {screen: paramsToProps(NotificacionesDetalle)},
+    Notificaciones: {screen: Notificaciones},
+    NotificionesDetalle: {screen: paramsToProps(NotificacionesDetalle)},
 
-  Videos: {screen: Videos},
-  ShowVideo: {screen: paramsToProps(VideosShowVideo)},
+    Videos: {screen: Videos},
+    ShowVideo: {screen: paramsToProps(VideosShowVideo)},
 
-  Presentaciones: {screen: Presentaciones},
-  ShowPresentation: {screen: paramsToProps(PresentationsShowPresentation)},
+    Presentaciones: {screen: Presentaciones},
+    ShowPresentation: {screen: paramsToProps(PresentationsShowPresentation)},
 
-  Parrillas: {screen:Parrillas},
+    Parrillas: {screen:Parrillas},
 
-  PdfView: {screen:PdfView},
+    PdfView: {screen:PdfView},
 
-  ExcelView: {screen:ExcelView},
+    ExcelView: {screen:ExcelView},
 
-  Calendario: {screen:Calendario},
-  CalendarView: {screen:CalendarView},
+    Calendario: {screen:Calendario},
+    CalendarView: {screen:CalendarView},
 
-  Networks: {screen:Networks},
-  PresentacionNetworks: {screen:PresentacionNetworks},
+    Networks: {screen:Networks},
+    PresentacionNetworks: {screen:PresentacionNetworks},
 
-  HotResults: {screen:HotResults},
-  ImageView: {screen:ImageView},
+    HotResults: {screen:HotResults},
+    ImageView: {screen:ImageView},
 
-  Regional: {screen:Regional},
+    Regional: {screen:Regional},
 
-  UrlView: {screen:UrlView},
+    UrlView: {screen:UrlView},
 
-  Catalogos: {screen:Catalogos},
+    Catalogos: {screen:Catalogos},
 
-  PlanComercial: {screen:PlanComercial},
+    PlanComercial: {screen:PlanComercial},
 
-  CatalogoView: {screen:CatalogoView},
+    CatalogoView: {screen:CatalogoView},
 
-  CatalogosRegional: {screen:CatalogosRegional},
+    CatalogosRegional: {screen:CatalogosRegional},
 
     Ibooks:{screen:Ibooks},
 

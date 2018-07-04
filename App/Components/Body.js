@@ -51,7 +51,7 @@ class Body extends Component{
               </TouchableHighlight>
 
               {/* Plan Comercial */}
-              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Notificaciones')}>
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PlanComercial')}>
                   <View style={[styles.moduleIcon, styles.buttonPlanComercial]}>
                       <Image
                           source={require('../Img/Home/plancomercial.png')}
@@ -81,7 +81,7 @@ class Body extends Component{
           <View style={styles.blockModule}>
 
                   {/* Catalogos */}
-                  <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Catalogos')}>
+                  <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Ibooks')}>
                       <View style={styles.menuModule}>
                           <Image
                               style={styles.imgOption}
