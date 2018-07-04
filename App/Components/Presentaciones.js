@@ -11,6 +11,7 @@ import {
     ListView,
     ScrollView,
     StatusBar,
+    SafeAreaView, Platform,
 } from 'react-native';
 
 var totalHeight = Dimensions.get('window').height;
@@ -54,15 +55,19 @@ class Presentaciones extends Component{
 
     _renderLoadingDataView() {
         return (
-            <View>
+            <SafeAreaView style={styles.safeArea}>
                 <HeaderInterno
                     onPress = {() => this.props.navigation.goBack()}
                 />
-
+                <Image
+                    style={styles.titleseccion}
+                    source={require('../Img/Herramientas/encabezado-herramientas.png')}
+                />
+                {/*
                 <View style={styles.containerTitle}>
                     <Text style={styles.sectionTitleText}>Presentaciones</Text>
                 </View>
-
+                */}
                 <View style={styles.contBackgroundImage}>
                     <Image
                         style={{flex: 1,}}
@@ -73,7 +78,7 @@ class Presentaciones extends Component{
                 <View style={styles.menuSection}>
                     <Text>Cargando presentaciones...</Text>
                 </View>
-            </View>
+            </SafeAreaView>
         );
     }
 
@@ -106,15 +111,19 @@ class Presentaciones extends Component{
         }
         else {
             return (
-                <View>
+                <SafeAreaView style={styles.safeArea}>
                     <HeaderInterno
                         onPress = {() => this.props.navigation.goBack()}
                     />
-
+                    <Image
+                        style={styles.titleseccion}
+                        source={require('../Img/Herramientas/encabezado-herramientas.png')}
+                    />
+                    {/*
                     <View style={styles.containerTitle}>
                         <Text style={styles.sectionTitleText}>Presentaciones</Text>
                     </View>
-
+                    */}
                     <View style={styles.contBackgroundImage}>
                         <Image
                             style={{flex: 1,}}
@@ -134,7 +143,7 @@ class Presentaciones extends Component{
                             </ScrollView>
                         </View>
                     </View>
-                </View>
+                </SafeAreaView>
             );
         }
     }
@@ -170,6 +179,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         // paddingLeft: '5%'
+        marginTop: Platform.OS === 'ios' ? (totalHeight * .055) : 0,
     },
 
     listPresentations: {},
@@ -190,7 +200,14 @@ const styles = StyleSheet.create({
 
     presentationMicroResume: {
         fontWeight: 'normal',
-    }
+    },
+    safeArea:{
+        flex:1,
+        backgroundColor: '#1B323A',
+    },
+    titleseccion:{
+        width: totalWidth,
+    },
 });
 
 export default Presentaciones
