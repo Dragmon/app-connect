@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import HeaderInterno from './HeaderInterno';
-import showIbook from '../api/downloadIbook';
+import downloadIbook from '../api/downloadIbook';
 import {
     StyleSheet,
     Text,
@@ -107,7 +107,7 @@ class PlanComercialIos extends Component{
                         {item.fecha}
                     </Text>
                 </Text>
-                {/*<TouchableOpacity onPress={() => this.showIbook(item)}>*/}
+                {/*<TouchableOpacity onPress={showIbook(item)}>*/}
                 <TouchableOpacity onPress={() => this._showPresentation(item)}>
                     <View>
                         {/*
