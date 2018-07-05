@@ -60,7 +60,7 @@ class Body extends Component{
               </TouchableHighlight>
 
               {/* Herramientas */}
-              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Notificaciones')}>
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Newsletter')}>
                   <View style={[styles.moduleIcon, styles.buttonTools]}>
                       <Image
                           style={styles.icons}

@@ -7,6 +7,8 @@ import {
     TouchableOpacity,
     Dimensions,
     WebView,
+    SafeAreaView,
+    Platform,
 } from 'react-native';
 import {GoogleAnalyticsTracker} from "react-native-google-analytics-bridge";
 import Analytics from '../api/analytics';
@@ -45,20 +47,20 @@ class VideosShowVideo extends Component{
       console.log(this.props.video);
       tracker.trackEvent('APP', 'Ver Video', {label: this.props.video.titulo });
         return (
-            <View style={styles.container}>
+            <SafeAreaView style={styles.container}>
                 <View style={styles.topbar}>
                     <TouchableOpacity
                         disabled={!this.state.canGoBack}
                         onPress={this._goBack.bind(this)}
                     >
-                        <Text style={{fontSize: 16, color: '#f3f3f3'}}>{this.state.goBackText}</Text>
+                        <Text style={styles.textcontainer}>{this.state.goBackText}</Text>
                     </TouchableOpacity>
                 </View>
 
                 <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
                     <VideoPlayer url={this.props.video.url}/>
                 </View>
-            </View>
+            </SafeAreaView>
         )
     }
 }
@@ -66,16 +68,21 @@ class VideosShowVideo extends Component{
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: '#020202'
+        backgroundColor: '#1B323A'
     },
 
     topbar: {
-        height: 30,
+        height: 50,
         justifyContent: 'center',
         // alignItems: 'center',
         paddingLeft: 10,
-        backgroundColor: '#666666',
+        backgroundColor: '#e91e53',
     },
+    textcontainer :{
+        fontSize: 22,
+        color: '#f3f3f3',
+        fontWeight: 'bold',
+    }
 });
 
 export default VideosShowVideo
