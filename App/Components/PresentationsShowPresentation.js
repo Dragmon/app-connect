@@ -7,6 +7,8 @@ import {
     TouchableOpacity,
     Dimensions,
     WebView,
+    SafeAreaView,
+    Platform,
 } from 'react-native';
 
 var totalHeight = Dimensions.get('window').height;
@@ -45,13 +47,13 @@ class PresentationsShowPresentation extends Component{
 
     render() {
         return (
-            <View style={styles.container}>
+            <SafeAreaView style={styles.container}>
                 <View style={styles.topbar}>
                     <TouchableOpacity
                         disabled={!this.state.canGoBack}
                         onPress={this._goBack.bind(this)}
                     >
-                        <Text style={{fontSize: 16, color: '#f3f3f3'}}>{this.state.goBackText}</Text>
+                        <Text style={styles.textcontainer}>{this.state.goBackText}</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -61,7 +63,7 @@ class PresentationsShowPresentation extends Component{
                     style={{flex: 1}}
                     onLoad={this._updateGoBackCapabilities.bind(this)}
                 />
-            </View>
+            </SafeAreaView>
         )
     }
 }
@@ -69,16 +71,21 @@ class PresentationsShowPresentation extends Component{
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: '#f5fcff'
+        backgroundColor: '#1B323A'
     },
 
     topbar: {
-        height: 30,
+        height: 50,
         justifyContent: 'center',
         // alignItems: 'center',
         paddingLeft: 10,
-        backgroundColor: '#666666',
+        backgroundColor: '#e91e53',
     },
+    textcontainer :{
+        fontSize: 22,
+        color: '#f3f3f3',
+        fontWeight: 'bold',
+    }
 });
 
 export default PresentationsShowPresentation
