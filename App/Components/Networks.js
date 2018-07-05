@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import HeaderInterno from './HeaderInterno';
 import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableHighlight,
-  Dimensions,
-  Alert,
-  Image
+    StyleSheet,
+    Text,
+    View,
+    TouchableHighlight,
+    Dimensions,
+    Alert,
+    Image,
+    SafeAreaView,
+    Platform,
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
@@ -44,62 +46,68 @@ class Networks extends Component{
     const mapanetworks = "mapa/mapanetworks.pdf"
 
     return(
-      <View>
-        <HeaderInterno
-          onPress = {() => this.props.navigation.goBack()}
-        />
-        <View style={styles.containerTitle}>
-          <Text style={styles.sectionTitleText}>Networks</Text>
-        </View>
-        <View style={styles.contBackgroundImage}>
-          <Image
-            style={{flex: 1}}
-            source={require('../Img/General/background_pattern.png')}
+      <SafeAreaView style={styles.safeArea}>
+          <HeaderInterno
+              onPress = {() => this.props.navigation.goBack()}
           />
-        </View>
-        <View style={styles.menuSection}>
-          <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PresentacionNetworks')}>
-            <View style={[styles.horizontalImageSection, {backgroundColor: '#FC495C'}]}>
-              <View style={styles.imageContentSection}>
-                <Image
-                  source={require('../Img/Networks/catalogos.png')}
-                />
-              </View>
-            </View>
-          </TouchableHighlight>
-          <TouchableHighlight underlayColor="#E0214F" onPress={() => {Alert.alert('Videos','Sin contenido por el momento')}} >
-            <View style={[styles.horizontalImageSection, {backgroundColor: '#f27908'}]}>
-              <View style={styles.imageContentSection}>
-                <Image
-                  source={require('../Img/Networks/videos-text.png')}
-                />
-              </View>
-            </View>
-          </TouchableHighlight>
-        </View>
 
-        <View style={styles.menuSectionTwo}>
-          <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ExcelView',{origin:excelnetworks})}>
-            <View style={[styles.horizontalImageSection, {backgroundColor: '#F5AB2D'}]}>
-              <View style={styles.imageContentSection}>
-                <Image
-                  source={require('../Img/Networks/icon-parrillas.png')}
-                />
-              </View>
-            </View>
-          </TouchableHighlight>
-          <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PdfView',{origin:mapanetworks})}>
-            <View style={[styles.horizontalImageSection, {backgroundColor: '#2F284B'}]}>
-              <View style={styles.imageContentSection}>
-                <Image
-                  source={require('../Img/Networks/mapanet.png')}
-                />
-              </View>
-            </View>
-          </TouchableHighlight>
-        </View>
+          <Image
+              style={styles.titleseccion}
+              source={require('../Img/Herramientas/encabezado-herramientas.png')}
+          />
+          {/*
+          <View style={styles.containerTitle}>
+            <Text style={styles.sectionTitleText}>Networks</Text>
+          </View>
+          */}
+          <View style={styles.contBackgroundImage}>
+              <Image
+                  style={{flex: 1}}
+                  source={require('../Img/General/background_pattern.png')}
+              />
+          </View>
+          <View style={styles.menuSection}>
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PresentacionNetworks')}>
+                  <View style={[styles.horizontalImageSection, {backgroundColor: '#FC495C'}]}>
+                      <View style={styles.imageContentSection}>
+                          <Image
+                              source={require('../Img/Networks/catalogos.png')}
+                          />
+                      </View>
+                  </View>
+              </TouchableHighlight>
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => {Alert.alert('Videos','Sin contenido por el momento')}} >
+                  <View style={[styles.horizontalImageSection, {backgroundColor: '#f27908'}]}>
+                      <View style={styles.imageContentSection}>
+                          <Image
+                              source={require('../Img/Networks/videos-text.png')}
+                          />
+                      </View>
+                  </View>
+              </TouchableHighlight>
+          </View>
 
-      </View>
+          <View style={styles.menuSectionTwo}>
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ExcelView',{origin:excelnetworks})}>
+                  <View style={[styles.horizontalImageSection, {backgroundColor: '#F5AB2D'}]}>
+                      <View style={styles.imageContentSection}>
+                          <Image
+                              source={require('../Img/Networks/icon-parrillas.png')}
+                          />
+                      </View>
+                  </View>
+              </TouchableHighlight>
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PdfView',{origin:mapanetworks})}>
+                  <View style={[styles.horizontalImageSection, {backgroundColor: '#2F284B'}]}>
+                      <View style={styles.imageContentSection}>
+                          <Image
+                              source={require('../Img/Networks/mapanet.png')}
+                          />
+                      </View>
+                  </View>
+              </TouchableHighlight>
+          </View>
+      </SafeAreaView>
     )
   }
 }
@@ -148,7 +156,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     paddingLeft: '5%'
-  }
+  },
+    safeArea:{
+        flex:1,
+        backgroundColor: '#1B323A',
+    },
+    titleseccion:{
+        width: totalWidth,
+    },
 });
 
 export default Networks
