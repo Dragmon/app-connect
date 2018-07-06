@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
 import HeaderInterno from './HeaderInterno';
 import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableHighlight,
-  TouchableOpacity,
-  Dimensions,
-  ScrollView,
-  ListView,
-  Alert,
-  Image
+    StyleSheet,
+    Text,
+    View,
+    TouchableHighlight,
+    TouchableOpacity,
+    Dimensions,
+    ScrollView,
+    ListView,
+    Alert,
+    Image,
+    SafeAreaView,
+    Platform,
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 var api = require('../api/api');
@@ -75,12 +77,15 @@ class HotResults extends Component{
     const{navigate} = this.props.navigation;
 
     return(
-      <View>
+      <SafeAreaView style={styles.safeArea}>
         <HeaderInterno
           onPress = {() => this.props.navigation.goBack()}
         />
         <View style={styles.containerTitle}>
-          <Text style={styles.sectionTitleText}>Hot Results</Text>
+            <Image
+                style={styles.titleseccion}
+                source={require('../Img/Hot-results/encabezado-hotresults.png')}
+            />
         </View>
 
         <View style={styles.contBackgroundImage}>
@@ -101,52 +106,60 @@ class HotResults extends Component{
 					</ScrollView>
 				</View>
 
-      </View>
+      </SafeAreaView>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  containerTitle:{
-    flexDirection: 'row',
-    backgroundColor: '#E44858',
-    justifyContent: 'center'
-  },
-  sectionTitleText:{
-    fontSize: 15,
-    flexDirection: 'column',
-    alignSelf: 'center',
-    color: 'white'
-  },
-  contBackgroundImage:{
-    position: 'relative',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center'
-  },
-  menuHotResults:{
-    position: 'absolute',
-    flexDirection: 'row',
-    top: topSection,
-    height: heightView
-  },
-  presentationMeta:{
-  	padding: 20,
-  	backgroundColor: '#f68934',
-  	color: '#ffffff',
-  	fontWeight: 'bold',
-  },
-  presentationSub:{
-  	fontWeight: 'normal',
-  },
-  presentationRow:{
-   flexDirection: 'row',
-   justifyContent: 'center',
-   height: totalWidth*.5555,
-   width: totalWidth
-  }
+    containerTitle:{
+        flexDirection: 'row',
+        backgroundColor: '#E44858',
+        justifyContent: 'center'
+    },
+    sectionTitleText:{
+        fontSize: 15,
+        flexDirection: 'column',
+        alignSelf: 'center',
+        color: 'white'
+    },
+    contBackgroundImage:{
+        position: 'relative',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center'
+    },
+    menuHotResults:{
+        position: 'absolute',
+        flexDirection: 'row',
+        top: topSection,
+        height: heightView,
+        marginTop: Platform.OS === 'ios' ? (totalHeight * .050) : 0,
+    },
+    presentationMeta:{
+  	    padding: 20,
+      	backgroundColor: '#f68934',
+  	    color: '#ffffff',
+  	    fontWeight: 'bold',
+    },
+    presentationSub:{
+  	    fontWeight: 'normal',
+    },
+    presentationRow:{
+        flexDirection: 'row',
+        justifyContent: 'center',
+        height: totalWidth*.5555,
+        width: totalWidth
+    },
+    safeArea:{
+        flex:1,
+        backgroundColor: '#1B323A',
+    },
+    titleseccion:{
+        width: totalWidth,
+    },
 });
 
 export default HotResults
