@@ -76,32 +76,46 @@ class Newsletter extends Component{
 
 */}
 
-class HomeScreen extends React.Component {
+class Mensual extends React.Component {
+    static navigationOptions = {
+        headerStyle: {
+            backgroundColor: '#1b313a',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+        },
+    };
+
     render() {
         return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+
+            <View style={styles.container} >
+                <Image
+                    style={styles.titleseccion}
+                    source={require('../Img/Newsletter/encabezado-newsletter.png')}
+                />
                 <Text>Home!</Text>
             </View>
         );
     }
 }
 
-class SettingsScreen extends React.Component {
+class Clientes extends React.Component {
+    static navigationOptions = {
+        headerStyle: {
+            backgroundColor: '#1b313a',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+        },
+    };
+
     render() {
         return (
-            <View
-                style={{
-                    flex: 1,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backgroundColor: '#000'
-                }}
-            >
-                <Text
-                    style={{
-                        color: '#fff',
-                    }}
-                >
+            <View style={styles.container}>
+                <Text>
                     Settings!</Text>
             </View>
         );
@@ -154,14 +168,18 @@ const styles = StyleSheet.create({
     titleseccion:{
         width: totalWidth,
     },
+
+    container:{
+        flex: 1,
+    }
 });
 
 export default TabNavigator(
     {
-        Home: { screen: HomeScreen },
-        Settings: { screen: SettingsScreen },
+        Mensual: { screen: Mensual },
+        Clientes: { screen: Clientes },
     },
     {
-        //tabBarComponent: TabBarTop,
+        tabBarPosition: 'top',
     }
     );
