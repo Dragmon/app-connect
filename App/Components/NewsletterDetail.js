@@ -2,15 +2,17 @@ import React, {Component} from 'react';
 import HeaderInterno from './HeaderInterno';
 import SectionArrayNewsMonthly from './SectionArrayNewsMonthly';
 import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  Dimensions,
-  Alert,
-  WebView,
-  ScrollView,
-  Image
+    StyleSheet,
+    Text,
+    View,
+    TouchableOpacity,
+    Dimensions,
+    Alert,
+    WebView,
+    ScrollView,
+    Image,
+    SafeAreaView,
+    Platform
 } from 'react-native';
 import {GoogleAnalyticsTracker} from "react-native-google-analytics-bridge";
 import Analytics from '../api/analytics';
@@ -50,13 +52,13 @@ class NewsletterDetail extends Component{
     tracker.trackEvent('APP', 'Ver Detalle Newsletter', {label: this.props.detail.titulo });
     return(
 
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
           <View style={styles.topbar}>
               <TouchableOpacity
                   disabled={!this.state.canGoBack}
                   onPress={this._goBack.bind(this)}
               >
-                  <Text style={{fontSize: 16, color: '#f3f3f3'}}>{this.state.goBackText}</Text>
+                  <Text style={styles.textcontainer}>{this.state.goBackText}</Text>
               </TouchableOpacity>
           </View>
 
@@ -66,23 +68,28 @@ class NewsletterDetail extends Component{
               style={{flex: 1}}
               onLoad={this._updateGoBackCapabilities.bind(this)}
           />
-      </View>
+      </SafeAreaView>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  container:{
-      flex: 1,
-      backgroundColor: '#f5fcff'
-  },
-  topbar: {
-      height: 30,
-      justifyContent: 'center',
-      // alignItems: 'center',
-      paddingLeft: 10,
-      backgroundColor: '#666666',
-  }
+    container:{
+        flex: 1,
+        backgroundColor: '#1b313a'
+    },
+    topbar: {
+        height: 50,
+        justifyContent: 'center',
+        // alignItems: 'center',
+        paddingLeft: 10,
+        backgroundColor: '#1b313a',
+    },
+    textcontainer :{
+        fontSize: 22,
+        color: '#f3f3f3',
+        fontWeight: 'bold',
+    }
 });
 
 export default NewsletterDetail

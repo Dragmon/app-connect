@@ -13,12 +13,13 @@ import {
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
-var totalHeiHeight = Dimensions.get('window').height;
+var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
-var heightCont = totalHeiHeight*.25;
+var widthOption = (totalWidth / 3);
+var heightCont = totalHeight*.25;
 var widhtCont = totalWidth*.45;
-var topSection = totalHeiHeight * .200;
-var topSectionTwo = totalHeiHeight * .450;
+var topSection = totalHeight * .200;
+var topSectionTwo = totalHeight * .450;
 
 class Networks extends Component{
 
@@ -53,7 +54,7 @@ class Networks extends Component{
 
           <Image
               style={styles.titleseccion}
-              source={require('../Img/Networks/encabezado-networks.png')}
+              source={require('../Img/Herramientas/encabezado-herramientas.png')}
           />
           {/*
           <View style={styles.containerTitle}>
@@ -67,26 +68,40 @@ class Networks extends Component{
               />
           </View>
           */}
-          <View style={styles.menuSectionTwo}>
-              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ExcelView',{origin:excelnetworks})}>
-                  <View style={[styles.horizontalImageSection, {backgroundColor: '#F5AB2D'}]}>
-                      <View style={styles.imageContentSection}>
-                          <Image
-                              source={require('../Img/Networks/icon-parrillas.png')}
-                          />
-                      </View>
+          <View style={styles.menuSection}>
+
+              {/* Catalogos */}
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('NewsletterClientes')}>
+                  <View style={styles.menuModule}>
+                      <Image
+                          style={styles.imgOption}
+                          source={require('../Img/Newsletter/icono-newsletter.png')}
+                      />
                   </View>
               </TouchableHighlight>
-              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PdfView',{origin:mapanetworks})}>
-                  <View style={[styles.horizontalImageSection, {backgroundColor: '#2F284B'}]}>
-                      <View style={styles.imageContentSection}>
-                          <Image
-                              source={require('../Img/Networks/mapanet.png')}
-                          />
-                      </View>
+
+              {/* Presentaciones */}
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('HotResults')}>
+                  <View style={styles.menuModule}>
+                      <Image
+                          style={styles.imgOption}
+                          source={require('../Img/Hot-results/icono-hot-results.png')}
+                      />
                   </View>
               </TouchableHighlight>
+
+              {/*Videos*/}
+              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('Parrillas')}>
+                  <View style={styles.menuModule}>
+                      <Image
+                          style={styles.imgOption}
+                          source={require('../Img/Parrillas/icono-parrillas.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
+
           </View>
+
       </SafeAreaView>
     )
   }
@@ -124,11 +139,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   menuSection:{
+      flexDirection: 'row',
+      /*
     position: 'absolute',
     top: topSection,
     flexDirection: 'row',
     justifyContent: 'center',
     paddingLeft: '5%',
+    */
   },
   menuSectionTwo:{
     position: 'absolute',
@@ -137,12 +155,24 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingLeft: '5%'
   },
+
+
     safeArea:{
         flex:1,
         backgroundColor: '#1B323A',
     },
     titleseccion:{
         width: totalWidth,
+    },
+    menuModule:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: widthOption,
+    },
+    imgOption:{
+        width: widthOption,
+        justifyContent : 'center',
+        alignItems: 'center',
     },
 });
 

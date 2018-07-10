@@ -62,20 +62,20 @@ class Videos extends Component{
                 />
                 <Image
                     style={styles.titleseccion}
-                    source={require('../Img/Herramientas/encabezado-herramientas.png')}
+                    source={require('../Img/Videos/encabezado-videos.png')}
                 />
                 {/*
                 <View style={styles.containerTitle}>
                     <Text style={styles.sectionTitleText}>Videos</Text>
                 </View>
-                */}
+
                 <View style={styles.contBackgroundImage}>
                     <Image
                         style={{flex: 1,}}
                         source={require('../Img/General/background_pattern.png')}
                     />
                 </View>
-
+                */}
                 <View style={styles.menuSection}>
                     <Text>Cargando videos...</Text>
                 </View>
@@ -119,20 +119,20 @@ class Videos extends Component{
 
                     <Image
                         style={styles.titleseccion}
-                        source={require('../Img/Herramientas/encabezado-herramientas.png')}
+                        source={require('../Img/Videos/encabezado-videos.png')}
                     />
                     {/*
                     <View style={styles.containerTitle}>
                         <Text style={styles.sectionTitleText}>Videos</Text>
                     </View>
-                    */}
+
                     <View style={styles.contBackgroundImage}>
                         <Image
                             style={{flex: 1,}}
                             source={require('../Img/General/background_pattern.png')}
                         />
                     </View>
-
+                    */}
                     <View style={styles.menuSection}>
                         <View style={{height: totalHeight}}>
                             <ScrollView bounces={true}>

@@ -218,7 +218,7 @@ class PlanComercialIos extends Component{
                     />
                     <Image
                         style={styles.titleseccion}
-                        source={require('../Img/Herramientas/encabezado-herramientas.png')}
+                        source={require('../Img/Plan-comercial/encabezado-plan-comercial.png')}
                     />
                     {/*
                     <View style={styles.containerTitle}>

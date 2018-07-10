@@ -62,7 +62,7 @@ class Presentaciones extends Component{
                 />
                 <Image
                     style={styles.titleseccion}
-                    source={require('../Img/Herramientas/encabezado-herramientas.png')}
+                    source={require('../Img/Presentaciones/encabezado-presentaciones.png')}
                 />
                 {/*
                 <View style={styles.containerTitle}>
@@ -118,7 +118,7 @@ class Presentaciones extends Component{
                     />
                     <Image
                         style={styles.titleseccion}
-                        source={require('../Img/Herramientas/encabezado-herramientas.png')}
+                        source={require('../Img/Presentaciones/encabezado-presentaciones.png')}
                     />
                     {/*
                     <View style={styles.containerTitle}>

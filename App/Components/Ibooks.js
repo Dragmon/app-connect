@@ -69,7 +69,7 @@ class Ibooks extends Component{
                 />
                 <Image
                     style={styles.titleseccion}
-                    source={require('../Img/Herramientas/encabezado-herramientas.png')}
+                    source={require('../Img/Catalogos/encabezado-catalogos.png')}
                 />
                 {/*
                 <View style={styles.containerTitle}>
@@ -215,7 +215,7 @@ class Ibooks extends Component{
                     />
                     <Image
                         style={styles.titleseccion}
-                        source={require('../Img/Herramientas/encabezado-herramientas.png')}
+                        source={require('../Img/Catalogos/encabezado-catalogos.png')}
                     />
                     {/*
                     <View style={styles.containerTitle}>

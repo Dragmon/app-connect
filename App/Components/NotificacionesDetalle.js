@@ -31,7 +31,7 @@ class NotificacionesDetalle extends Component{
     render(){
         tracker.trackEvent('APP', 'Ver Notificación', {label: this.props.notification.titulo });
         return (
-            <SafeAreaView>
+            <SafeAreaView style={styles.safeArea}>
                 <HeaderInterno
                     onPress = {() => this.props.navigation.goBack()}
                 />

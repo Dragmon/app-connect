@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     },
     presentationMeta:{
   	    padding: 20,
-      	backgroundColor: '#f68934',
+      	backgroundColor: '#1b313a',
   	    color: '#ffffff',
   	    fontWeight: 'bold',
     },

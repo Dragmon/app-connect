@@ -58,13 +58,14 @@ class NewsletterClientes extends Component{
             <View style={styles.containerTitle}>
                 <Text style={styles.sectionTitleText}>Newsletter Clientes</Text>
             </View>
-            */}
+
             <View style={styles.contBackgroundImage}>
                 <Image
                     style={{flex: 1,}}
                     source={require('../Img/General/background_pattern.png')}
                 />
             </View>
+            */}
             <View style={styles.contentInfo}>
                 <SectionArrayNewsClients newsletterClientsArray={this.state.newsletterClientsArray} nav={this.props.navigation}/>
             </View>

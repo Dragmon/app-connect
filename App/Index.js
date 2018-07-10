@@ -56,6 +56,8 @@ import Ibooks from './Components/Ibooks';
 
 import Circulares from './Components/Circulares';
 
+import Herramientas from './Components/Herramientas';
+
 {/* Turns this.props.navigation.state.params into this.params.<x>  */}
 const paramsToProps = (MyComponent) => {
     return class extends React.Component {
@@ -117,7 +119,9 @@ const Index = StackNavigator({
 
     Ibooks:{screen:Ibooks},
 
-    Circulares:{screen:Circulares}
+    Circulares:{screen:Circulares},
+
+    Herramientas: {screen:Herramientas}
 
 },{
   headerMode: 'screen'

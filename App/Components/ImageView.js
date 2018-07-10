@@ -7,6 +7,8 @@ import {
     TouchableOpacity,
     Dimensions,
     WebView,
+    SafeAreaView,
+    Platform,
 } from 'react-native';
 import {GoogleAnalyticsTracker} from "react-native-google-analytics-bridge";
 import Analytics from '../api/analytics';
@@ -59,13 +61,13 @@ class ImageView extends Component{
         tracker.trackEvent('APP', 'Ver Imagen', {label: this.passProps.data[1] });
         return (
 
-            <View style={styles.container}>
+            <SafeAreaView style={styles.container}>
                 <View style={styles.topbar}>
                     <TouchableOpacity
                         disabled={!this.state.canGoBack}
                         onPress={this._goBack.bind(this)}
                     >
-                        <Text style={{fontSize: 16, color: '#f3f3f3'}}>{this.state.goBackText}</Text>
+                        <Text style={styles.textcontainer}>{this.state.goBackText}</Text>
                     </TouchableOpacity>
                 </View>
                 <WebView
@@ -77,7 +79,7 @@ class ImageView extends Component{
                     startInLoadingState={true}
                     automaticallyAdjustContentInsets={true}
                 />
-            </View>
+            </SafeAreaView>
         )
     }
 }
@@ -85,15 +87,20 @@ class ImageView extends Component{
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: '#f5fcff'
+        backgroundColor: '#1B323A'
     },
     topbar: {
         height: 30,
         justifyContent: 'center',
         // alignItems: 'center',
         paddingLeft: 10,
-        backgroundColor: '#666666',
+        backgroundColor: '#1b313a',
     },
+    textcontainer :{
+        fontSize: 22,
+        color: '#f3f3f3',
+        fontWeight: 'bold',
+    }
 });
 
 export default ImageView

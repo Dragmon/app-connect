@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         // alignItems: 'center',
         paddingLeft: 10,
-        backgroundColor: '#e91e53',
+        backgroundColor: '#1b313a',
     },
     textcontainer :{
         fontSize: 22,
