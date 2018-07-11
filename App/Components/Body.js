@@ -205,7 +205,7 @@ var styles = StyleSheet.create({
         backgroundColor: '#2F5062',
     },
     buttonTools:{
-        backgroundColor: '#2F5062',
+        backgroundColor: '#1b313a',
     },
     buttonPlanComercial:{
         backgroundColor:'#036666',

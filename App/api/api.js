@@ -5,13 +5,15 @@ let tracker = new GoogleAnalyticsTracker(Analytics.Metric.CodeAnalytics);
 const api = {
     getNotifications() {
       tracker.trackEvent('API', 'Obtener Notificaciones');
-      const url = 'https://connect.televisaventas.tv/api/v1/notificaciones/obtener'
+      //const url = 'https://connect.televisaventas.tv/api/v1/notificaciones/obtener'
+        const url = `https://apihavas.televisaventas.tv/api/v1/notificaciones/obtener`;
       return fetch(url).then((response) => response.json())
     },
 
     getVideos() {
       tracker.trackEvent('API', 'Obtener Videos');
-      const url = 'https://connect.televisaventas.tv/api/v1/videos/obtener'
+      //const url = 'https://connect.televisaventas.tv/api/v1/videos/obtener'
+        const url = `https://apihavas.televisaventas.tv/api/v1/videos/obtener`;
       return fetch(url).then((response) => response.json())
     },
 

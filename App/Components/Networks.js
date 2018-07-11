@@ -15,10 +15,9 @@ import { NavigationActions } from 'react-navigation';
 
 var totalHeiHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
-var heightCont = totalHeiHeight*.25;
-var widhtCont = totalWidth*.45;
-var topSection = totalHeiHeight * .200;
-var topSectionTwo = totalHeiHeight * .450;
+var widhtCont = totalWidth/2;
+var topSection = totalHeiHeight * .186;
+
 
 class Networks extends Component{
 
@@ -69,21 +68,19 @@ class Networks extends Component{
           */}
           <View style={styles.menuSectionTwo}>
               <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ExcelView',{origin:excelnetworks})}>
-                  <View style={[styles.horizontalImageSection, {backgroundColor: '#F5AB2D'}]}>
-                      <View style={styles.imageContentSection}>
-                          <Image
-                              source={require('../Img/Networks/icon-parrillas.png')}
-                          />
-                      </View>
+                  <View style={styles.menuOption}>
+                      <Image
+                          style={styles.imgOption}
+                          source={require('../Img/Networks/icono-parrilla.png')}
+                      />
                   </View>
               </TouchableHighlight>
               <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PdfView',{origin:mapanetworks})}>
-                  <View style={[styles.horizontalImageSection, {backgroundColor: '#2F284B'}]}>
-                      <View style={styles.imageContentSection}>
-                          <Image
-                              source={require('../Img/Networks/mapanet.png')}
-                          />
-                      </View>
+                  <View style={styles.menuOption}>
+                      <Image
+                          style={styles.imgOption}
+                          source={require('../Img/Networks/icono-mapa.png')}
+                      />
                   </View>
               </TouchableHighlight>
           </View>
@@ -93,6 +90,7 @@ class Networks extends Component{
 }
 
 const styles = StyleSheet.create({
+    /*
   containerTitle:{
     flexDirection: 'row',
     backgroundColor: '#E44858',
@@ -132,17 +130,26 @@ const styles = StyleSheet.create({
   },
   menuSectionTwo:{
     position: 'absolute',
-    top: topSectionTwo,
+    top: topSection,
     flexDirection: 'row',
     justifyContent: 'center',
-    paddingLeft: '5%'
+    //paddingLeft: '5%'
   },
+  */
     safeArea:{
         flex:1,
         backgroundColor: '#1B323A',
     },
     titleseccion:{
         width: totalWidth,
+    },
+    menuOption:{
+      width: widhtCont,
+    },
+    imgOption:{
+        width: widhtCont,
+        justifyContent : 'center',
+        alignItems: 'center',
     },
 });
 
