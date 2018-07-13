@@ -60,11 +60,11 @@ class Body extends Component{
               </TouchableHighlight>
 
               {/* Herramientas */}
-              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Herramientas')}>
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Circulares')}>
                   <View style={[styles.moduleIcon, styles.buttonTools]}>
                       <Image
                           style={styles.icons}
-                          source={require('../Img/Home/herramientas.png')}
+                          source={require('../Img/Home/circulares.png')}
                       />
                   </View>
               </TouchableHighlight>
@@ -72,75 +72,79 @@ class Body extends Component{
 
           {/* Segundo módulo */}
 
-          <Image
-              style={styles.banner}
-              source={require('../Img/Home/barra-connect.png')}
-          />
+          <View>
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Parrillas')}>
+                  <Image
+                      style={styles.banner}
+                      source={require('../Img/Home/parrillas-programacion.png')}
+                  />
+              </TouchableHighlight>
+          </View>
 
           {/* Tercer módulo */}
           <View style={styles.blockModule}>
 
-                  {/* Catalogos */}
-                  <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Ibooks')}>
-                      <View style={styles.menuModule}>
-                          <Image
-                              style={styles.imgOption}
-                              source={require('../Img/Home/icono-catalogo.png')}
-                          />
-                      </View>
-                  </TouchableHighlight>
+              {/* Networks */}
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('NewsletterClientes')}>
+                  <View style={styles.menuModule}>
+                      <Image
+                          style={styles.imgOption}
+                          source={require('../Img/Home/icono-detras.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
 
-                  {/* Presentaciones */}
-                  <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Presentaciones')}>
-                      <View style={styles.menuModule}>
-                          <Image
-                              style={styles.imgOption}
-                              source={require('../Img/Home/icono-presentaciones.png')}
-                          />
-                      </View>
-                  </TouchableHighlight>
+              {/* Regional */}
+              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('NewsletterMensual')}>
+                  <View style={styles.menuModule}>
+                      <Image
+                          style={styles.imgOption}
+                          source={require('../Img/Home/icono-afiches.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
 
-                  {/*Videos*/}
-                  <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('Videos')}>
-                      <View style={styles.menuModule}>
-                          <Image
-                              style={styles.imgOption}
-                              source={require('../Img/Home/icono-videos.png')}
-                          />
-                      </View>
-                  </TouchableHighlight>
+              {/* Catalogos */}
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Ibooks')}>
+                  <View style={styles.menuModule}>
+                      <Image
+                          style={styles.imgOption}
+                          source={require('../Img/Home/icono-catalogo.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
 
           </View>
 
           {/* Cuarto módulo */}
           <View style={styles.blockModule}>
 
-              {/* Networks */}
-              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Networks')}>
+              {/*Videos*/}
+              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('Videos')}>
                   <View style={styles.menuModule}>
                       <Image
                           style={styles.imgOption}
-                          source={require('../Img/Home/icono-networks.png')}
-                      />
-                  </View>
-              </TouchableHighlight>
-
-              {/* Regional */}
-              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('Regional')}>
-                  <View style={styles.menuModule}>
-                      <Image
-                          style={styles.imgOption}
-                          source={require('../Img/Home/icono-regional.png')}
+                          source={require('../Img/Home/icono-videos.png')}
                       />
                   </View>
               </TouchableHighlight>
 
               {/* Circulares */}
-              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('Circulares')}>
+              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('HotResults')}>
                   <View style={styles.menuModule}>
                       <Image
                           style={styles.imgOption}
-                          source={require('../Img/Home/icono-circulares.png')}
+                          source={require('../Img/Home/icono-hot-results.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
+
+              {/* Presentaciones */}
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Presentaciones')}>
+                  <View style={styles.menuModule}>
+                      <Image
+                          style={styles.imgOption}
+                          source={require('../Img/Home/icono-presentaciones.png')}
                       />
                   </View>
               </TouchableHighlight>
@@ -174,10 +178,6 @@ var styles = StyleSheet.create({
     banner:{
         width:totalWidth,
         resizeMode : 'contain',
-        //marginBottom: aspectRatio <= 1.8 ? -2 : -2,
-        //marginTop: aspectRatio <= 1.8 ? -3 : -3,
-        marginTop: -3,
-        marginBottom: -2,
     },
     blockModule:{
         flexDirection: 'row',

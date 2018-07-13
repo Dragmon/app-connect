@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import HeaderInterno from './HeaderInterno';
 import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableHighlight,
-  Dimensions,
-  Alert,
-  Image
+    StyleSheet,
+    Text,
+    View,
+    TouchableHighlight,
+    Dimensions,
+    Alert,
+    Image,
+    SafeAreaView,
+    Platform,
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
@@ -42,13 +44,19 @@ class Parrillas extends Component{
     const excelnetworks = "parrilla/parrillanetworks.xlsx";
 
     return(
-      <View>
-        <HeaderInterno
-          onPress = {() => this.props.navigation.goBack()}
-        />
+      <SafeAreaView style={styles.safeArea}>
+          <HeaderInterno
+              onPress = {() => this.props.navigation.goBack()}
+          />
+          <Image
+              style={styles.titleseccion}
+              source={require('../Img/Parrillas/encabezado-parrillas.png')}
+          />
+          {/*
         <View style={styles.containerTitle}>
           <Text style={styles.sectionTitleText}>Parrillas</Text>
         </View>
+        */}
         <View style={styles.contBackgroundImage}>
           <Image
             style={{flex: 1}}
@@ -97,7 +105,7 @@ class Parrillas extends Component{
           </TouchableHighlight>
         </View>
 
-      </View>
+      </SafeAreaView>
     )
   }
 }
@@ -146,7 +154,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     paddingLeft: '5%'
-  }
+  },
+
+    safeArea:{
+        flex:1,
+        backgroundColor: '#1B323A',
+    },
+    titleseccion:{
+        width: totalWidth,
+    },
 });
 
 export default Parrillas

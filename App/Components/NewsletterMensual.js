@@ -2,15 +2,19 @@ import React, {Component} from 'react';
 import HeaderInterno from './HeaderInterno';
 import SectionArrayNewsMonthly from './SectionArrayNewsMonthly';
 import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableHighlight,
-  Dimensions,
-  Alert,
-  Image
+    StyleSheet,
+    Text,
+    View,
+    TouchableHighlight,
+    Dimensions,
+    Alert,
+    Image,
+    SafeAreaView,
+    Platform,
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
+var totalHeiHeight = Dimensions.get('window').height;
+var totalWidth = Dimensions.get('window').width;
 
 var api = require('../api/api');
 
@@ -45,7 +49,7 @@ class NewsletterMensual extends Component{
   render(){
 
     return(
-      <View>
+      <SafeAreaView style={styles.safeArea}>
         <HeaderInterno
           onPress = {() => this.props.navigation.goBack()}
         />
@@ -61,7 +65,7 @@ class NewsletterMensual extends Component{
         <View style={styles.contentInfo}>
           <SectionArrayNewsMonthly newsletterMensualArray={this.state.newsletterMensualArray} nav={this.props.navigation}/>
         </View>
-      </View>
+      </SafeAreaView>
     )
   }
 }
@@ -93,7 +97,16 @@ const styles = StyleSheet.create({
     left: 0,
     flexDirection: 'row',
     justifyContent: 'center',
-  }
+  },
+
+
+    safeArea:{
+        flex:1,
+        backgroundColor: '#1B323A',
+    },
+    titleseccion:{
+        width: totalWidth,
+    },
 });
 
 export default NewsletterMensual
