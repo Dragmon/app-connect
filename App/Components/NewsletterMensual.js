@@ -13,7 +13,7 @@ import {
     Platform,
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
-var totalHeiHeight = Dimensions.get('window').height;
+var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
 
 var api = require('../api/api');
@@ -50,55 +50,32 @@ class NewsletterMensual extends Component{
 
     return(
       <SafeAreaView style={styles.safeArea}>
-        <HeaderInterno
-          onPress = {() => this.props.navigation.goBack()}
-        />
-        <View style={styles.containerTitle}>
-          <Text style={styles.sectionTitleText}>Newsletter Mensual</Text>
-        </View>
-        <View style={styles.contBackgroundImage}>
-          <Image
-            style={{flex: 1}}
-            source={require('../Img/General/background_pattern.png')}
+          <HeaderInterno
+              onPress = {() => this.props.navigation.goBack()}
           />
-        </View>
-        <View style={styles.contentInfo}>
-          <SectionArrayNewsMonthly newsletterMensualArray={this.state.newsletterMensualArray} nav={this.props.navigation}/>
-        </View>
+          <Image
+              style={styles.titleseccion}
+              source={require('../Img/afiches/encabezado-afiches.png')}
+          />
+
+          <View style={styles.contentInfo}>
+              <SectionArrayNewsMonthly newsletterMensualArray={this.state.newsletterMensualArray} nav={this.props.navigation}/>
+          </View>
       </SafeAreaView>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  containerTitle:{
-    flexDirection: 'row',
-    backgroundColor: '#E44858',
-    justifyContent: 'center'
-  },
-  sectionTitleText:{
-    fontSize: 15,
-    flexDirection: 'column',
-    alignSelf: 'center',
-    color: 'white'
-  },
-  contBackgroundImage:{
-    position: 'relative',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center'
-  },
-  contentInfo:{
-    flex: 1,
-    position: 'absolute',
-    top: '12.4%',
-    left: 0,
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-
+    contentInfo:{
+        flex: 1,
+        position: 'absolute',
+        top: Platform.OS === 'ios' ? (totalHeight * .185) : 0,
+        //top: '12.4%',
+        //left: 0,
+        //flexDirection: 'row',
+        //justifyContent: 'center',
+    },
 
     safeArea:{
         flex:1,

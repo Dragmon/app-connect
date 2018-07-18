@@ -52,7 +52,7 @@ class NewsletterClientes extends Component{
             />
             <Image
                 style={styles.titleseccion}
-                source={require('../Img/Newsletter/encabezado-newsletter-clientes.png')}
+                source={require('../Img/detras-estrategia/encabezado-detras.png')}
             />
             {/*
             <View style={styles.containerTitle}>

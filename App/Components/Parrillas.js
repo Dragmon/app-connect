@@ -52,58 +52,39 @@ class Parrillas extends Component{
               style={styles.titleseccion}
               source={require('../Img/Parrillas/encabezado-parrillas.png')}
           />
-          {/*
-        <View style={styles.containerTitle}>
-          <Text style={styles.sectionTitleText}>Parrillas</Text>
-        </View>
-        */}
-        <View style={styles.contBackgroundImage}>
-          <Image
-            style={{flex: 1}}
-            source={require('../Img/General/background_pattern.png')}
-          />
-        </View>
-        <View style={styles.menuSection}>
-          <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ExcelView',{origin:excelnetworks})}>
-            <View style={[styles.horizontalImageSection, {backgroundColor: '#2F284B'}]}>
-              <View style={styles.imageContentSection}>
-                <Image
-                  source={require('../Img/Parrillas/networks.png')}
-                />
-              </View>
-            </View>
-          </TouchableHighlight>
-          <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PdfView',{origin:pdfregional})} >
-            <View style={[styles.horizontalImageSection, {backgroundColor: '#3080bd'}]}>
-              <View style={styles.imageContentSection}>
-                <Image
-                  source={require('../Img/Parrillas/regional.png')}
-                />
-              </View>
-            </View>
-          </TouchableHighlight>
-        </View>
+          <View style={styles.menuSection}>
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ExcelView',{origin:excelnetworks})}>
+                  <View style={styles.imageContentSection}>
+                      <Image
+                          source={require('../Img/Parrillas/icono-networks.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PdfView',{origin:pdfregional})} >
+                  <View style={styles.imageContentSection}>
+                      <Image
+                          source={require('../Img/Parrillas/icono-regional.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
+          </View>
 
-        <View style={styles.menuSectionTwo}>
-          <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PdfView',{origin:pdfabierta})}>
-            <View style={[styles.horizontalImageSection, {backgroundColor: '#F5AB2D'}]}>
-              <View style={styles.imageContentSection}>
-                <Image
-                  source={require('../Img/Parrillas/abierta.png')}
-                />
-              </View>
-            </View>
-          </TouchableHighlight>
-          <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ExcelView',{origin:excelpaga})}>
-            <View style={[styles.horizontalImageSection, {backgroundColor: '#FC495C'}]}>
-              <View style={styles.imageContentSection}>
-                <Image
-                  source={require('../Img/Parrillas/paga.png')}
-                />
-              </View>
-            </View>
-          </TouchableHighlight>
-        </View>
+          <View style={styles.menuSection}>
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PdfView',{origin:pdfabierta})}>
+                  <View style={styles.imageContentSection}>
+                      <Image
+                          source={require('../Img/Parrillas/icono-abierta.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ExcelView',{origin:excelpaga})}>
+                  <View style={styles.imageContentSection}>
+                      <Image
+                          source={require('../Img/Parrillas/icono-paga.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
+          </View>
 
       </SafeAreaView>
     )
@@ -111,51 +92,14 @@ class Parrillas extends Component{
 }
 
 const styles = StyleSheet.create({
-  containerTitle:{
-    flexDirection: 'row',
-    backgroundColor: '#E44858',
-    justifyContent: 'center'
-  },
-  sectionTitleText:{
-    fontSize: 15,
-    flexDirection: 'column',
-    alignSelf: 'center',
-    color: 'white'
-  },
-  contBackgroundImage:{
-    position: 'relative',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center'
-  },
-  horizontalImageSection:{
-   flexDirection: 'row',
-   justifyContent: 'center',
-   height: heightCont,
-   width: widhtCont,
-   backgroundColor: 'black'
-  },
-  imageContentSection:{
-    flexDirection: 'column',
-    justifyContent: 'center'
-  },
-  menuSection:{
-    position: 'absolute',
-    top: topSection,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    paddingLeft: '5%',
-  },
-  menuSectionTwo:{
-    position: 'absolute',
-    top: topSectionTwo,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    paddingLeft: '5%'
-  },
-
+    imageContentSection:{
+        flexDirection: 'row',
+        justifyContent: 'center'
+    },
+    menuSection:{
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
     safeArea:{
         flex:1,
         backgroundColor: '#1B323A',

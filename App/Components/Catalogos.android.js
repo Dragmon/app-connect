@@ -22,7 +22,7 @@ var topSection = totalHeight * .135;
 var topSectionTwo = totalHeight * .450;
 var heightView = totalHeight - 100;
 
-class Catalogos extends Component{
+class CatalogosAndroid extends Component{
 
   constructor(props){
     super(props)

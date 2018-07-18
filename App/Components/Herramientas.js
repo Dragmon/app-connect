@@ -95,7 +95,7 @@ class Networks extends Component{
                   <View style={styles.menuModule}>
                       <Image
                           style={styles.imgOption}
-                          source={require('../Img/Parrillas/icono-parrillas.png')}
+                          source={require('../Img/Herramientas/icono-parrillas.png')}
                       />
                   </View>
               </TouchableHighlight>

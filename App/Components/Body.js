@@ -105,7 +105,7 @@ class Body extends Component{
               </TouchableHighlight>
 
               {/* Catalogos */}
-              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Ibooks')}>
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Catalogos')}>
                   <View style={styles.menuModule}>
                       <Image
                           style={styles.imgOption}
