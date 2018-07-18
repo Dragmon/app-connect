@@ -77,13 +77,14 @@ class PlanComercialIos extends Component{
                 <View style={styles.containerTitle}>
                     <Text style={styles.sectionTitleText}>Ibooks</Text>
                 </View>
-                */}
                 <View style={styles.contBackgroundImage}>
                     <Image
                         style={{flex: 1,}}
                         source={require('../Img/General/background_pattern.png')}
                     />
                 </View>
+                */}
+
 
                 <View style={styles.menuSection}>
                     <Text>Cargando ibook...</Text>
@@ -224,13 +225,13 @@ class PlanComercialIos extends Component{
                     <View style={styles.containerTitle}>
                         <Text style={styles.sectionTitleText}>Ibooks</Text>
                     </View>
-                    */}
                     <View style={styles.contBackgroundImage}>
                         <Image
                             style={{flex: 1,}}
                             source={require('../Img/General/background_pattern.png')}
                         />
                     </View>
+                    */}
 
                     <View style={styles.menuSection}>
                         <View style={{height: totalHeight}}>
