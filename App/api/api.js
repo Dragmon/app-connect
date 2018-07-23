@@ -3,6 +3,19 @@ import Analytics from '../api/analytics';
 let tracker = new GoogleAnalyticsTracker(Analytics.Metric.CodeAnalytics);
 
 const api = {
+    regDeviceNotifications(token){
+        //var url = `https://connect.televisaventas.tv/api/v1/dispositivo/registrar`;
+        var url = `https://apihavas.televisaventas.tv/api/v1/dispositivo/registrar`;
+        GoogleAnalytics.trackEvent('API', 'Registrar dispositivo Notificaciones');
+        return fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({devicetoken:token})
+        }).then((response) => response.json())
+    },
     getNotifications() {
       tracker.trackEvent('API', 'Obtener Notificaciones');
       //const url = 'https://connect.televisaventas.tv/api/v1/notificaciones/obtener'

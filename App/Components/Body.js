@@ -7,7 +7,7 @@ import {
     Dimensions,
     Alert,
     Image,
-    Paltform, Platform
+    Paltform,
 } from 'react-native'
 import ImageView from "./ImageView";
 
