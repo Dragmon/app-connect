@@ -37,15 +37,6 @@ export default class App extends Component<{}> {
         PushNotificationIOS.addEventListener('notification', this._onNotification.bind(this));
         // Add listener for register
         PushNotificationIOS.addEventListener('register', this._regToken);
-
-        NetInfo.isConnected.fetch().then(isConnected => {
-            if (!isConnected){
-                Alert.alert(
-                    'Sin Conexión',
-                    'Su dispositivo no tiene conexion a internet',
-                )
-            };
-        });
     }
 
     componentWillUnmount() {
@@ -63,7 +54,8 @@ export default class App extends Component<{}> {
             notification.getMessage(),
             [{
                 text: 'Ver más',
-                onPress: () => this.navigate('Notifications', 'NotificationsPageComponent')
+                //onPress: () => this.navigate('Notifications', 'Notificaciones')
+                onPress: () => navigate('Notificaciones'),
             }]
         );
     }

@@ -20,7 +20,7 @@ var aspectRatio = (totalHeight/totalWidth).toFixed(1);
 console.log("aspectRatio : ", aspectRatio);
 console.log("heaight : ", totalHeight);
 console.log("width : ", totalWidth);
-console.log("widht /3 :" , totalWidth/3)
+console.log("widht /3 :" , totalWidth/3);
 
 class Body extends Component{
 
@@ -174,6 +174,7 @@ var styles = StyleSheet.create({
         //marginBottom: aspectRatio <= 1.8 ? -10 : aspectRatio <= 2.2 ? -10 : 0,
         marginBottom : -10,
         marginTop: aspectRatio <= 1.8 ? -10 : 0,
+        //marginTop: (aspectRatio <= 1.8 && totalWidth == 320) ? 20 : aspectRatio <= 1.8 ? -10 : 0
     },
     banner:{
         width:totalWidth,
@@ -210,41 +211,6 @@ var styles = StyleSheet.create({
     buttonPlanComercial:{
         backgroundColor:'#036666',
     },
-
-  homeBlock:{
-   height: totalHeight*.1500,
-   width: totalWidth,
-   marginTop: -1,
-  },
-  horizontalHomeBlock:{
-    justifyContent: 'center',
-    flexDirection: 'row',
-    height: totalHeight*.137,
-    width: totalWidth,
-  },
-  horizontalImageSection:{
-   flexDirection: 'row',
-   justifyContent: 'center',
-   height: totalHeight*.137,
-   width: totalWidth*.334,
-   backgroundColor: 'black'
-  },
-  imageContentSection:{
-    flexDirection: 'column',
-    justifyContent: 'center',
-  },
-  horizontalHomeBlockEnd:{
-    flexDirection: 'row',
-    height: totalHeight*.137,
-    width: totalWidth,
-  },
-  horizontalImageSectionEnd:{
-   flexDirection: 'row',
-   justifyContent: 'center',
-   height: totalHeight*.137,
-   width: totalWidth*.500,
-   backgroundColor: 'black'
-  }
 });
 
 export default Body

@@ -14,7 +14,9 @@ import {
     Button,
     SafeAreaView,
     Platform,
-    ImageBackground
+    ImageBackground,
+    NativeModules,
+    PushNotificationIOS
 } from 'react-native';
 
 var totalHeight = Dimensions.get('window').height;
@@ -43,6 +45,7 @@ class Notificaciones extends Component{
     }
 
     componentWillMount() {
+        PushNotificationIOS.setApplicationIconBadgeNumber(0);
         api
             .getNotifications()
             .then((response) => this.handleResponse(response))
