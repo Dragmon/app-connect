@@ -7,7 +7,7 @@ import {
     Dimensions,
     Alert,
     Image,
-    Paltform,
+    Platform,
 } from 'react-native'
 import ImageView from "./ImageView";
 
@@ -166,15 +166,19 @@ var styles = StyleSheet.create({
 
     mainContainer:{
         backgroundColor: '#1B323A',
+        //marginTop: 20,
     },
     mainImage:{
         width:totalWidth,
+        height: Platform.OS === 'ios' ? ((totalHeight == 568) ? (totalHeight * .31): 'auto'): 'auto',
+        height: totalHeight * .31,
         resizeMode : 'contain',
-        //marginBottom: aspectRatio <= 1.8 ? -10 : 0,
-        //marginBottom: aspectRatio <= 1.8 ? -10 : aspectRatio <= 2.2 ? -10 : 0,
         marginBottom : -10,
         marginTop: aspectRatio <= 1.8 ? -10 : 0,
+
         //marginTop: (aspectRatio <= 1.8 && totalWidth == 320) ? 20 : aspectRatio <= 1.8 ? -10 : 0
+        //marginBottom: aspectRatio <= 1.8 ? -10 : 0,
+        //marginBottom: aspectRatio <= 1.8 ? -10 : aspectRatio <= 2.2 ? -10 : 0,
     },
     banner:{
         width:totalWidth,

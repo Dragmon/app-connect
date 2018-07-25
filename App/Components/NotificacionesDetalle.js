@@ -39,11 +39,7 @@ class NotificacionesDetalle extends Component{
                     style={styles.titleseccion}
                     source={require('../Img/Notificaciones/encabezado-notificaciones.png')}
                 />
-                {/*
-                <View style={styles.containerTitle}>
-                    <Text style={styles.sectionTitleText}>Notificación</Text>
-                </View>
-                */}
+
                 <View style={styles.notificationOutterWrapper}>
                     <Image
                         style={styles.notificationMainImage}
@@ -72,34 +68,6 @@ class NotificacionesDetalle extends Component{
 }
 
 const styles = StyleSheet.create({
-    containerTitle:{
-        flexDirection: 'row',
-        backgroundColor: '#E44858',
-        justifyContent: 'center'
-    },
-
-    sectionTitleText:{
-        fontSize: 15,
-        flexDirection: 'column',
-        alignSelf: 'center',
-        color: 'white'
-    },
-
-    contBackgroundImage:{
-        position: 'relative',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        justifyContent: 'center'
-    },
-
-    menuSection:{
-        position: 'absolute',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        paddingLeft: '5%'
-    },
 
     notificationOutterWrapper: {
         backgroundColor: '#ffffff',

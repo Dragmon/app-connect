@@ -6,10 +6,11 @@ import {
     Image,
     StyleSheet,
     TouchableWithoutFeedback,
-    SafeAreaView, Dimensions
+    SafeAreaView, Dimensions, Platform
 } from 'react-native';
 
 var totalWidth = Dimensions.get('window').width;
+var totalHeight = Dimensions.get('window').height;
 
 const Header = props => (
     <SafeAreaView style={styles.containerheader}>
@@ -36,11 +37,12 @@ const Header = props => (
 const styles = StyleSheet.create({
     containerheader: {
         flexDirection: 'row',
-        height: 60,
+        //height: totalHeight * .106,
+        height: Platform.OS === 'ios' ? ((totalHeight == 568) ? (totalHeight * .106): 60 ): 0,
         alignItems: 'center',
         justifyContent: 'space-between',
         backgroundColor: '#1B323A',
-        flex:1,
+        flex: Platform.OS === 'ios' ? ((totalHeight == 568) ? 0: 1 ): 0,
     },
     iconbars: {
         marginLeft: 10,
