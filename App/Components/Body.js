@@ -32,19 +32,21 @@ class Body extends Component{
 
 	  <View style={styles.mainContainer}>
 
-		  {/* Imagen principal */}
-		  <Image
-              style={styles.mainImage}
-              source={require('../Img/Home/image-home.png')}
-          />
-
-		  {/* Primer módulo */}
+          {/* Primer módulo */}
+          <View style={styles.containerImage}>
+              <Image
+                  style={styles.mainImage}
+                  source={require('../Img/Home/image-home.png')}
+              />
+          </View>
+		  {/* Segundo módulo */}
 		  <View style={styles.blockModule}>
 
               {/* Notificaciones */}
               <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Notificaciones')}>
                   <View style={[styles.moduleIcon, styles.buttonNotifications]}>
                       <Image
+                          style={styles.imgIcon}
                           source={require('../Img/Home/notificaciones.png')}
                       />
                   </View>
@@ -54,25 +56,26 @@ class Body extends Component{
               <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PlanComercial')}>
                   <View style={[styles.moduleIcon, styles.buttonPlanComercial]}>
                       <Image
+                          style={styles.imgIcon}
                           source={require('../Img/Home/plancomercial.png')}
                       />
                   </View>
               </TouchableHighlight>
 
-              {/* Herramientas */}
+              {/* Circulares */}
               <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Circulares')}>
                   <View style={[styles.moduleIcon, styles.buttonTools]}>
                       <Image
-                          style={styles.icons}
+                          style={styles.imgIcon}
                           source={require('../Img/Home/circulares.png')}
                       />
                   </View>
               </TouchableHighlight>
           </View>
 
-          {/* Segundo módulo */}
+          {/* Tercer módulo */}
 
-          <View>
+          <View style={styles.iconParrillas}>
               <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Parrillas')}>
                   <Image
                       style={styles.banner}
@@ -81,7 +84,7 @@ class Body extends Component{
               </TouchableHighlight>
           </View>
 
-          {/* Tercer módulo */}
+          {/* Cuarto módulo */}
           <View style={styles.blockModule}>
 
               {/* Networks */}
@@ -113,10 +116,9 @@ class Body extends Component{
                       />
                   </View>
               </TouchableHighlight>
-
           </View>
 
-          {/* Cuarto módulo */}
+          {/* Quinto módulo */}
           <View style={styles.blockModule}>
 
               {/*Videos*/}
@@ -148,8 +150,8 @@ class Body extends Component{
                       />
                   </View>
               </TouchableHighlight>
-
           </View>
+
 	  </View>
 	)
   }
@@ -163,23 +165,36 @@ class Body extends Component{
 */
 
 var styles = StyleSheet.create({
-
     mainContainer:{
         backgroundColor: '#1B323A',
         //marginTop: 20,
     },
     mainImage:{
         width:totalWidth,
-        height: Platform.OS === 'ios' ? ((totalHeight == 568) ? (totalHeight * .31): 'auto'): 'auto',
-        height: totalHeight * .31,
+        //height: Platform.OS === 'ios' ? ((totalHeight == 568) ? (totalHeight * .31): 'auto'): 'auto',
+        //height: totalHeight * .31,
         resizeMode : 'contain',
         marginBottom : -10,
-        marginTop: aspectRatio <= 1.8 ? -10 : 0,
+        //marginTop: Platform.OS === 'ios' ? ((totalHeight == 568) ? 0: -10): 0,
 
         //marginTop: (aspectRatio <= 1.8 && totalWidth == 320) ? 20 : aspectRatio <= 1.8 ? -10 : 0
         //marginBottom: aspectRatio <= 1.8 ? -10 : 0,
         //marginBottom: aspectRatio <= 1.8 ? -10 : aspectRatio <= 2.2 ? -10 : 0,
     },
+    imgIcon:{
+        //width: Platform.OS === 'ios' ? ((totalHeight == 568) ? (totalWidth / 3.5) : 'auto'): 'auto',
+        resizeMode: 'contain',
+    },
+    /*
+    iconParrillas:{
+        ...Platform.select({
+            ios:{
+                marginTop: totalHeight == 568 ? -3 : 0,
+                marginBottom: totalHeight == 568 ? -3 : 0,
+            },
+        }),
+    },
+    */
     banner:{
         width:totalWidth,
         resizeMode : 'contain',
@@ -199,13 +214,11 @@ var styles = StyleSheet.create({
         width: widthOption,
     },
     imgOption:{
+        resizeMode: 'contain',
         width: widthOption,
         justifyContent : 'center',
         alignItems: 'center',
     },
-
-
-
     buttonNotifications:{
         backgroundColor: '#2F5062',
     },

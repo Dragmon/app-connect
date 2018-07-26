@@ -92,19 +92,57 @@ export default class App extends Component<{}> {
                     openMenuOffset={slideMenudisplace}
                     onChange={(isOpen) => this.updateMenu(isOpen)}
                 >
-                    <Header navigation={this.props.navigation} toggle={this.toggle.bind(this)}/>
-                    <Body navigation={this.props.navigation} />
-                    <Footer/>
+                    <Header
+                        style={styles.containerHeader}
+                        navigation={this.props.navigation} toggle={this.toggle.bind(this)}/>
+                    <Body
+                        style={styles.containerBody}
+                        navigation={this.props.navigation} />
+                    <Footer
+                        style={styles.containerFooter}
+                    />
                 </SideMenu>
+                /*
+                <View style={styles.containerHeader}></View>
+                <View style={styles.containerBody}>
+                    <View style={styles.container1}></View>
+                    <View style={styles.container2}></View>
+                </View>
+                <View style={styles.containerFooter}></View>
+                */
             </SafeAreaView>
         );
     }
 }
 
 const styles = StyleSheet.create({
-  container: {
-      flex: 1,
-      backgroundColor: '#036666',
-      height: totalHeight,
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#036666',
+        //height: totalHeight,
+        flexDirection: 'column',
+    },
+    containerHeader:{
+        flex: 1,
+        //backgroundColor: '#2196F3',
+    },
+    containerBody:{
+        flex: 8,
+        //backgroundColor: '#8BC34A',
+        //flexDirection: 'column',
+    },
+    containerFooter:{
+        flex: 1,
+        //backgroundColor: '#e3aa1a',
+    }
+/*
+    container1:{
+        flex: 1,
+        backgroundColor: '#b9a8e3',
+    },
+    container2:{
+        flex: 2,
+        backgroundColor: '#8daae3',
+    },
+*/
 });
