@@ -16,6 +16,7 @@ var totalWidth = Dimensions.get('window').width;
 var widthOption = (totalWidth / 3);
 var heightModuleIcon = (totalHeight * .08);
 var aspectRatio = (totalHeight/totalWidth).toFixed(1);
+var heightBody = totalHeight *.70;
 
 console.log("aspectRatio : ", aspectRatio);
 console.log("heaight : ", totalHeight);
@@ -166,6 +167,7 @@ class Body extends Component{
 
 var styles = StyleSheet.create({
     mainContainer:{
+        height: heightBody,
         backgroundColor: '#1B323A',
         //marginTop: 20,
     },

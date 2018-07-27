@@ -11,6 +11,7 @@ let totalHeight = Dimensions.get('window').height;
 let totalWidth = Dimensions.get('window').width;
 let marginFooter = (totalHeight * .015);
 let widthImgFooter = (totalWidth * .10);
+var heightFooter = totalHeight *.15;
 
 class Footer extends Component{
     render(){
@@ -36,8 +37,9 @@ var styles = StyleSheet.create({
         marginBottom: marginFooter,
     },
     safearea:{
-        flex: 1,
-        backgroundColor: '#1B323A'
+        //flex: 1,
+        backgroundColor: '#1B323A',
+        height: heightFooter,
     },
     imgFooter:{
         resizeMode : 'contain',

@@ -14,6 +14,7 @@ import {
 var totalWidth = Dimensions.get('window').width;
 var totalHeight = Dimensions.get('window').height;
 var aspectRatio = (totalHeight/totalWidth).toFixed(1);
+var heightHeader = totalHeight *.15;
 
 const Header = props => (
     <SafeAreaView style={styles.containerheader}>
@@ -46,6 +47,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         backgroundColor: '#1B323A',
         flex: aspectRatio == 2.2 ? 1 : 0,
+        height: heightHeader,
     },
     iconbars: {
         marginLeft: 10,

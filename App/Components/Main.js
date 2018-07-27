@@ -7,9 +7,6 @@ import Menu from './Menu-fondo';
 import Footer from './Footer';
 import api from '../api/api';
 
-var totalWidth = Dimensions.get('window').width;
-var totalHeight = Dimensions.get('window').height;
-var slideMenudisplace = totalWidth*.90;
 import {
     Platform,
     StyleSheet,
@@ -22,6 +19,11 @@ import {
     PushNotificationIOS,
     NetInfo
 } from 'react-native';
+
+var totalWidth = Dimensions.get('window').width;
+var totalHeight = Dimensions.get('window').height;
+var slideMenudisplace = totalWidth*.90;
+var heightHeader = totalHeight *.10;
 
 export default class App extends Component<{}> {
     constructor(props){
@@ -123,16 +125,18 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     containerHeader:{
-        flex: 1,
+        //height: heightHeader,
+        //flex: 1,
         //backgroundColor: '#2196F3',
     },
     containerBody:{
-        flex: 8,
+        //flex: 8,
         //backgroundColor: '#8BC34A',
         //flexDirection: 'column',
     },
     containerFooter:{
-        flex: 1,
+        //height: heightHeader,
+        //flex: 1,
         //backgroundColor: '#e3aa1a',
     }
 /*
