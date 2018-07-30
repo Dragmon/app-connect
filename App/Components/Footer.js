@@ -11,7 +11,8 @@ let totalHeight = Dimensions.get('window').height;
 let totalWidth = Dimensions.get('window').width;
 let marginFooter = (totalHeight * .015);
 let widthImgFooter = (totalWidth * .10);
-var heightFooter = totalHeight *.15;
+//var heightFooter = totalHeight *.15;
+var heightFooter = ((totalHeight == 568) ? totalHeight *.10 : totalHeight *.15);
 
 class Footer extends Component{
     render(){

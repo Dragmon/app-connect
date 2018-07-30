@@ -24,6 +24,8 @@ var totalWidth = Dimensions.get('window').width;
 var heightCont = totalHeight*.25;
 var widhtCont = totalWidth*.45;
 var topSection = totalHeight * .130;
+var heightComponent = ((totalHeight == 568) ? totalHeight *.80 : totalHeight *.70);
+var heightHeader = ((totalHeight == 568) ? totalHeight *.15 : totalHeight *.20);
 
 const api = require('../api/api');
 
@@ -64,6 +66,7 @@ class Notificaciones extends Component{
             <SafeAreaView style={styles.safeArea}>
                 <HeaderInterno
                     onPress = {() => this.props.navigation.goBack()}
+                    style={styles.header}
                 />
                 <Image
                     style={styles.titleseccion}
@@ -114,9 +117,8 @@ class Notificaciones extends Component{
                         style={styles.titleseccion}
                         source={require('../Img/Notificaciones/encabezado-notificaciones.png')}
                     />
-
                     <View style={styles.menuSection}>
-                        <View style={{height: totalHeight * .78}}>
+                        <View style={styles.contentSection}>
                             <ScrollView bounces={true}>
                                 <ListView
                                     dataSource={this.state.dataNotifications}
@@ -153,29 +155,19 @@ class Notificaciones extends Component{
 */}
 
 const styles = StyleSheet.create({
-    containerTitle:{
-        flexDirection: 'row',
-        backgroundColor: '#E44858',
-        justifyContent: 'center',
-        marginTop: Platform.OS === 'ios' ? 100 : 0,
-    },
 
     titleseccion:{
         width: totalWidth,
     },
 
     menuSection:{
-        position: 'absolute',
         left: 0,
-        top: topSection,
-        flexDirection: 'row',
         justifyContent: 'center',
-        // paddingLeft: '5%'
-        //marginTop: Platform.OS === 'ios' ? (totalHeight * .090) : 0,
-        marginTop: Platform.OS === 'ios' ? ((totalHeight == 568) ? (totalHeight * .090):(totalHeight * .055)) : 0,
     },
 
-    listNotifications: {},
+    listNotifications: {
+        height: totalHeight - heightHeader,
+    },
 
     notificationItemImage: {
         flexDirection: 'row',

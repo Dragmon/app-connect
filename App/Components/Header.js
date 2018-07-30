@@ -14,7 +14,8 @@ import {
 var totalWidth = Dimensions.get('window').width;
 var totalHeight = Dimensions.get('window').height;
 var aspectRatio = (totalHeight/totalWidth).toFixed(1);
-var heightHeader = totalHeight *.15;
+//var heightHeader = totalHeight *.15;
+var heightHeader = ((totalHeight == 568) ? totalHeight *.10 : totalHeight *.15);
 
 const Header = props => (
     <SafeAreaView style={styles.containerheader}>
@@ -41,8 +42,6 @@ const Header = props => (
 const styles = StyleSheet.create({
     containerheader: {
         flexDirection: 'row',
-        //height: totalHeight * .106,
-        //height: Platform.OS === 'ios' ? ((totalHeight == 568) ? (totalHeight * .106): 60 ): 0,
         alignItems: 'center',
         justifyContent: 'space-between',
         backgroundColor: '#1B323A',

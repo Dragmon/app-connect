@@ -16,7 +16,20 @@ var totalWidth = Dimensions.get('window').width;
 var widthOption = (totalWidth / 3);
 var heightModuleIcon = (totalHeight * .08);
 var aspectRatio = (totalHeight/totalWidth).toFixed(1);
-var heightBody = totalHeight *.70;
+//var heightBody = totalHeight *.70;
+var heightBody = ((totalHeight == 568) ? totalHeight *.80 : totalHeight *.70);
+//var heightFirstModule = totalHeight *.25;
+//var heightFirstModule = ((totalHeight == 568) ? totalHeight *.30 : totalHeight *.25);
+var heightFirstModule = totalWidth *.5281;
+//var heightSecondModule = totalHeight *.08;
+//var heightSecondModule = ((totalHeight == 568) ? totalHeight *.074 : totalHeight *.08);
+var heightSecondModule = (totalWidth *.4672)/3;
+//var heightThirdModule = totalHeight *.057;
+//var heightThirdModule = ((totalHeight == 568) ? totalHeight *.068 : totalHeight *.057);
+var heightThirdModule = totalWidth *.1312;
+//var heightFourthModule = totalHeight *.141;
+//var heightFourthModule = ((totalHeight == 568) ? totalHeight *.172 : totalHeight *.141);
+var heightFourthModule = totalWidth *.9210;
 
 console.log("aspectRatio : ", aspectRatio);
 console.log("heaight : ", totalHeight);
@@ -41,11 +54,11 @@ class Body extends Component{
               />
           </View>
 		  {/* Segundo módulo */}
-		  <View style={styles.blockModule}>
+		  <View style={[styles.blockModule, styles.secondModule]}>
 
               {/* Notificaciones */}
               <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Notificaciones')}>
-                  <View style={[styles.moduleIcon, styles.buttonNotifications]}>
+                  <View style={styles.moduleIcon}>
                       <Image
                           style={styles.imgIcon}
                           source={require('../Img/Home/notificaciones.png')}
@@ -55,7 +68,7 @@ class Body extends Component{
 
               {/* Plan Comercial */}
               <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PlanComercial')}>
-                  <View style={[styles.moduleIcon, styles.buttonPlanComercial]}>
+                  <View style={styles.moduleIcon}>
                       <Image
                           style={styles.imgIcon}
                           source={require('../Img/Home/plancomercial.png')}
@@ -65,7 +78,7 @@ class Body extends Component{
 
               {/* Circulares */}
               <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Circulares')}>
-                  <View style={[styles.moduleIcon, styles.buttonTools]}>
+                  <View style={styles.moduleIcon}>
                       <Image
                           style={styles.imgIcon}
                           source={require('../Img/Home/circulares.png')}
@@ -86,7 +99,7 @@ class Body extends Component{
           </View>
 
           {/* Cuarto módulo */}
-          <View style={styles.blockModule}>
+          <View style={[styles.blockModule, styles.fourtModule]}>
 
               {/* Networks */}
               <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('NewsletterClientes')}>
@@ -120,7 +133,7 @@ class Body extends Component{
           </View>
 
           {/* Quinto módulo */}
-          <View style={styles.blockModule}>
+          <View style={[styles.blockModule, styles.fourtModule]}>
 
               {/*Videos*/}
               <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('Videos')}>
@@ -169,47 +182,66 @@ var styles = StyleSheet.create({
     mainContainer:{
         height: heightBody,
         backgroundColor: '#1B323A',
-        //marginTop: 20,
+    },
+    containerImage:{
+        height: heightFirstModule,
     },
     mainImage:{
         width:totalWidth,
+        resizeMode : 'contain',
+        height: heightFirstModule,
         //height: Platform.OS === 'ios' ? ((totalHeight == 568) ? (totalHeight * .31): 'auto'): 'auto',
         //height: totalHeight * .31,
-        resizeMode : 'contain',
-        marginBottom : -10,
+        //marginBottom : -10,
         //marginTop: Platform.OS === 'ios' ? ((totalHeight == 568) ? 0: -10): 0,
 
         //marginTop: (aspectRatio <= 1.8 && totalWidth == 320) ? 20 : aspectRatio <= 1.8 ? -10 : 0
         //marginBottom: aspectRatio <= 1.8 ? -10 : 0,
         //marginBottom: aspectRatio <= 1.8 ? -10 : aspectRatio <= 2.2 ? -10 : 0,
     },
+    moduleIcon:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: widthOption,
+        height: heightSecondModule,
+    },
+    secondModule:{
+        height: heightSecondModule,
+    },
     imgIcon:{
-        //width: Platform.OS === 'ios' ? ((totalHeight == 568) ? (totalWidth / 3.5) : 'auto'): 'auto',
+        //width: ((totalHeight == 568) ? (totalWidth / 3.5) : 'auto'),
+        resizeMode: 'contain',
+        width: widthOption,
+        height: heightSecondModule,
+    },
+    imgIconCirculares:{
+        //width: ((totalHeight == 568) ? (totalWidth / 5) : 'auto'),
         resizeMode: 'contain',
     },
-    /*
     iconParrillas:{
+        /*
         ...Platform.select({
             ios:{
                 marginTop: totalHeight == 568 ? -3 : 0,
                 marginBottom: totalHeight == 568 ? -3 : 0,
             },
         }),
+        */
+        width: widthOption,
+        height: heightThirdModule,
     },
-    */
     banner:{
         width:totalWidth,
         resizeMode : 'contain',
+        height: heightThirdModule,
     },
     blockModule:{
         flexDirection: 'row',
     },
-    moduleIcon:{
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: widthOption,
-        height: heightModuleIcon,
+    fourtModule:{
+        height: heightFourthModule,
     },
+
     menuModule:{
         justifyContent: 'center',
         alignItems: 'center',
@@ -221,6 +253,7 @@ var styles = StyleSheet.create({
         justifyContent : 'center',
         alignItems: 'center',
     },
+    /*
     buttonNotifications:{
         backgroundColor: '#2F5062',
     },
@@ -230,6 +263,7 @@ var styles = StyleSheet.create({
     buttonPlanComercial:{
         backgroundColor:'#036666',
     },
+    */
 });
 
 export default Body
