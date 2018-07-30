@@ -12,7 +12,7 @@ import {
 
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
-var heightHeader = ((totalHeight == 568) ? totalHeight *.7 : totalHeight *.12);
+var heightHeader = ((totalHeight == 568) ? totalHeight *.09 : totalHeight *.14);
 var aspectRatio = (totalHeight/totalWidth).toFixed(1);
 
 const HeaderInterno = props => (
@@ -26,11 +26,11 @@ const HeaderInterno = props => (
       />
     </TouchableWithoutFeedback>
     <Image
-      source={require('../Img/Header/logo_connect_large.png')}
+      source={require('../Img/Header/logo-connect.png')}
     />
     <Image
       style={styles.logoTelevisa}
-      source={require('../Img/Header/televisa-logo-w.png')}
+      source={require('../Img/Header/logo-televisa.png')}
     />
   </View>
 )

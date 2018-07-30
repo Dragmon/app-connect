@@ -25,7 +25,7 @@ var heightCont = totalHeight*.25;
 var widhtCont = totalWidth*.45;
 var topSection = totalHeight * .130;
 var heightComponent = ((totalHeight == 568) ? totalHeight *.80 : totalHeight *.70);
-var heightHeader = ((totalHeight == 568) ? totalHeight *.15 : totalHeight *.20);
+var heightHeader = ((totalHeight == 568) ? totalHeight *.20 : totalHeight *.20);
 
 const api = require('../api/api');
 

@@ -34,8 +34,8 @@ var styles = StyleSheet.create({
     footer: {
         backgroundColor: '#1B323A',
         alignItems: 'center',
-        marginTop: marginFooter,
-        marginBottom: marginFooter,
+        //marginTop: marginFooter,
+        //marginBottom: marginFooter,
     },
     safearea:{
         //flex: 1,

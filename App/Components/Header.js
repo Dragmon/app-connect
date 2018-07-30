@@ -15,7 +15,7 @@ var totalWidth = Dimensions.get('window').width;
 var totalHeight = Dimensions.get('window').height;
 var aspectRatio = (totalHeight/totalWidth).toFixed(1);
 //var heightHeader = totalHeight *.15;
-var heightHeader = ((totalHeight == 568) ? totalHeight *.10 : totalHeight *.15);
+var heightHeader = ((totalHeight == 568) ? totalHeight *.12 : totalHeight *.17);
 
 const Header = props => (
     <SafeAreaView style={styles.containerheader}>
@@ -31,11 +31,11 @@ const Header = props => (
         */}
         <Image
             style={styles.logoApp}
-            source={require('../Img/Header/logo_connect_large.png')}
+            source={require('../Img/Header/logo-connect.png')}
         />
         <Image
             style={styles.logoTelevisa}
-            source={require('../Img/Header/televisa-logo-w.png')}
+            source={require('../Img/Header/logo-televisa.png')}
         />
     </SafeAreaView>
 )

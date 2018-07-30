@@ -16,20 +16,11 @@ var totalWidth = Dimensions.get('window').width;
 var widthOption = (totalWidth / 3);
 var heightModuleIcon = (totalHeight * .08);
 var aspectRatio = (totalHeight/totalWidth).toFixed(1);
-//var heightBody = totalHeight *.70;
 var heightBody = ((totalHeight == 568) ? totalHeight *.80 : totalHeight *.70);
-//var heightFirstModule = totalHeight *.25;
-//var heightFirstModule = ((totalHeight == 568) ? totalHeight *.30 : totalHeight *.25);
 var heightFirstModule = totalWidth *.5281;
-//var heightSecondModule = totalHeight *.08;
-//var heightSecondModule = ((totalHeight == 568) ? totalHeight *.074 : totalHeight *.08);
 var heightSecondModule = (totalWidth *.4672)/3;
-//var heightThirdModule = totalHeight *.057;
-//var heightThirdModule = ((totalHeight == 568) ? totalHeight *.068 : totalHeight *.057);
 var heightThirdModule = totalWidth *.1312;
-//var heightFourthModule = totalHeight *.141;
-//var heightFourthModule = ((totalHeight == 568) ? totalHeight *.172 : totalHeight *.141);
-var heightFourthModule = totalWidth *.9210;
+var heightFourthModule = (totalWidth *.8692)/3;
 
 console.log("aspectRatio : ", aspectRatio);
 console.log("heaight : ", totalHeight);
@@ -252,6 +243,7 @@ var styles = StyleSheet.create({
         width: widthOption,
         justifyContent : 'center',
         alignItems: 'center',
+        height: heightFourthModule,
     },
     /*
     buttonNotifications:{
