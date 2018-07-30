@@ -20,6 +20,7 @@ var totalWidth = Dimensions.get('window').width;
 var heightCont = totalHeight*.25;
 var widhtCont = totalWidth*.45;
 var topSection = totalHeight * .130;
+var heightHeader = ((totalHeight == 568) ? totalHeight *.20 : totalHeight *.20);
 
 const api = require('../api/api');
 
@@ -64,20 +65,8 @@ class Videos extends Component{
                     style={styles.titleseccion}
                     source={require('../Img/Videos/encabezado-videos.png')}
                 />
-                {/*
-                <View style={styles.containerTitle}>
-                    <Text style={styles.sectionTitleText}>Videos</Text>
-                </View>
-
-                <View style={styles.contBackgroundImage}>
-                    <Image
-                        style={{flex: 1,}}
-                        source={require('../Img/General/background_pattern.png')}
-                    />
-                </View>
-                */}
                 <View style={styles.menuSection}>
-                    <Text>Cargando videos...</Text>
+                    <Text style={{color: '#FFFFFF'}}>Cargando videos...</Text>
                 </View>
             </SafeAreaView>
         );
@@ -121,18 +110,6 @@ class Videos extends Component{
                         style={styles.titleseccion}
                         source={require('../Img/Videos/encabezado-videos.png')}
                     />
-                    {/*
-                    <View style={styles.containerTitle}>
-                        <Text style={styles.sectionTitleText}>Videos</Text>
-                    </View>
-
-                    <View style={styles.contBackgroundImage}>
-                        <Image
-                            style={{flex: 1,}}
-                            source={require('../Img/General/background_pattern.png')}
-                        />
-                    </View>
-                    */}
                     <View style={styles.menuSection}>
                         <View style={{height: totalHeight}}>
                             <ScrollView bounces={true}>
@@ -152,37 +129,18 @@ class Videos extends Component{
 }
 
 const styles = StyleSheet.create({
-    containerTitle:{
-        flexDirection: 'row',
-        backgroundColor: '#E44858',
-        justifyContent: 'center'
-    },
-
-    sectionTitleText:{
-        fontSize: 15,
-        flexDirection: 'column',
-        alignSelf: 'center',
-        color: 'white'
-    },
-
-    contBackgroundImage:{
-        position: 'relative',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        justifyContent: 'center'
-    },
 
     menuSection:{
-        position: 'absolute',
-        top: topSection,
+        //position: 'absolute',
+        //top: topSection,
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop: Platform.OS === 'ios' ? (totalHeight * .055) : 0,
+        //marginTop: Platform.OS === 'ios' ? (totalHeight * .055) : 0,
     },
 
-    listVideos: {},
+    listVideos: {
+        height: totalHeight - heightHeader,
+    },
 
     videoItemImage: {
         flexDirection: 'row',

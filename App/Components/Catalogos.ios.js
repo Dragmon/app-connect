@@ -19,9 +19,7 @@ import ImageView from "./ImageView";
 
 let totalHeight = Dimensions.get('window').height;
 let totalWidth = Dimensions.get('window').width;
-let heightCont = totalHeight*.25;
-let widhtCont = totalWidth*.45;
-let topSection = totalHeight * .130;
+var heightHeader = ((totalHeight == 568) ? totalHeight *.20 : totalHeight *.20);
 
 const api = require('../api/api');
 
@@ -71,20 +69,8 @@ class Ibooks extends Component{
                     style={styles.titleseccion}
                     source={require('../Img/Catalogos/encabezado-catalogos.png')}
                 />
-                {/*
-                <View style={styles.containerTitle}>
-                    <Text style={styles.sectionTitleText}>Ibooks</Text>
-                </View>
-                */}
-                <View style={styles.contBackgroundImage}>
-                    <Image
-                        style={{flex: 1,}}
-                        source={require('../Img/General/background_pattern.png')}
-                    />
-                </View>
-
                 <View style={styles.menuSection}>
-                    <Text>Cargando ibooks...</Text>
+                    <Text style={{color: '#FFFFFF'}}>Cargando ibooks...</Text>
                 </View>
             </SafeAreaView>
         );
@@ -217,18 +203,6 @@ class Ibooks extends Component{
                         style={styles.titleseccion}
                         source={require('../Img/Catalogos/encabezado-catalogos.png')}
                     />
-                    {/*
-                    <View style={styles.containerTitle}>
-                        <Text style={styles.sectionTitleText}>Ibooks</Text>
-                    </View>
-                    */}
-                    <View style={styles.contBackgroundImage}>
-                        <Image
-                            style={{flex: 1,}}
-                            source={require('../Img/General/background_pattern.png')}
-                        />
-                    </View>
-
                     <View style={styles.menuSection}>
                         <View style={{height: totalHeight}}>
                             <ScrollView bounces={true}>
@@ -248,45 +222,23 @@ class Ibooks extends Component{
 }
 
 const styles = StyleSheet.create({
-    containerTitle:{
-        flexDirection: 'row',
-        backgroundColor: '#E44858',
-        justifyContent: 'center',
-        //height: totalHeight * .10,
-        height: 30,
-    },
-
-    sectionTitleText:{
-        fontSize: 15,
-        flexDirection: 'column',
-        alignSelf: 'center',
-        color: 'white'
-    },
-
-    contBackgroundImage:{
-        position: 'relative',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        justifyContent: 'center'
-    },
-
     titleseccion:{
         width: totalWidth,
     },
 
     menuSection:{
-        position: 'absolute',
+        //position: 'absolute',
         left: 0,
-        top: topSection,
+        //top: topSection,
         flexDirection: 'row',
         justifyContent: 'center',
         // paddingLeft: '5%'
-        marginTop: Platform.OS === 'ios' ? (totalHeight * .055) : 0,
+        //marginTop: Platform.OS === 'ios' ? (totalHeight * .055) : 0,
     },
 
-    listPresentations: {},
+    listPresentations: {
+        height: totalHeight - heightHeader,
+    },
 
     presentationItemImage: {
         flexDirection: 'row',

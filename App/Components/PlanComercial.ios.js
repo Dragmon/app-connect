@@ -73,21 +73,8 @@ class PlanComercialIos extends Component{
                     style={styles.titleseccion}
                     source={require('../Img/Herramientas/encabezado-herramientas.png')}
                 />
-                {/*
-                <View style={styles.containerTitle}>
-                    <Text style={styles.sectionTitleText}>Ibooks</Text>
-                </View>
-                <View style={styles.contBackgroundImage}>
-                    <Image
-                        style={{flex: 1,}}
-                        source={require('../Img/General/background_pattern.png')}
-                    />
-                </View>
-                */}
-
-
                 <View style={styles.menuSection}>
-                    <Text>Cargando ibook...</Text>
+                    <Text style={{color: '#FFFFFF'}}>Cargando ibook...</Text>
                 </View>
             </SafeAreaView>
         );
@@ -221,20 +208,8 @@ class PlanComercialIos extends Component{
                         style={styles.titleseccion}
                         source={require('../Img/Plan-comercial/encabezado-plan-comercial.png')}
                     />
-                    {/*
-                    <View style={styles.containerTitle}>
-                        <Text style={styles.sectionTitleText}>Ibooks</Text>
-                    </View>
-                    <View style={styles.contBackgroundImage}>
-                        <Image
-                            style={{flex: 1,}}
-                            source={require('../Img/General/background_pattern.png')}
-                        />
-                    </View>
-                    */}
-
                     <View style={styles.menuSection}>
-                        <View style={{height: totalHeight}}>
+                        <View>
                             <ScrollView bounces={true}>
                                 <ListView
                                     dataSource={this.state.dataPresentations}
@@ -260,34 +235,14 @@ const styles = StyleSheet.create({
         height: 30,
     },
 
-    sectionTitleText:{
-        fontSize: 15,
-        flexDirection: 'column',
-        alignSelf: 'center',
-        color: 'white'
-    },
-
-    contBackgroundImage:{
-        position: 'relative',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        justifyContent: 'center'
-    },
-
     titleseccion:{
         width: totalWidth,
     },
 
     menuSection:{
-        position: 'absolute',
         left: 0,
-        top: topSection,
         flexDirection: 'row',
         justifyContent: 'center',
-        // paddingLeft: '5%'
-        marginTop: Platform.OS === 'ios' ? (totalHeight * .055) : 0,
     },
 
     listPresentations: {},

@@ -54,18 +54,6 @@ class NewsletterClientes extends Component{
                 style={styles.titleseccion}
                 source={require('../Img/detras-estrategia/encabezado-detras.png')}
             />
-            {/*
-            <View style={styles.containerTitle}>
-                <Text style={styles.sectionTitleText}>Newsletter Clientes</Text>
-            </View>
-
-            <View style={styles.contBackgroundImage}>
-                <Image
-                    style={{flex: 1,}}
-                    source={require('../Img/General/background_pattern.png')}
-                />
-            </View>
-            */}
             <View style={styles.contentInfo}>
                 <SectionArrayNewsClients newsletterClientsArray={this.state.newsletterClientsArray} nav={this.props.navigation}/>
             </View>
@@ -96,8 +84,6 @@ const styles = StyleSheet.create({
     },
     contentInfo:{
         flex: 1,
-        position: 'absolute',
-        top: Platform.OS === 'ios' ? (totalHeight * .185) : 0,
     },
     safeArea:{
         flex:1,

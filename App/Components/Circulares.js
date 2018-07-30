@@ -17,9 +17,7 @@ import {
 
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
-var heightCont = totalHeight*.25;
-var widhtCont = totalWidth*.45;
-var topSection = totalHeight * .130;
+var heightHeader = ((totalHeight == 568) ? totalHeight *.20 : totalHeight *.20);
 
 const api = require('../api/api');
 
@@ -64,20 +62,8 @@ class Circulares extends Component{
                     style={styles.titleseccion}
                     source={require('../Img/Circulares/encabezado-circulares.png')}
                 />
-                {/*
-                <View style={styles.containerTitle}>
-                    <Text style={styles.sectionTitleText}>Circulares</Text>
-                </View>
-                */}
-                <View style={styles.contBackgroundImage}>
-                    <Image
-                        style={{flex: 1,}}
-                        source={require('../Img/General/background_pattern.png')}
-                    />
-                </View>
-
                 <View style={styles.menuSection}>
-                    <Text>Cargando Circulares...</Text>
+                    <Text style={{color: '#FFFFFF'}}>Cargando Circulares...</Text>
                 </View>
             </SafeAreaView>
         );
@@ -121,18 +107,6 @@ class Circulares extends Component{
                         style={styles.titleseccion}
                         source={require('../Img/Circulares/encabezado-circulares.png')}
                     />
-                    {/*
-                    <View style={styles.containerTitle}>
-                        <Text style={styles.sectionTitleText}>Circulares</Text>
-                    </View>
-                    */}
-                    <View style={styles.contBackgroundImage}>
-                        <Image
-                            style={{flex: 1,}}
-                            source={require('../Img/General/background_pattern.png')}
-                        />
-                    </View>
-
                     <View style={styles.menuSection}>
                         <View style={{height: totalHeight}}>
                             <ScrollView bounces={true}>
@@ -152,39 +126,16 @@ class Circulares extends Component{
 }
 
 const styles = StyleSheet.create({
-    containerTitle:{
-        flexDirection: 'row',
-        backgroundColor: '#E44858',
-        justifyContent: 'center'
-    },
-
-    sectionTitleText:{
-        fontSize: 15,
-        flexDirection: 'column',
-        alignSelf: 'center',
-        color: 'white'
-    },
-
-    contBackgroundImage:{
-        position: 'relative',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        justifyContent: 'center'
-    },
 
     menuSection:{
-        position: 'absolute',
         left: 0,
-        top: topSection,
         flexDirection: 'row',
         justifyContent: 'center',
-        // paddingLeft: '5%'
-        marginTop: Platform.OS === 'ios' ? (totalHeight * .055) : 0,
     },
 
-    listPresentations: {},
+    listPresentations: {
+        height: totalHeight - heightHeader,
+    },
 
     presentationItemImage: {
         flexDirection: 'row',

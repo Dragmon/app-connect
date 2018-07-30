@@ -69,8 +69,8 @@ class NewsletterMensual extends Component{
 const styles = StyleSheet.create({
     contentInfo:{
         flex: 1,
-        position: 'absolute',
-        top: Platform.OS === 'ios' ? (totalHeight * .185) : 0,
+        //position: 'absolute',
+        //top: Platform.OS === 'ios' ? (totalHeight * .185) : 0,
         //top: '12.4%',
         //left: 0,
         //flexDirection: 'row',

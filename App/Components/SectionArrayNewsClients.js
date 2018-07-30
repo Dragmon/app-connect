@@ -66,7 +66,7 @@ class SectionArrayNewsClients extends React.Component {
       );
     }else{
         return(
-            <Text>Cargando...</Text>
+            <Text style={{color: '#FFFFFF'}}>Cargando...</Text>
         )
     }
   }
