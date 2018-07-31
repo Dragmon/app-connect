@@ -12,7 +12,7 @@ import {
 
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
-var heightHeader = ((totalHeight == 568) ? totalHeight *.09 : totalHeight *.14);
+var heightHeader = ((totalHeight == 568) ? totalHeight *.09 : totalHeight *.09);
 var aspectRatio = (totalHeight/totalWidth).toFixed(1);
 
 const HeaderInterno = props => (
