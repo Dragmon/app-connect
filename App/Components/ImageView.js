@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#1B323A'
     },
     topbar: {
-        height: 30,
+        height: 50,
         justifyContent: 'center',
         // alignItems: 'center',
         paddingLeft: 10,

@@ -22,7 +22,7 @@ import {
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
 var heightComponent = ((totalHeight == 568) ? totalHeight *.80 : totalHeight *.70);
-var heightHeader = ((totalHeight == 568) ? totalHeight *.20 : totalHeight *.20);
+var heightHeader = totalHeight *.20;
 
 const api = require('../api/api');
 

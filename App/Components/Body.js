@@ -16,7 +16,7 @@ var totalWidth = Dimensions.get('window').width;
 var widthOption = (totalWidth / 3);
 var heightModuleIcon = (totalHeight * .08);
 var aspectRatio = (totalHeight/totalWidth).toFixed(1);
-var heightBody = ((totalHeight == 568) ? totalHeight *.80 : totalHeight *.80);
+var heightBody = totalHeight *.80;
 var heightFirstModule = totalWidth *.5281;
 var heightSecondModule = (totalWidth *.4672)/3;
 var heightThirdModule = totalWidth *.1312;

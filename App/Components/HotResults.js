@@ -23,6 +23,7 @@ var widhtCont = totalWidth*.45;
 var topSection = totalHeight * .135;
 var topSectionTwo = totalHeight * .450;
 var heightView = totalHeight - 100;
+var heightHeader = totalHeight *.20;
 
 class HotResults extends Component{
 
@@ -88,23 +89,16 @@ class HotResults extends Component{
             />
         </View>
 
-        <View style={styles.contBackgroundImage}>
-          <Image
-            style={{flex: 1}}
-            source={require('../Img/General/background_pattern.png')}
-          />
-        </View>
-
         <View style={styles.menuHotResults}>
-					<ScrollView bounces={true}>
-						<ListView
-							dataSource={this.state.dataSource}
-							renderRow={this._renderpresentation.bind(this)}
-							style={styles.listView}
-							enableEmptySections={true}
-						/>
-					</ScrollView>
-				</View>
+            <ScrollView bounces={true}>
+                <ListView
+                    dataSource={this.state.dataSource}
+                    renderRow={this._renderpresentation.bind(this)}
+                    style={styles.listViewHotResults}
+                    enableEmptySections={true}
+                />
+            </ScrollView>
+        </View>
 
       </SafeAreaView>
     )
@@ -117,26 +111,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#E44858',
         justifyContent: 'center'
     },
-    sectionTitleText:{
-        fontSize: 15,
-        flexDirection: 'column',
-        alignSelf: 'center',
-        color: 'white'
-    },
-    contBackgroundImage:{
-        position: 'relative',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        justifyContent: 'center'
-    },
     menuHotResults:{
-        position: 'absolute',
         flexDirection: 'row',
-        top: topSection,
-        height: heightView,
-        marginTop: Platform.OS === 'ios' ? (totalHeight * .050) : 0,
     },
     presentationMeta:{
   	    padding: 20,
@@ -159,6 +135,9 @@ const styles = StyleSheet.create({
     },
     titleseccion:{
         width: totalWidth,
+    },
+    listViewHotResults:{
+        height: totalHeight - heightHeader,
     },
 });
 
