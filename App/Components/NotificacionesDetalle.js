@@ -9,7 +9,8 @@ import {
     ScrollView,
     SafeAreaView,
     Platform,
-    ImageBackground }
+    ImageBackground, PushNotificationIOS
+}
     from 'react-native';
 import {
     totalHeight,
@@ -38,8 +39,13 @@ class NotificacionesDetalle extends Component{
         super(props)
     }
 
+    componentWillMount(){
+        PushNotificationIOS.setApplicationIconBadgeNumber(0);
+        tracker.trackEvent('APP', 'Ver notificacion', {label: this.props.notification.titulo });
+    }
+
     render(){
-        tracker.trackEvent('APP', 'Ver Notificación', {label: this.props.notification.titulo });
+        //tracker.trackEvent('APP', 'Ver Notificación', {label: this.props.notification.titulo });
         return (
             <SafeAreaView style={styles.safeArea}>
                 <HeaderInterno

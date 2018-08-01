@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     contentInfo:{
-        flex: 1,
+        //flex: 1,
         height: heightMenuSection,
     },
     safeArea:{
