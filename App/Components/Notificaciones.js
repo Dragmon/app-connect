@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
 
     menuSection:{
         left: 0,
-        justifyContent: 'center',
+        //justifyContent: 'center',
         height: heightMenuSection,
     },
 
