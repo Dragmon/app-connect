@@ -14,8 +14,17 @@ import {
     SafeAreaView,
     Platform,
 } from 'react-native';
+
+import {
+    totalHeight,
+    totalWidth,
+    heightTitle,
+    heightMenuSection
+} from '../api/shared';
+
 import { NavigationActions } from 'react-navigation';
 var api = require('../api/api');
+/*
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
 var heightCont = totalHeight*.25;
@@ -24,6 +33,7 @@ var topSection = totalHeight * .135;
 var topSectionTwo = totalHeight * .450;
 var heightView = totalHeight - 100;
 var heightHeader = totalHeight *.20;
+*/
 
 class HotResults extends Component{
 
@@ -113,6 +123,7 @@ const styles = StyleSheet.create({
     },
     menuHotResults:{
         flexDirection: 'row',
+        height: heightMenuSection,
     },
     presentationMeta:{
   	    padding: 20,
@@ -135,9 +146,11 @@ const styles = StyleSheet.create({
     },
     titleseccion:{
         width: totalWidth,
+        height: heightTitle,
     },
     listViewHotResults:{
-        height: totalHeight - heightHeader,
+        //height: totalHeight - heightHeader,
+        height: heightMenuSection - 30,
     },
 });
 

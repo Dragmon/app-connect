@@ -19,10 +19,22 @@ import {
     PushNotificationIOS
 } from 'react-native';
 
+import {
+    totalHeight,
+    totalWidth,
+    heightTitle,
+    heightMenuSection
+} from '../api/shared';
+
+/*
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
-var heightComponent = ((totalHeight == 568) ? totalHeight *.80 : totalHeight *.70);
-var heightHeader = totalHeight *.20;
+var heightList = totalHeight *.16;
+var aspectRatio = (totalHeight/totalWidth).toFixed(1);
+var heightHeader = (aspectRatio == 2.2 ? totalHeight *.15 : totalHeight *.09);
+var heightTitle = totalWidth * 0.1136;
+var heightMenuSection = totalHeight - (heightHeader + heightTitle);
+*/
 
 const api = require('../api/api');
 
@@ -155,15 +167,18 @@ const styles = StyleSheet.create({
 
     titleseccion:{
         width: totalWidth,
+        height: heightTitle,
     },
 
     menuSection:{
         left: 0,
         justifyContent: 'center',
+        height: heightMenuSection,
     },
 
     listNotifications: {
-        height: totalHeight - heightHeader,
+        //height: totalHeight - heightList,
+        height : heightMenuSection,
     },
 
     notificationItemImage: {

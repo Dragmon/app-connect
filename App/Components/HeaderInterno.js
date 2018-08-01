@@ -12,8 +12,8 @@ import {
 
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
-var heightHeader = ((totalHeight == 568) ? totalHeight *.09 : totalHeight *.09);
 var aspectRatio = (totalHeight/totalWidth).toFixed(1);
+var heightHeader = (aspectRatio == 2.2 ? totalHeight *.15 : totalHeight *.09);
 
 const HeaderInterno = props => (
   <View style={styles.containerheader}>
@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'space-between',
       backgroundColor: '#1B323A',
-      height: heightHeader,
       flex: aspectRatio == 2.2 ? 1 : 0,
+      height: heightHeader,
   },
   iconbars: {
     marginLeft: 10,

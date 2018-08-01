@@ -14,10 +14,18 @@ import {
     SafeAreaView,
     Platform,
 } from 'react-native';
+import {
+    totalHeight,
+    totalWidth,
+    heightTitle,
+    heightMenuSection
+} from '../api/shared';
 
+/*
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
 var heightHeader = ((totalHeight == 568) ? totalHeight *.20 : totalHeight *.20);
+*/
 
 const api = require('../api/api');
 
@@ -131,10 +139,12 @@ const styles = StyleSheet.create({
         left: 0,
         flexDirection: 'row',
         justifyContent: 'center',
+        height: heightMenuSection,
     },
 
     listPresentations: {
-        height: totalHeight - heightHeader,
+        //height: totalHeight - heightHeader,
+        height: heightMenuSection - 30,
     },
 
     presentationItemImage: {
@@ -160,6 +170,7 @@ const styles = StyleSheet.create({
     },
     titleseccion:{
         width: totalWidth,
+        height: heightTitle,
     },
 });
 

@@ -15,7 +15,7 @@ var totalWidth = Dimensions.get('window').width;
 var totalHeight = Dimensions.get('window').height;
 var aspectRatio = (totalHeight/totalWidth).toFixed(1);
 //var heightHeader = totalHeight *.15;
-var heightHeader = totalHeight *.12;
+var heightHeader = (aspectRatio == 2.2 ? totalHeight *.18 : totalHeight *.12);
 
 const Header = props => (
     <SafeAreaView style={styles.containerheader}>

@@ -18,12 +18,21 @@ import {
 import RNFetchBlob from 'react-native-fetch-blob';
 import ImageView from "./ImageView";
 
+import {
+    totalHeight,
+    totalWidth,
+    heightTitle,
+    heightMenuSection
+} from '../api/shared';
+
+/*
 let totalHeight = Dimensions.get('window').height;
 let totalWidth = Dimensions.get('window').width;
-let heightCont = totalHeight*.25;
-let widhtCont = totalWidth*.45;
-let topSection = totalHeight * .130;
-
+var aspectRatio = (totalHeight/totalWidth).toFixed(1);
+var heightHeader = (aspectRatio == 2.2 ? totalHeight *.15 : totalHeight *.09);
+var heightTitle = totalWidth * 0.1136;
+var heightMenuSection = totalHeight - (heightHeader + heightTitle);
+*/
 const api = require('../api/api');
 
 const   dirs = RNFetchBlob.fs.dirs,
@@ -227,22 +236,16 @@ class PlanComercialIos extends Component{
 }
 
 const styles = StyleSheet.create({
-    containerTitle:{
-        flexDirection: 'row',
-        backgroundColor: '#E44858',
-        justifyContent: 'center',
-        //height: totalHeight * .10,
-        height: 30,
-    },
-
     titleseccion:{
         width: totalWidth,
+        height: heightTitle,
     },
 
     menuSection:{
         left: 0,
         flexDirection: 'row',
         justifyContent: 'center',
+        height: heightMenuSection,
     },
 
     listPresentations: {},

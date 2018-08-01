@@ -12,12 +12,20 @@ import {
     SafeAreaView,
     Platform,
 } from 'react-native';
+
+import {
+    totalWidth,
+    heightTitle,
+    heightMenuSection
+} from '../api/shared';
+
 import { NavigationActions } from 'react-navigation'
 
 var api = require('../api/api');
+/*
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
-
+*/
 
 class NewsletterClientes extends Component{
   constructor(props){
@@ -84,6 +92,7 @@ const styles = StyleSheet.create({
     },
     contentInfo:{
         flex: 1,
+        height: heightMenuSection,
     },
     safeArea:{
         flex:1,
@@ -91,6 +100,7 @@ const styles = StyleSheet.create({
     },
     titleseccion:{
         width: totalWidth,
+        height: heightTitle,
     },
 });
 

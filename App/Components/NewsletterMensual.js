@@ -12,10 +12,19 @@ import {
     SafeAreaView,
     Platform,
 } from 'react-native';
+
+import {
+    totalHeight,
+    totalWidth,
+    heightTitle,
+    heightMenuSection
+} from '../api/shared';
+
 import { NavigationActions } from 'react-navigation';
+/*
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
-
+*/
 var api = require('../api/api');
 
 
@@ -68,7 +77,8 @@ class NewsletterMensual extends Component{
 
 const styles = StyleSheet.create({
     contentInfo:{
-        flex: 1,
+        //flex: 1,
+        height: heightMenuSection,
         //position: 'absolute',
         //top: Platform.OS === 'ios' ? (totalHeight * .185) : 0,
         //top: '12.4%',
@@ -83,6 +93,7 @@ const styles = StyleSheet.create({
     },
     titleseccion:{
         width: totalWidth,
+        height: heightTitle,
     },
 });
 

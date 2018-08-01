@@ -14,13 +14,22 @@ import {
     SafeAreaView,
     Platform
 } from 'react-native';
+
+import {
+    totalHeight,
+    totalWidth,
+    heightTitle,
+    heightMenuSection
+} from '../api/shared';
+
 import RNFetchBlob from 'react-native-fetch-blob';
 import ImageView from "./ImageView";
 
+/*
 let totalHeight = Dimensions.get('window').height;
 let totalWidth = Dimensions.get('window').width;
 var heightHeader = ((totalHeight == 568) ? totalHeight *.20 : totalHeight *.20);
-
+*/
 const api = require('../api/api');
 
 const   dirs = RNFetchBlob.fs.dirs,
@@ -224,6 +233,7 @@ class Ibooks extends Component{
 const styles = StyleSheet.create({
     titleseccion:{
         width: totalWidth,
+        height: heightTitle,
     },
 
     menuSection:{
@@ -234,10 +244,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         // paddingLeft: '5%'
         //marginTop: Platform.OS === 'ios' ? (totalHeight * .055) : 0,
+        height: heightMenuSection,
     },
 
     listPresentations: {
-        height: totalHeight - heightHeader,
+        //height: totalHeight - heightHeader,
+        height: heightMenuSection - 30,
     },
 
     presentationItemImage: {

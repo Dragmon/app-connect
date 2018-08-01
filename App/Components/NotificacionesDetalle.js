@@ -11,12 +11,22 @@ import {
     Platform,
     ImageBackground }
     from 'react-native';
+import {
+    totalHeight,
+    totalWidth,
+    heightTitle,
+    heightMenuSection
+} from '../api/shared';
+
 import {GoogleAnalyticsTracker} from "react-native-google-analytics-bridge";
 import Analytics from '../api/analytics';
 let tracker = new GoogleAnalyticsTracker(Analytics.Metric.CodeAnalytics);
 
+/*
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
+var aspectRatio = (totalHeight/totalWidth).toFixed(1);
+*/
 
 class NotificacionesDetalle extends Component{
     static navigationOptions = {
@@ -71,7 +81,8 @@ const styles = StyleSheet.create({
 
     notificationOutterWrapper: {
         backgroundColor: '#ffffff',
-        height: totalHeight * .85,
+        //height: totalHeight * .85,
+        height : heightMenuSection,
     },
 
     notificationMainImage: {
@@ -99,6 +110,7 @@ const styles = StyleSheet.create({
 
     titleseccion:{
         width: totalWidth,
+        height: heightTitle,
     },
 
     safeArea:{

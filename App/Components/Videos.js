@@ -15,13 +15,21 @@ import {
     Platform,
 } from 'react-native';
 
+import {
+    totalHeight,
+    totalWidth,
+    heightTitle,
+    heightMenuSection
+} from '../api/shared';
+
+/*
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
 var heightCont = totalHeight*.25;
 var widhtCont = totalWidth*.45;
 var topSection = totalHeight * .130;
 var heightHeader = totalHeight *.20;
-
+*/
 const api = require('../api/api');
 
 class Videos extends Component{
@@ -136,10 +144,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         //marginTop: Platform.OS === 'ios' ? (totalHeight * .055) : 0,
+        height: heightMenuSection,
     },
 
     listVideos: {
-        height: totalHeight - heightHeader,
+        //height: totalHeight - heightHeader,
+        height : heightMenuSection -30,
     },
 
     videoItemImage: {
@@ -166,6 +176,7 @@ const styles = StyleSheet.create({
     },
     titleseccion:{
         width: totalWidth,
+        height: heightTitle,
     },
 });
 
