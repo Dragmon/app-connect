@@ -35,7 +35,7 @@ const api = require('../api/api');
 const   dirs = RNFetchBlob.fs.dirs,
     extencion = '.ibooks';
 
-class Ibooks extends Component{
+class Catalogos extends Component{
     static navigationOptions = {
         header: null,
         headerMode: null
@@ -49,7 +49,7 @@ class Ibooks extends Component{
             dataPresentations: new ListView.DataSource({
                 rowHasChanged: (row1, row2) => row1 != row2
             }),
-            imgdownload : require('../Img/ibooks/ver-ibook.png'),
+            imgdownload : require('../Img/Catalogos/ver-catalogo.png'),
             changeimage : false
         }
     }
@@ -79,7 +79,7 @@ class Ibooks extends Component{
                     source={require('../Img/Catalogos/encabezado-catalogos.png')}
                 />
                 <View style={styles.menuSection}>
-                    <Text style={{color: '#FFFFFF'}}>Cargando ibooks...</Text>
+                    <Text style={{color: '#FFFFFF'}}>Cargando catálogos...</Text>
                 </View>
             </SafeAreaView>
         );
@@ -121,13 +121,15 @@ class Ibooks extends Component{
         if (this.state.changeimage == false){
             return(
                 <Image
-                    source={require('../Img/ibooks/ver-ibook.png')}
+                    source={require('../Img/Catalogos/ver-catalogo.png')}
+                    style={styles.imgViewCatalogo}
                 />
             );
         }else{
             return(
                 <Image
                    source={require('../Img/ibooks/descarga-ibook.png')}
+                   style={styles.imgViewCatalogo}
                 />
             );
         }
@@ -272,7 +274,11 @@ const styles = StyleSheet.create({
     safeArea:{
         flex:1,
         backgroundColor: '#1B323A',
-    }
+    },
+    imgViewCatalogo:{
+        width: totalWidth,
+        height: totalWidth * 0.3313,
+    },
 });
 
-export default Ibooks
+export default Catalogos;

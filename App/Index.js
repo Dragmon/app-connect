@@ -31,8 +31,8 @@ import Parrillas from './Components/Parrillas';
 import PdfView from './Components/pdfview';
 import ExcelView from './Components/excelview';
 
-import Calendario from './Components/Calendario';
-import CalendarView from './Components/Calendarview';
+//import Calendario from './Components/Calendario';
+//import CalendarView from './Components/Calendarview';
 
 import Networks from './Components/Networks';
 import PresentacionNetworks from './Components/PresentacionNetworks';
@@ -52,11 +52,11 @@ import CatalogoView from './Components/catalogoview';
 
 import CatalogosRegional from './Components/CatalogosRegional';
 
-import Ibooks from './Components/Ibooks';
+//import Ibooks from './Components/Ibooks';
 
 import Circulares from './Components/Circulares';
 
-import Herramientas from './Components/Herramientas';
+//import Herramientas from './Components/Herramientas';
 
 {/* Turns this.props.navigation.state.params into this.params.<x>  */}
 const paramsToProps = (MyComponent) => {
@@ -96,8 +96,8 @@ const Index = StackNavigator({
 
     ExcelView: {screen:ExcelView},
 
-    Calendario: {screen:Calendario},
-    CalendarView: {screen:CalendarView},
+    //Calendario: {screen:Calendario},
+    //CalendarView: {screen:CalendarView},
 
     Networks: {screen:Networks},
     PresentacionNetworks: {screen:PresentacionNetworks},
@@ -117,11 +117,11 @@ const Index = StackNavigator({
 
     CatalogosRegional: {screen:CatalogosRegional},
 
-    Ibooks:{screen:Ibooks},
+    //Ibooks:{screen:Ibooks},
 
     Circulares:{screen:Circulares},
 
-    Herramientas: {screen:Herramientas}
+    //Herramientas: {screen:Herramientas}
 
 },{
   headerMode: 'screen'

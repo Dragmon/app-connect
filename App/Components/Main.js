@@ -88,9 +88,10 @@ export default class App extends Component<{}> {
     render() {
         return (
             <SafeAreaView style={styles.container}>
+
                 <SideMenu
                     menu={<Menu navigation={this.props.navigation} toggle={this.toggle.bind(this)}/>}
-                    isOpen={this.state.isOpen}
+                    //isOpen={this.state.isOpen}
                     openMenuOffset={slideMenudisplace}
                     onChange={(isOpen) => this.updateMenu(isOpen)}
                 >
@@ -104,6 +105,8 @@ export default class App extends Component<{}> {
                         style={styles.containerFooter}
                     />
                 </SideMenu>
+
+                /*Prueba del uso de flexbox*/
                 /*
                 <View style={styles.containerHeader}></View>
                 <View style={styles.containerBody}>
@@ -120,7 +123,7 @@ export default class App extends Component<{}> {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#036666',
+        backgroundColor: '#1B323A',
         //height: totalHeight,
         flexDirection: 'column',
     },

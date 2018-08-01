@@ -23,75 +23,16 @@ class Menu extends Component{
 
     return(
       <SafeAreaView style={styles.contmenu}>
+          {/*
         <View style={styles.contbackgroundimage}>
           <Image
               style={styles.backgroundimg}
               source={require('../Img/Menu/background_menu.png')}
           />
         </View>
+        */}
         <View style={styles.containermenu}>
 
-            {/* Menú Notificaciones */}
-            <TouchableOpacity style={styles.innerRow}  onPress={() => navigate('Notificaciones') }>
-                <Image style={styles.innerIconStyle}
-                source={require('../Img/Menu/icono_notificaciones.png')}
-                />
-                <Text style={styles.innerTextStyle}>NOTIFICACIONES</Text>
-            </TouchableOpacity>
-            {/* Menú Plan comercial */}
-            <TouchableOpacity style={styles.innerRow} onPress={() => navigate('PlanComercial')}>
-                <Image style={styles.innerIconStyle}
-                       source={require('../Img/Menu/icono_placomercial.png')}
-                />
-                <Text style={styles.innerTextStyle}>PLAN COMERCIAL</Text>
-            </TouchableOpacity>
-            {/* Menú Herramientas */}
-            <TouchableOpacity style={styles.innerRow} onPress={() => navigate('Newsletter')}>
-                <Image style={styles.innerIconStyle}
-                    source={require('../Img/Menu/icono_herramientas.png')}
-                />
-                <Text style={styles.innerTextStyle}>HERRAMIENTAS</Text>
-            </TouchableOpacity>
-            {/* Menú Calendario */}
-            <TouchableOpacity style={styles.innerRow} onPress={() => navigate('Catalogos')}>
-                <Image style={styles.innerIconStyle}
-                    source={require('../Img/Menu/icono_catalogos.png')}
-                />
-                <Text style={styles.innerTextStyle}>CATALOGOS</Text>
-            </TouchableOpacity>
-            {/* Menú Televisa TV */}
-            <TouchableOpacity style={styles.innerRow} onPress={() => navigate('Presentaciones')}>
-                <Image style={styles.innerIconStyle}
-                source={require('../Img/Menu/icono_presentaciones.png')}
-                />
-                <Text style={styles.innerTextStyle}>PRESENTACIONES</Text>
-            </TouchableOpacity>
-
-            {/* Menú Inicio */}
-            <TouchableOpacity style={styles.innerRow} onPress={() => navigate('Videos')}>
-                <Image style={styles.innerIconStyle}
-                       source={require('../Img/Menu/icono_videos.png')}
-                />
-                <Text style={styles.innerTextStyle}>VIDEOS</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.innerRow} onPress={() => navigate('Networks')}>
-                <Image style={styles.innerIconStyle}
-                       source={require('../Img/Menu/icono_networks.png')}
-                />
-                <Text style={styles.innerTextStyle}>NETWORKS</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.innerRow} onPress={() => navigate('Regional')}>
-                <Image style={styles.innerIconStyle}
-                       source={require('../Img/Menu/icono_regional.png')}
-                />
-                <Text style={styles.innerTextStyle}>REGIONAL</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.innerRow} onPress={() => navigate('UrlView')}>
-                <Image style={styles.innerIconStyle}
-                       source={require('../Img/Menu/icono_circulares.png')}
-                />
-                <Text style={styles.innerTextStyle}>CIRCULARES</Text>
-            </TouchableOpacity>
         </View>
       </SafeAreaView>
     )
