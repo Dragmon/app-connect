@@ -27,6 +27,7 @@ const HeaderInterno = props => (
     </TouchableWithoutFeedback>
     <Image
       source={require('../Img/Header/logo-connect.png')}
+      style={styles.logoApp}
     />
     <Image
       style={styles.logoTelevisa}
@@ -35,20 +36,26 @@ const HeaderInterno = props => (
   </View>
 )
 const styles = StyleSheet.create({
-  containerheader: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      backgroundColor: '#1B323A',
-      flex: aspectRatio == 2.2 ? 1 : 0,
-      height: heightHeader,
-  },
-  iconbars: {
-    marginLeft: 10,
-  },
-  logoTelevisa: {
-    marginRight: 10,
-  },
+    containerheader: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        backgroundColor: '#1B323A',
+        flex: aspectRatio == 2.2 ? 1 : 0,
+        height: heightHeader,
+    },
+    iconbars: {
+        marginLeft: 10,
+    },
+    logoTelevisa: {
+        marginRight: 10,
+        width: totalWidth /8,
+        height: (totalWidth /8) * .8333,
+    },
+    logoApp:{
+        width: totalWidth /3,
+        height: (totalWidth /3) * .2043,
+    }
 });
 
 export default HeaderInterno

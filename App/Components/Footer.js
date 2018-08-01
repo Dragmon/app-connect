@@ -4,7 +4,9 @@ import {
     Image,
     StyleSheet,
     SafeAreaView,
-    Dimensions
+    TouchableOpacity,
+    Dimensions,
+    Linking
 } from 'react-native';
 
 let totalHeight = Dimensions.get('window').height;
@@ -19,10 +21,12 @@ class Footer extends Component{
         return(
             <SafeAreaView style={styles.safearea}>
                 <View style={styles.footer}>
-                    <Image
-                        style={styles.imgFooter}
-                        source={require('../Img/footer/logo_footer.png')}
-                    />
+                    <TouchableOpacity onPress={() => Linking.openURL('http://televisaventas.tv/')}>
+                        <Image
+                            style={styles.imgFooter}
+                            source={require('../Img/footer/logo_footer.png')}
+                        />
+                    </TouchableOpacity>
                 </View>
             </SafeAreaView>
         )

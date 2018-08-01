@@ -33,10 +33,12 @@ const Header = props => (
             style={styles.logoApp}
             source={require('../Img/Header/logo-connect.png')}
         />
+        {/*
         <Image
             style={styles.logoTelevisa}
             source={require('../Img/Header/logo-televisa.png')}
         />
+        */}
     </SafeAreaView>
 )
 const styles = StyleSheet.create({
@@ -57,6 +59,8 @@ const styles = StyleSheet.create({
     /* provisional en lo que se coloca el boton del buscador*/
     logoApp:{
         marginLeft: totalWidth * .35,
+        width: totalWidth /3,
+        height: (totalWidth /3) * .2043,
     }
 });
 
