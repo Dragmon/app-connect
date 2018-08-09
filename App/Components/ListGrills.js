@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import HeaderInterno from './HeaderInterno';
+import ImageHeader from '../api/imageHeader';
 import {
     StyleSheet,
     Text,
@@ -48,11 +49,14 @@ class Presentaciones extends Component{
                 rowHasChanged: (row1, row2) => row1 != row2
             })
         }
+        this.passProps = this.props.navigation.state.params;
+        var origin = this.passProps.origin;
+        //var urlimgheader = require('../Img/Parrillas/encabezado-'+ origin +'.png');
     }
 
     componentWillMount() {
         api
-            .getPresentations()
+            .getParrilla(this.passProps.origin)
             .then((response) => this.handleResponse(response))
             .catch((rejection) => { this.setState({ isLoading: false }) })
     }
@@ -65,6 +69,7 @@ class Presentaciones extends Component{
     }
 
     _renderLoadingDataView() {
+        //var urlimgheader = require('../Img/Parrillas/encabezado-'+ this.passProps.origin +'.png');
         return (
             <SafeAreaView style={styles.safeArea}>
                 <HeaderInterno
@@ -72,11 +77,12 @@ class Presentaciones extends Component{
                 />
                 <Image
                     style={styles.titleseccion}
-                    source={require('../Img/Presentaciones/encabezado-presentaciones.png')}
+                    //source={require('../Img/Presentaciones/encabezado-presentaciones.png')}
+                    source={ImageHeader.imagesheader.networks}
                 />
 
                 <View style={styles.menuSection}>
-                    <Text style={{color:'#FFFFFF'}}>Cargando presentaciones...</Text>
+                    <Text style={{color:'#FFFFFF'}}>Cargando parrilla...</Text>
                 </View>
             </SafeAreaView>
         );

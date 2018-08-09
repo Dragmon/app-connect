@@ -46,10 +46,10 @@ class Parrillas extends Component{
   render(){
 
     const{navigate} = this.props.navigation;
-    const pdfregional = "parrilla/parrillaregional.pdf";
-    const pdfabierta = "parrilla/parrillaabierta.pdf";
-    const excelpaga = "parrilla/parrillapaga.xlsx";
-    const excelnetworks = "parrilla/parrillanetworks.xlsx";
+    const networks = "networks";
+    const regional = "regional";
+    const tvpaga = "tvpaga";
+    const tvabierta = "tvabierta";
 
     return(
       <SafeAreaView style={styles.safeArea}>
@@ -62,14 +62,15 @@ class Parrillas extends Component{
           />
           <View style={styles.contParrilla}>
               <View style={styles.menuSection}>
-                  <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ExcelView',{origin:excelnetworks})}>
+                  {/*<TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ExcelView',{origin:excelnetworks})}>*/}
+                  <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ListGrills',{origin:networks})}>
                       <View style={styles.imageContentSection}>
                           <Image
                               source={require('../Img/Parrillas/icono-networks.png')}
                           />
                       </View>
                   </TouchableHighlight>
-                  <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PdfView',{origin:pdfregional})} >
+                  <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ListGrills',{origin:regional})} >
                       <View style={styles.imageContentSection}>
                           <Image
                               source={require('../Img/Parrillas/icono-regional.png')}
@@ -79,14 +80,14 @@ class Parrillas extends Component{
               </View>
 
               <View style={styles.menuSection}>
-                  <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PdfView',{origin:pdfabierta})}>
+                  <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ListGrills',{origin:tvabierta})}>
                       <View style={styles.imageContentSection}>
                           <Image
                               source={require('../Img/Parrillas/icono-abierta.png')}
                           />
                       </View>
                   </TouchableHighlight>
-                  <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ExcelView',{origin:excelpaga})}>
+                  <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ListGrills',{origin:tvpaga})}>
                       <View style={styles.imageContentSection}>
                           <Image
                               source={require('../Img/Parrillas/icono-paga.png')}

@@ -54,6 +54,12 @@ const api = {
       return url
     },
 
+    getParrilla(origin){
+        tracker.trackEvent('API', 'Obtener Parrilla'+ origin);
+        var url = 'https://adminconnect.televisaventas.tv/api/v1/parrillas/'+ origin +'/obtener';
+        return fetch(url).then((res) => res.json())
+    },
+
     getPresentacionesNetworks(){
       tracker.trackEvent('API', 'Obtener Presentaciones Networks');
       var url = `https://adminconnect.televisaventas.tv/api/v1/catalogo-android/networks/obtener`;
