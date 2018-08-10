@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import HeaderInterno from './HeaderInterno';
-import ImageHeader from '../api/imageHeader';
 import {
     StyleSheet,
     Text,
@@ -47,11 +46,10 @@ class Presentaciones extends Component{
             isLoading: false,
             dataPresentations: new ListView.DataSource({
                 rowHasChanged: (row1, row2) => row1 != row2
-            })
+            }),
+            imageHeaderUrl : '',
         }
         this.passProps = this.props.navigation.state.params;
-        var origin = this.passProps.origin;
-        //var urlimgheader = require('../Img/Parrillas/encabezado-'+ origin +'.png');
     }
 
     componentWillMount() {
@@ -59,6 +57,7 @@ class Presentaciones extends Component{
             .getParrilla(this.passProps.origin)
             .then((response) => this.handleResponse(response))
             .catch((rejection) => { this.setState({ isLoading: false }) })
+        this.imageHeaderLoad();
     }
 
     handleResponse(response) {
@@ -68,8 +67,38 @@ class Presentaciones extends Component{
         })
     }
 
+    imageHeaderLoad(){
+        switch(this.passProps.origin){
+            case 'networks':
+                this.setState({
+                    imageHeaderUrl : require('../Img/Parrillas/encabezado-networks.png')
+                })
+                break;
+            case 'regional':
+                this.setState({
+                    imageHeaderUrl : require('../Img/Parrillas/encabezado-regional.png')
+                })
+                break;
+            case 'tvpaga':
+                this.setState({
+                    imageHeaderUrl : require('../Img/Parrillas/encabezado-paga.png')
+                })
+                break;
+            case 'tvabierta':
+                this.setState({
+                    imageHeaderUrl : require('../Img/Parrillas/encabezado-abierta.png')
+                })
+                break;
+            default:
+                this.setState({
+                    imageHeaderUrl : require('../Img/Parrillas/encabezado-parrillas.png')
+                })
+                break;
+
+        }
+    }
+
     _renderLoadingDataView() {
-        //var urlimgheader = require('../Img/Parrillas/encabezado-'+ this.passProps.origin +'.png');
         return (
             <SafeAreaView style={styles.safeArea}>
                 <HeaderInterno
@@ -78,7 +107,8 @@ class Presentaciones extends Component{
                 <Image
                     style={styles.titleseccion}
                     //source={require('../Img/Presentaciones/encabezado-presentaciones.png')}
-                    source={ImageHeader.imagesheader.networks}
+                    //source={ImageHeader.imagesheader.networks}
+                    source={this.state.imageHeaderUrl}
                 />
 
                 <View style={styles.menuSection}>
@@ -123,7 +153,8 @@ class Presentaciones extends Component{
                     />
                     <Image
                         style={styles.titleseccion}
-                        source={require('../Img/Presentaciones/encabezado-presentaciones.png')}
+                        //source={require('../Img/Presentaciones/encabezado-presentaciones.png')}
+                        source={this.state.imageHeaderUrl}
                     />
                     <View style={styles.menuSection}>
                         <View style={{height: totalHeight}}>
