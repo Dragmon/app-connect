@@ -91,10 +91,11 @@ class Presentaciones extends Component{
                         source={{uri: item.imagen}}
                     />
                     <Text style={styles.presentationTitle}>
-                        {item.titulo}{"\n"}
-                        <Text style={styles.presentationMicroResume}>
+                        {item.titulo}{/*{"\n"}*/}
+                        {/*<Text style={styles.presentationMicroResume}>
                             {item.categoria} - {item.fecha}
                         </Text>
+                        */}
                     </Text>
                 </View>
             </TouchableOpacity>
@@ -147,7 +148,7 @@ const styles = StyleSheet.create({
 
     listPresentations: {
         //height: totalHeight - heightHeader,
-        height: heightMenuSection - 30,
+        height: heightMenuSection,
     },
 
     presentationItemImage: {

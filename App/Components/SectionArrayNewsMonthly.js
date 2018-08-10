@@ -54,7 +54,7 @@ class SectionArrayNewsMonthly extends React.Component {
 
                                         <View style={styles.singleArrayTitleAndHourContainer}>
                                             <Text style={styles.resourceMeta}>{item.titulo}{"\n"}
-                                                <Text style={styles.resourceMetaSub}>{item.fecha}</Text>
+                                                {/*<Text style={styles.resourceMetaSub}>{item.fecha}</Text>*/}
                                             </Text>
                                         </View>
                                     </View>
@@ -90,9 +90,10 @@ var styles = StyleSheet.create({
 
     resourceMeta:{
         padding: 20,
-        backgroundColor: '#f68934',
+        backgroundColor: '#e91e53',
         color: '#ffffff',
         fontWeight: 'bold',
+        fontSize: 16,
     },
 
     resourceMetaSub:{

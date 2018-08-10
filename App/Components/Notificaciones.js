@@ -100,7 +100,7 @@ class Notificaciones extends Component{
                     <Text style={styles.notificationTitle}>
                         {item.titulo}{"\n"}
                         <Text style={styles.notificationMicroResume}>
-                            {item.categoria} - {item.fecha}
+                            {item.categoria}
                         </Text>
                     </Text>
                 </View>

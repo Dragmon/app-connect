@@ -87,9 +87,11 @@ class Circulares extends Component{
                     />
                     <Text style={styles.presentationTitle}>
                         {item.titulo}{"\n"}
+                        {/*
                         <Text style={styles.presentationMicroResume}>
-                            {item.categoria} - {item.fecha}
+                            {item.categoria}
                         </Text>
+                        */}
                     </Text>
                 </View>
             </TouchableOpacity>
@@ -144,7 +146,7 @@ const styles = StyleSheet.create({
 
     listPresentations: {
         //height: totalHeight - heightHeader,
-        height: heightMenuSection - 30,
+        height: heightMenuSection,
     },
 
     presentationItemImage: {

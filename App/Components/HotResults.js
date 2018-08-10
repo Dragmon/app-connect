@@ -77,7 +77,7 @@ class HotResults extends Component{
   				<Image source={{uri:presentation.imagen}} style={styles.presentationRow}>
   				</Image>
   				<Text style={styles.presentationMeta}>{presentation.titulo}{"\n"}
-  					<Text style={styles.presentationSub}>{presentation.fecha}</Text>
+                    {/*<Text style={styles.presentationSub}>{presentation.fecha}</Text>*/}
   				</Text>
   			</View>
   		</TouchableOpacity>
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     },
     listViewHotResults:{
         //height: totalHeight - heightHeader,
-        height: heightMenuSection - 30,
+        height: heightMenuSection,
     },
 });
 

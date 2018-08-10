@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
 
     listPresentations: {
         //height: totalHeight - heightHeader,
-        height: heightMenuSection - 30,
+        height: heightMenuSection,
     },
 
     presentationItemImage: {
@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
     },
     imgViewCatalogo:{
         width: totalWidth,
-        height: totalWidth * 0.3313,
+        height: totalWidth * 0.2156,
     },
 });
 

@@ -53,7 +53,7 @@ class SectionArrayNewsClients extends React.Component {
             <Image source={{uri: item.imagen}} style={[styles.imageRow]}/>
             <View style={styles.singleArrayTitleAndHourContainer}>
               <Text style={styles.resourceMeta}>{item.titulo}{"\n"}
-                 <Text style={styles.resourceMetaSub}>{item.fecha}</Text>
+                  {/*<Text style={styles.resourceMetaSub}>{item.fecha}</Text>*/}
               </Text>
             </View>
           </View>

@@ -52,7 +52,7 @@ class PlanComercialIos extends Component{
             dataPresentations: new ListView.DataSource({
                 rowHasChanged: (row1, row2) => row1 != row2
             }),
-            imgdownload : require('../Img/ibooks/ver-ibook.png'),
+            imgdownload : require('../Img/Plan-comercial/ver-plan-comercial.png'),
             changeimage : false
         }
     }
@@ -98,12 +98,16 @@ class PlanComercialIos extends Component{
                     style={styles.presentationItemImage}
                     source={{uri: item.imagen}}
                 />
+                {/*
                 <Text style={styles.presentationTitle}>
                     {item.titulo}{"\n"}
+
                     <Text style={styles.presentationMicroResume}>
                         {item.fecha}
                     </Text>
+
                 </Text>
+                */}
                 {/*<TouchableOpacity onPress={showIbook(item)}>*/}
                 <TouchableOpacity onPress={() => this._showPresentation(item)}>
                     <View>
@@ -126,13 +130,15 @@ class PlanComercialIos extends Component{
         if (this.state.changeimage == false){
             return(
                 <Image
-                    source={require('../Img/ibooks/ver-ibook.png')}
+                    style={styles.imgViewPlan}
+                    source={require('../Img/Plan-comercial/ver-plan-comercial.png')}
                 />
             );
         }else{
             return(
                 <Image
-                   source={require('../Img/ibooks/descarga-ibook.png')}
+                    style={styles.imgViewPlan}
+                   source={require('../Img/Plan-comercial/ver-plan-comercial.png')}
                 />
             );
         }
@@ -270,6 +276,10 @@ const styles = StyleSheet.create({
     safeArea:{
         flex:1,
         backgroundColor: '#1B323A',
+    },
+    imgViewPlan:{
+        width: totalWidth,
+        height: totalWidth * 0.2156,
     }
 });
 
