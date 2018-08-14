@@ -10,11 +10,13 @@ import {
   processColor,
   Image
 } from 'react-native';
+import {totalHeight} from "../api/shared";
 
 
 var Modal   = require('react-native-modalbox');
 var totalWidth = Dimensions.get('window').width;
 var totalHeiHeight = Dimensions.get('window').height * .824;
+var heightFooter = totalHeight *.08;
 var titleConfig = {
     title: 'Connect',
     tintColor: 'white'
@@ -44,7 +46,7 @@ class SectionArrayNewsClients extends React.Component {
 
     if(this.props.newsletterClientsArray != undefined){
       return (
-        <View style={{height: totalHeiHeight}}>
+        <View style={{height: totalHeiHeight - heightFooter}}>
         <ScrollView bounces={true}>
         {this.props.newsletterClientsArray.map(function(item, index){
         rowsText.push(

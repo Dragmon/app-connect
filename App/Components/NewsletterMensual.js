@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import HeaderInterno from './HeaderInterno';
+import FooterInterno from './Footer-Option';
 import SectionArrayNewsMonthly from './SectionArrayNewsMonthly';
 import {
     StyleSheet,
@@ -25,14 +26,15 @@ import { NavigationActions } from 'react-navigation';
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
 */
+var heightFooter = totalHeight *.08;
 var api = require('../api/api');
-
 
 class NewsletterMensual extends Component{
   constructor(props){
     super(props)
     this.state = {
-      isLoading: false,
+        isLoading: false,
+        url: 'https://televisaventas.tv',
     }
   }
 
@@ -70,6 +72,11 @@ class NewsletterMensual extends Component{
           <View style={styles.contentInfo}>
               <SectionArrayNewsMonthly newsletterMensualArray={this.state.newsletterMensualArray} nav={this.props.navigation}/>
           </View>
+
+          <FooterInterno
+              urlnav={this.state.url}
+              style={styles.containerFooter}
+          />
       </SafeAreaView>
     )
   }
@@ -78,7 +85,7 @@ class NewsletterMensual extends Component{
 const styles = StyleSheet.create({
     contentInfo:{
         //flex: 1,
-        height: heightMenuSection,
+        height: heightMenuSection - heightFooter,
         //position: 'absolute',
         //top: Platform.OS === 'ios' ? (totalHeight * .185) : 0,
         //top: '12.4%',

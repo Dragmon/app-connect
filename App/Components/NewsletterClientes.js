@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import HeaderInterno from './HeaderInterno';
+import FooterInterno from './Footer-Option';
 import SectionArrayNewsClients from './SectionArrayNewsClients';
 import {
     StyleSheet,
@@ -16,11 +17,11 @@ import {
 import {
     totalWidth,
     heightTitle,
-    heightMenuSection
+    heightMenuSection, totalHeight
 } from '../api/shared';
 
 import { NavigationActions } from 'react-navigation'
-
+var heightFooter = totalHeight *.08;
 var api = require('../api/api');
 /*
 var totalHeight = Dimensions.get('window').height;
@@ -31,7 +32,8 @@ class NewsletterClientes extends Component{
   constructor(props){
     super(props)
     this.state = {
-      isLoading: false,
+        isLoading: false,
+        url: 'https://televisaventas.tv/detrasdelaestrategia/',
     }
   }
 
@@ -65,6 +67,10 @@ class NewsletterClientes extends Component{
             <View style={styles.contentInfo}>
                 <SectionArrayNewsClients newsletterClientsArray={this.state.newsletterClientsArray} nav={this.props.navigation}/>
             </View>
+            <FooterInterno
+                urlnav={this.state.url}
+                style={styles.containerFooter}
+            />
         </SafeAreaView>
     )
   }
@@ -92,7 +98,7 @@ const styles = StyleSheet.create({
     },
     contentInfo:{
         //flex: 1,
-        height: heightMenuSection,
+        height: heightMenuSection - heightFooter,
     },
     safeArea:{
         flex:1,
