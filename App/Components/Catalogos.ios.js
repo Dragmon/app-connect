@@ -96,9 +96,11 @@ class Catalogos extends Component{
                 />
                 <Text style={styles.presentationTitle}>
                     {item.titulo}{"\n"}
+                    {/*
                     <Text style={styles.presentationMicroResume}>
                         {item.fecha}
                     </Text>
+                    */}
                 </Text>
                 <TouchableOpacity onPress={() => this._showPresentation(item)}>
                     <View>
@@ -262,10 +264,12 @@ const styles = StyleSheet.create({
     },
 
     presentationTitle: {
-        padding: 20,
+        paddingTop: 20,
+        paddingLeft: 20,
       	backgroundColor: '#e91e53',
       	color: '#ffffff',
       	fontWeight: 'bold',
+        fontSize: 20,
     },
 
     presentationMicroResume: {
