@@ -104,6 +104,10 @@ const api = {
         var url = `https://adminconnect.televisaventas.tv/api/v1/circulares/obtener`;
         return fetch(url).then((res) => res.json())
     },
+    getImgHome(){
+        var url = `https://adminconnect.televisaventas.tv/api/v1/imghome/obtener`;
+        return fetch(url).then((res) => res.json())
+    },
 }
 
 

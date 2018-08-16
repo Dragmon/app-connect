@@ -9,6 +9,7 @@ import {
     Image,
     Platform,
 } from 'react-native'
+var api = require('../api/api');
 import ImageView from "./ImageView";
 
 var totalHeight = Dimensions.get('window').height;
@@ -29,9 +30,25 @@ console.log("widht /3 :" , totalWidth/3);
 
 class Body extends Component{
 
+    constructor(props){
+        super(props);
+        this.state ={
+            hits: [],
+        }
+    }
+
+    componentWillMount(){
+        console.log("componentWillMount");
+        api.getImgHome().then(data => this.setState({hits: data.hits}));
+        console.log("data :", this.state.hits);
+
+    }
+
   render(){
 
     const{navigate} = this.props.navigation;
+    const {hits} =this.state;
+    console.log("hits render:", hits);
 
     return(
 
