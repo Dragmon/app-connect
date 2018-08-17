@@ -128,9 +128,11 @@ class Presentaciones extends Component{
                     />
                     <Text style={styles.presentationTitle}>
                         {item.titulo}{"\n"}
+                        {/*
                         <Text style={styles.presentationMicroResume}>
                             {item.categoria} - {item.fecha}
                         </Text>
+                        */}
                     </Text>
                 </View>
             </TouchableOpacity>
@@ -195,7 +197,10 @@ const styles = StyleSheet.create({
     },
 
     presentationTitle: {
-        padding: 20,
+        //padding: 20,
+        paddingTop: 20,
+        paddingLeft: 15,
+        fontSize: 20,
       	backgroundColor: '#1b313a',
       	color: '#ffffff',
       	fontWeight: 'bold',
