@@ -33,16 +33,13 @@ class Body extends Component{
     constructor(props){
         super(props);
         this.state ={
-            urlImage: "https://adminconnect.televisaventas.tv/global/uploads/img-home/catalogos_image_home_png_thumb_507x960.jpg",
+            urlImage: "https://adminconnect.televisaventas.tv/logo-televisa.png",
         }
         console.log("estado inicial : ",this.state.urlImage);
     }
 
     componentWillMount(){
         console.log("componentWillMount");
-        //api.getImgHome().then(data => this.setState({hits: data.hits}));
-        //console.log("data :", this.state.hits);
-        //return fetch(url).then((res) => res.json())
         api.getImgHome()
             .then(function(myJson){
                 console.log("my json : ",myJson);
@@ -54,18 +51,14 @@ class Body extends Component{
                 console.log("url-imagen : ", imgurl);
 
                 this.setState({urlImage:imgurl});
-                //console.log("estado inicial : ",this.state.urlImage);
             }.bind(this));
-
     }
 
   render(){
 
     const{navigate} = this.props.navigation;
-    //const {hits} =this.state;
-    //console.log("hits render:", hits);
 
-      console.log("estado actualizado : ",this.state.urlImage);
+      //console.log("estado actualizado : ",this.state.urlImage);
 
       return(
 
