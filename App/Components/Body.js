@@ -33,24 +33,41 @@ class Body extends Component{
     constructor(props){
         super(props);
         this.state ={
-            hits: [],
+            urlImage: "https://adminconnect.televisaventas.tv/global/uploads/img-home/catalogos_image_home_png_thumb_507x960.jpg",
         }
+        console.log("estado inicial : ",this.state.urlImage);
     }
 
     componentWillMount(){
         console.log("componentWillMount");
-        api.getImgHome().then(data => this.setState({hits: data.hits}));
-        console.log("data :", this.state.hits);
+        //api.getImgHome().then(data => this.setState({hits: data.hits}));
+        //console.log("data :", this.state.hits);
+        //return fetch(url).then((res) => res.json())
+        api.getImgHome()
+            .then(function(myJson){
+                console.log("my json : ",myJson);
+
+                var obJson = myJson[0];
+                console.log(obJson);
+
+                var imgurl = obJson.imagen;
+                console.log("url-imagen : ", imgurl);
+
+                this.setState({urlImage:imgurl});
+                //console.log("estado inicial : ",this.state.urlImage);
+            }.bind(this));
 
     }
 
   render(){
 
     const{navigate} = this.props.navigation;
-    const {hits} =this.state;
-    console.log("hits render:", hits);
+    //const {hits} =this.state;
+    //console.log("hits render:", hits);
 
-    return(
+      console.log("estado actualizado : ",this.state.urlImage);
+
+      return(
 
 	  <View style={styles.mainContainer}>
 
@@ -58,7 +75,8 @@ class Body extends Component{
           <View style={styles.containerImage}>
               <Image
                   style={styles.mainImage}
-                  source={require('../Img/Home/image-home.png')}
+                  //source={require('../Img/Home/image-home.png')}
+                  source={{uri: this.state.urlImage}}
               />
           </View>
 		  {/* Segundo módulo */}
