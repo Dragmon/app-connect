@@ -34,6 +34,7 @@ class NewsletterClientes extends Component{
     this.state = {
         isLoading: false,
         url: 'https://televisaventas.tv/detrasdelaestrategia/',
+        textorigin: 'VER MÁS CONTENIDO',
     }
   }
 
@@ -69,6 +70,7 @@ class NewsletterClientes extends Component{
             </View>
             <FooterInterno
                 urlnav={this.state.url}
+                textorigin={this.state.textorigin}
                 style={styles.containerFooter}
             />
         </SafeAreaView>

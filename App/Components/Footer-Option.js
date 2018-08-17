@@ -25,7 +25,7 @@ class Footer extends Component{
                 <View style={styles.footer}>
                     <TouchableOpacity onPress={() => Linking.openURL(this.props.urlnav)}>
                         <Text style={styles.textfooter}>
-                            VER MÁS CONTENIDO
+                            {this.props.textorigin}
                         </Text>
                         {/*
                         <Image

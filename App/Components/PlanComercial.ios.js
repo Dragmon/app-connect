@@ -24,6 +24,7 @@ import {
     heightTitle,
     heightMenuSection
 } from '../api/shared';
+import FooterInterno from "./Footer-Option";
 
 /*
 let totalHeight = Dimensions.get('window').height;
@@ -33,6 +34,7 @@ var heightHeader = (aspectRatio == 2.2 ? totalHeight *.15 : totalHeight *.09);
 var heightTitle = totalWidth * 0.1136;
 var heightMenuSection = totalHeight - (heightHeader + heightTitle);
 */
+var heightFooter = totalHeight *.08;
 const api = require('../api/api');
 
 const   dirs = RNFetchBlob.fs.dirs,
@@ -53,7 +55,9 @@ class PlanComercialIos extends Component{
                 rowHasChanged: (row1, row2) => row1 != row2
             }),
             imgdownload : require('../Img/Plan-comercial/ver-plan-comercial.png'),
-            changeimage : false
+            changeimage : false,
+            url: 'https://televisa.plancomercial.com/',
+            textorigin: 'IR AL SITIO DE PLAN COMERCIAL',
         }
     }
 
@@ -235,6 +239,11 @@ class PlanComercialIos extends Component{
                             </ScrollView>
                         </View>
                     </View>
+                    <FooterInterno
+                        urlnav={this.state.url}
+                        textorigin={this.state.textorigin}
+                        style={styles.containerFooter}
+                    />
                 </SafeAreaView>
             );
         }
@@ -251,7 +260,7 @@ const styles = StyleSheet.create({
         left: 0,
         flexDirection: 'row',
         justifyContent: 'center',
-        height: heightMenuSection,
+        height: heightMenuSection - heightFooter,
     },
 
     listPresentations: {},

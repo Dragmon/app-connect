@@ -35,6 +35,7 @@ class NewsletterMensual extends Component{
     this.state = {
         isLoading: false,
         url: 'https://televisaventas.tv',
+        textorigin: 'VER MÁS CONTENIDO',
     }
   }
 
@@ -75,6 +76,7 @@ class NewsletterMensual extends Component{
 
           <FooterInterno
               urlnav={this.state.url}
+              textorigin={this.state.textorigin}
               style={styles.containerFooter}
           />
       </SafeAreaView>
