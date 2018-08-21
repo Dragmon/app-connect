@@ -16,7 +16,7 @@ var totalHeight = Dimensions.get('window').height;
 var aspectRatio = (totalHeight/totalWidth).toFixed(1);
 //var heightHeader = totalHeight *.15;
 var heightHeader = (aspectRatio == 2.2 ? totalHeight *.18 : totalHeight *.12);
-var headerAndroid = totalHeight * .10;
+var headerAndroid = totalHeight * .05;
 
 const Header = props => (
     <SafeAreaView style={styles.containerheader}>
@@ -57,11 +57,11 @@ const styles = StyleSheet.create({
     logoTelevisa: {
         marginRight: 10,
     },
-    /* provisional en lo que se coloca el boton del buscador*/
+    /* provisional en lo que se coloca el boton del buscador margin left*/
     logoApp:{
-        marginLeft: totalWidth * .35,
-        width: totalWidth /3,
-        height: (totalWidth /3) * .2043,
+        marginLeft: Platform.OS === 'ios' ? (totalWidth * .35) :  (totalWidth * .40),
+        width: Platform.OS === 'ios' ? (totalWidth /3) : (totalWidth /5),
+        height: Platform.OS === 'ios' ?  ((totalWidth /3) * .2043) : ((totalWidth /5) * .2043),
     }
 });
 

@@ -15,6 +15,8 @@ let totalWidth = Dimensions.get('window').width;
 let marginFooter = (totalHeight * .015);
 let widthImgFooter = (totalWidth * .10);
 //var heightFooter = totalHeight *.15;
+var heightImg = ((totalWidth / 6.5) * 0.5130);
+var widthImg =  (totalWidth / 6.5);
 var heightFooter = Platform.OS === 'ios' ? totalHeight *.10 : totalHeight *.10;
 
 class Footer extends Component{
@@ -49,6 +51,13 @@ var styles = StyleSheet.create({
     },
     imgFooter:{
         resizeMode : 'contain',
+        ...Platform.select({
+            android:{
+                marginTop: 3,
+                height: heightImg,
+                width: widthImg,
+            }
+        }),
     }
 });
 
