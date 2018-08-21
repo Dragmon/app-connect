@@ -13,6 +13,7 @@ import {
   Image
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
+import {heightTitle} from "../api/shared";
 var api = require('../api/api');
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
@@ -67,7 +68,6 @@ class Catalogos extends Component{
   				<Image source={{uri:presentation.imagen}} style={styles.presentationRow}>
   				</Image>
   				<Text style={styles.presentationMeta}>{presentation.titulo}{"\n"}
-  					<Text style={styles.presentationSub}>{presentation.fecha}</Text>
   				</Text>
   			</View>
   		</TouchableOpacity>
@@ -78,78 +78,59 @@ class Catalogos extends Component{
     const{navigate} = this.props.navigation;
 
     return(
-      <View>
-        <HeaderInterno
-          onPress = {() => this.props.navigation.goBack()}
-        />
-        <View style={styles.containerTitle}>
-          <Text style={styles.sectionTitleText}>Catálogos</Text>
+        <View style={styles.safeArea}>
+            <HeaderInterno
+                onPress = {() => this.props.navigation.goBack()}
+            />
+            <Image
+                style={styles.titleseccion}
+                source={require('../Img/Catalogos/encabezado-catalogos.png')}
+            />
+            <View style={styles.menuHotResults}>
+                <ScrollView bounces={true}>
+					<ListView
+						dataSource={this.state.dataSource}
+						renderRow={this._renderpresentation.bind(this)}
+						style={styles.listView}
+						enableEmptySections={true}
+					/>
+				</ScrollView>
+            </View>
         </View>
-
-        <View style={styles.contBackgroundImage}>
-          <Image
-            style={{flex: 1}}
-            source={require('../Img/General/background_pattern.png')}
-          />
-        </View>
-
-        <View style={styles.menuHotResults}>
-					<ScrollView bounces={true}>
-						<ListView
-							dataSource={this.state.dataSource}
-							renderRow={this._renderpresentation.bind(this)}
-							style={styles.listView}
-							enableEmptySections={true}
-						/>
-					</ScrollView>
-				</View>
-
-      </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  containerTitle:{
-    flexDirection: 'row',
-    backgroundColor: '#E44858',
-    justifyContent: 'center'
-  },
-  sectionTitleText:{
-    fontSize: 15,
-    flexDirection: 'column',
-    alignSelf: 'center',
-    color: 'white'
-  },
-  contBackgroundImage:{
-    position: 'relative',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center'
-  },
-  menuHotResults:{
-    position: 'absolute',
-    flexDirection: 'row',
-    top: topSection,
-    height: heightView
-  },
-  presentationMeta:{
-  	padding: 20,
-  	backgroundColor: '#f68934',
-  	color: '#ffffff',
-  	fontWeight: 'bold',
-  },
-  presentationSub:{
-  	fontWeight: 'normal',
-  },
-  presentationRow:{
-   flexDirection: 'row',
-   justifyContent: 'center',
-   height: totalWidth*.5555,
-   width: totalWidth
-  }
+    safeArea:{
+        flex:1,
+        backgroundColor: '#1B323A',
+    },
+    titleseccion:{
+        width: totalWidth,
+        height: heightTitle,
+    },
+    menuHotResults:{
+        position: 'absolute',
+        flexDirection: 'row',
+        top: topSection,
+        height: heightView
+    },
+    presentationMeta:{
+      	padding: 20,
+  	    backgroundColor: '#e91e53',
+  	    color: '#ffffff',
+  	    fontWeight: 'bold',
+    },
+    presentationSub:{
+  	    fontWeight: 'normal',
+    },
+    presentationRow:{
+        flexDirection: 'row',
+        justifyContent: 'center',
+        height: totalWidth*.5555,
+        width: totalWidth
+    }
 });
 
 export default Catalogos;
