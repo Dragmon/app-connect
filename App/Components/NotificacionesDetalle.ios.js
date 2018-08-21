@@ -9,7 +9,8 @@ import {
     ScrollView,
     SafeAreaView,
     Platform,
-    ImageBackground, PushNotificationIOS
+    ImageBackground,
+    PushNotificationIOS
 }
     from 'react-native';
 import {
@@ -29,7 +30,7 @@ var totalWidth = Dimensions.get('window').width;
 var aspectRatio = (totalHeight/totalWidth).toFixed(1);
 */
 
-class NotificacionesDetalle extends Component{
+class NotificacionesDetalleIos extends Component{
     static navigationOptions = {
         header: null,
         headerMode: null
@@ -125,4 +126,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default NotificacionesDetalle
+export default NotificacionesDetalleIos

@@ -56,7 +56,7 @@ class Notificaciones extends Component{
     }
 
     componentWillMount() {
-        PushNotificationIOS.setApplicationIconBadgeNumber(0);
+        //PushNotificationIOS.setApplicationIconBadgeNumber(0);
         api
             .getNotifications()
             .then((response) => this.handleResponse(response))

@@ -13,17 +13,25 @@ import {
   Alert,
   Image
 } from 'react-native';
+import FooterInterno from "./Footer-Option";
 import { NavigationActions } from 'react-navigation';
+import {
+    totalHeight,
+    totalWidth,
+    heightTitle,
+    heightMenuSection
+} from '../api/shared';
+
 var api = require('../api/api');
-var totalHeiHeight = Dimensions.get('window').height;
-var totalWidth = Dimensions.get('window').width;
-var heightCont = totalHeiHeight*.25;
+//var totalHeiHeight = Dimensions.get('window').height;
+//var totalWidth = Dimensions.get('window').width;
+var heightCont = totalHeight*.25;
 var widhtCont = totalWidth*.45;
-var topSection = totalHeiHeight * .135;
-var topSectionTwo = totalHeiHeight * .450;
+var topSection = totalHeight * .135;
+var topSectionTwo = totalHeight * .450;
 var data = Jsonplancomercia;
 
-class PresentacionNetworks extends Component{
+class PlanComercial extends Component{
 
   constructor(props){
     super(props)
@@ -87,80 +95,62 @@ class PresentacionNetworks extends Component{
 
 
   render(){
-    const{navigate} = this.props.navigation;
+      const{navigate} = this.props.navigation;
 
-    return(
-      <View>
-        <HeaderInterno
-          onPress = {() => this.props.navigation.goBack()}
-        />
-        <View style={styles.containerTitle}>
-          <Text style={styles.sectionTitleText}>Plan Comercial</Text>
-        </View>
-
-        <View style={styles.contBackgroundImage}>
-          <Image
-            style={{flex: 1}}
-            source={require('../Img/General/background_pattern.png')}
-          />
-        </View>
-
-        <View style={styles.menuPresentaciones}>
-					<ScrollView bounces={true}>
+        return(
+            <View style={styles.safeArea}>
+                <HeaderInterno
+                    onPress = {() => this.props.navigation.goBack()}
+                />
+                <Image
+                    style={styles.titleseccion}
+                    source={require('../Img/Plan-comercial/encabezado-plan-comercial.png')}
+                />
+                <View style={styles.menuPresentaciones}>
+                    <ScrollView bounces={true}>
 						<ListView
 							dataSource={this.state.dataSource}
-              renderRow={this._renderpresentation.bind(this)}
+                            renderRow={this._renderpresentation.bind(this)}
 							style={styles.listView}
 							enableEmptySections={true}
 						/>
 					</ScrollView>
 				</View>
 
-      </View>
-    )
-  }
+            </View>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
-  containerTitle:{
-    flexDirection: 'row',
-    backgroundColor: '#E44858',
-    justifyContent: 'center'
-  },
-  sectionTitleText:{
-    fontSize: 15,
-    flexDirection: 'column',
-    alignSelf: 'center',
-    color: 'white'
-  },
-  contBackgroundImage:{
-    position: 'relative',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center'
-  },
-  menuPresentaciones:{
-    position: 'absolute',
-    flexDirection: 'row',
-    top: topSection,
-  },
-  presentationMeta:{
-  	padding: 20,
-  	backgroundColor: '#f68934',
-  	color: '#ffffff',
-  	fontWeight: 'bold',
-  },
-  presentationSub:{
-  	fontWeight: 'normal',
-  },
-  presentationRow:{
-   flexDirection: 'row',
-   justifyContent: 'center',
-   height: totalWidth*.5555,
-   width: totalWidth
-  }
+    menuPresentaciones:{
+        position: 'absolute',
+        flexDirection: 'row',
+        top: topSection,
+    },
+    presentationMeta:{
+  	    padding: 20,
+  	    backgroundColor: '#e91e53',
+  	    color: '#ffffff',
+  	    fontWeight: 'bold',
+    },
+    presentationSub:{
+  	    fontWeight: 'normal',
+    },
+    presentationRow:{
+        flexDirection: 'row',
+        justifyContent: 'center',
+        height: totalWidth*.5555,
+        width: totalWidth
+    },
+    titleseccion:{
+        width: totalWidth,
+        height: heightTitle,
+    },
+    safeArea:{
+        flex:1,
+        backgroundColor: '#1B323A',
+    },
 });
 
-export default PresentacionNetworks
+export default PlanComercial
