@@ -72,6 +72,7 @@ class PlanComercial extends Component{
 
   _renderpresentation(presentation){
     const{navigate} = this.props.navigation;
+    /*
     var urlfile = presentation.url,
         separador = "/";
     urlfileArray = urlfile.split(separador);
@@ -79,9 +80,12 @@ class PlanComercial extends Component{
     newUrlFile = urlfileArray[5] + separador + urlfileArray[6];
     console.log(urlfile);
     console.log(newUrlFile);
+    console.log(presentation);
+    */
 
   	return(
-  		<TouchableOpacity onPress={() => navigate('ExcelView',{origin:newUrlFile})}>
+  		//<TouchableOpacity onPress={() => navigate('ExcelView',{origin:newUrlFile})}>
+        <TouchableOpacity onPress={() => navigate('ShowPresentation',{presentation: presentation})}>
   			<View>
   				<Image source={{uri:presentation.imagen}} style={styles.presentationRow}>
   				</Image>

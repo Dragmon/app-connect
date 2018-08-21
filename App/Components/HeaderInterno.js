@@ -22,7 +22,7 @@ const HeaderInterno = props => (
       <Icon
         name="angle-left"
         color="#ffffff"
-        size={45}
+        size={35}
         style={styles.iconbars}
 
       />

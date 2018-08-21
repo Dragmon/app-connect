@@ -29,13 +29,13 @@ import OneSignal from 'react-native-onesignal';
 import Parrillas from './Components/Parrillas';
 
 import PdfView from './Components/pdfview';
-import ExcelView from './Components/excelview';
+//import ExcelView from './Components/excelview';
 
 //import Calendario from './Components/Calendario';
 //import CalendarView from './Components/Calendarview';
 
-import Networks from './Components/Networks';
-import PresentacionNetworks from './Components/PresentacionNetworks';
+//import Networks from './Components/Networks';
+//import PresentacionNetworks from './Components/PresentacionNetworks';
 
 import HotResults from './Components/HotResults';
 import ImageView from './Components/ImageView';
@@ -96,13 +96,13 @@ const Index = StackNavigator({
 
     PdfView: {screen:PdfView},
 
-    ExcelView: {screen:ExcelView},
+    //ExcelView: {screen:ExcelView},
 
     //Calendario: {screen:Calendario},
     //CalendarView: {screen:CalendarView},
 
-    Networks: {screen:Networks},
-    PresentacionNetworks: {screen:PresentacionNetworks},
+    //Networks: {screen:Networks},
+    //PresentacionNetworks: {screen:PresentacionNetworks},
 
     HotResults: {screen:HotResults},
     ImageView: {screen:ImageView},
