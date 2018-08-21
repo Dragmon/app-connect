@@ -33,6 +33,7 @@ export default class App extends Component<{}> {
         }
     }
 
+    /*
     componentWillMount() {
         PushNotificationIOS.requestPermissions();
         // Add listener for push notifications
@@ -70,6 +71,7 @@ export default class App extends Component<{}> {
                 AlertIOS.alert('No tenemos acceso a Internet','Para poder mantenerte actualizado con notificaciones necesitamos mantengas tu conexión a Internet activa')
             });
     }
+    */
 
     static navigationOptions = {
         header: null,
@@ -106,7 +108,7 @@ export default class App extends Component<{}> {
                     />
                 </SideMenu>
 
-                /*Prueba del uso de flexbox*/
+                {/*Prueba del uso de flexbox*/
                 /*
                 <View style={styles.containerHeader}></View>
                 <View style={styles.containerBody}>
@@ -114,7 +116,7 @@ export default class App extends Component<{}> {
                     <View style={styles.container2}></View>
                 </View>
                 <View style={styles.containerFooter}></View>
-                */
+                */}
             </SafeAreaView>
         );
     }

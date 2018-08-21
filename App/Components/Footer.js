@@ -6,7 +6,8 @@ import {
     SafeAreaView,
     TouchableOpacity,
     Dimensions,
-    Linking
+    Linking,
+    Platform
 } from 'react-native';
 
 let totalHeight = Dimensions.get('window').height;
@@ -14,7 +15,7 @@ let totalWidth = Dimensions.get('window').width;
 let marginFooter = (totalHeight * .015);
 let widthImgFooter = (totalWidth * .10);
 //var heightFooter = totalHeight *.15;
-var heightFooter = totalHeight *.10;
+var heightFooter = Platform.OS === 'ios' ? totalHeight *.10 : totalHeight *.10;
 
 class Footer extends Component{
     render(){

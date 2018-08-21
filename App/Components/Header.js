@@ -16,6 +16,7 @@ var totalHeight = Dimensions.get('window').height;
 var aspectRatio = (totalHeight/totalWidth).toFixed(1);
 //var heightHeader = totalHeight *.15;
 var heightHeader = (aspectRatio == 2.2 ? totalHeight *.18 : totalHeight *.12);
+var headerAndroid = totalHeight * .10;
 
 const Header = props => (
     <SafeAreaView style={styles.containerheader}>
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         backgroundColor: '#1B323A',
         flex: aspectRatio == 2.2 ? 1 : 0,
-        height: heightHeader,
+        height: Platform.OS === 'ios' ? heightHeader: headerAndroid,
     },
     iconbars: {
         marginLeft: 10,
