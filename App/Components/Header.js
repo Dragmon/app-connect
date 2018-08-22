@@ -17,6 +17,7 @@ var aspectRatio = (totalHeight/totalWidth).toFixed(1);
 //var heightHeader = totalHeight *.15;
 var heightHeader = (aspectRatio == 2.2 ? totalHeight *.18 : totalHeight *.12);
 var headerAndroid = totalHeight * .05;
+var headerAndRat19 = totalHeight * .10;
 
 const Header = props => (
     <SafeAreaView style={styles.containerheader}>
@@ -49,7 +50,14 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         backgroundColor: '#1B323A',
         flex: aspectRatio == 2.2 ? 1 : 0,
-        height: Platform.OS === 'ios' ? heightHeader: headerAndroid,
+        ...Platform.select({
+            ios:{
+                height: heightHeader,
+            },
+            android:{
+                height: aspectRatio == 1.9 ? headerAndRat19 : headerAndroid,
+            }
+        }),
     },
     iconbars: {
         marginLeft: 10,
@@ -59,10 +67,24 @@ const styles = StyleSheet.create({
     },
     /* provisional en lo que se coloca el boton del buscador margin left*/
     logoApp:{
+        /*
         marginLeft: Platform.OS === 'ios' ? (totalWidth * .35) :  (totalWidth * .40),
         width: Platform.OS === 'ios' ? (totalWidth /3) : (totalWidth /5),
         height: Platform.OS === 'ios' ?  ((totalWidth /3) * .2043) : ((totalWidth /5) * .2043),
-    }
+        */
+        ...Platform.select({
+            ios:{
+                marginLeft: totalWidth * .35,
+                width: totalWidth /3,
+                height: (totalWidth /3) * .2043,
+            },
+            android:{
+                marginLeft: aspectRatio == 1.9 ? totalWidth * .35 : totalWidth * .40,
+                width: aspectRatio == 1.9 ? totalWidth /3 : totalWidth /5,
+                height: aspectRatio == 1.9 ? (totalWidth /3) * .2043 : (totalWidth /5) * .2043,
+            },
+        }),
+    },
 });
 
 export default Header

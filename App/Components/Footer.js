@@ -12,12 +12,15 @@ import {
 
 let totalHeight = Dimensions.get('window').height;
 let totalWidth = Dimensions.get('window').width;
+var aspectRatio = (totalHeight/totalWidth).toFixed(1);
 let marginFooter = (totalHeight * .015);
 let widthImgFooter = (totalWidth * .10);
-//var heightFooter = totalHeight *.15;
 var heightImg = ((totalWidth / 6.5) * 0.5130);
 var widthImg =  (totalWidth / 6.5);
-var heightFooter = Platform.OS === 'ios' ? totalHeight *.10 : totalHeight *.10;
+var heightImgRat = ((totalWidth / 4.5) * 0.5130);
+var widthImgRat =  (totalWidth / 4.5);
+var heightFooter = totalHeight *.10;
+var footerAndRat19 = totalHeight *.15;
 
 class Footer extends Component{
     render(){
@@ -47,15 +50,24 @@ var styles = StyleSheet.create({
     safearea:{
         //flex: 1,
         backgroundColor: '#1B323A',
-        height: heightFooter,
+        //height: heightFooter,
+        ...Platform.select({
+            ios:{
+                height: heightFooter,
+            },
+            android:{
+                marginTop: 3,
+                height: aspectRatio == 1.9 ? footerAndRat19 : heightFooter,
+            }
+        }),
     },
     imgFooter:{
         resizeMode : 'contain',
         ...Platform.select({
             android:{
                 marginTop: 3,
-                height: heightImg,
-                width: widthImg,
+                height: aspectRatio == 1.9 ? heightImgRat :heightImg,
+                width: aspectRatio == 1.9 ? widthImgRat : widthImg,
             }
         }),
     }
