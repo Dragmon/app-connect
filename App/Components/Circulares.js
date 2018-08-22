@@ -161,6 +161,7 @@ const styles = StyleSheet.create({
       	backgroundColor: '#1b313a',
       	color: '#ffffff',
       	fontWeight: 'bold',
+        marginTop: Platform.OS === 'ios' ? 0 : -3,
     },
 
     presentationMicroResume: {

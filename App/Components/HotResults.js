@@ -24,16 +24,6 @@ import {
 
 import { NavigationActions } from 'react-navigation';
 var api = require('../api/api');
-/*
-var totalHeight = Dimensions.get('window').height;
-var totalWidth = Dimensions.get('window').width;
-var heightCont = totalHeight*.25;
-var widhtCont = totalWidth*.45;
-var topSection = totalHeight * .135;
-var topSectionTwo = totalHeight * .450;
-var heightView = totalHeight - 100;
-var heightHeader = totalHeight *.20;
-*/
 
 class HotResults extends Component{
 
@@ -77,7 +67,6 @@ class HotResults extends Component{
   				<Image source={{uri:presentation.imagen}} style={styles.presentationRow}>
   				</Image>
   				<Text style={styles.presentationMeta}>{presentation.titulo}{"\n"}
-                    {/*<Text style={styles.presentationSub}>{presentation.fecha}</Text>*/}
   				</Text>
   			</View>
   		</TouchableOpacity>
@@ -130,6 +119,7 @@ const styles = StyleSheet.create({
       	backgroundColor: '#1b313a',
   	    color: '#ffffff',
   	    fontWeight: 'bold',
+        marginTop: Platform.OS === 'ios' ? 0 : -.3,
     },
     presentationSub:{
   	    fontWeight: 'normal',

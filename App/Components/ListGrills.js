@@ -22,15 +22,6 @@ import {
     heightMenuSection
 } from '../api/shared';
 
-/*
-var totalHeight = Dimensions.get('window').height;
-var totalWidth = Dimensions.get('window').width;
-var heightCont = totalHeight*.25;
-var widhtCont = totalWidth*.45;
-var topSection = totalHeight * .130;
-var heightHeader = totalHeight *.20;
-*/
-
 const api = require('../api/api');
 
 class Presentaciones extends Component{
@@ -106,8 +97,6 @@ class Presentaciones extends Component{
                 />
                 <Image
                     style={styles.titleseccion}
-                    //source={require('../Img/Presentaciones/encabezado-presentaciones.png')}
-                    //source={ImageHeader.imagesheader.networks}
                     source={this.state.imageHeaderUrl}
                 />
 
@@ -128,11 +117,6 @@ class Presentaciones extends Component{
                     />
                     <Text style={styles.presentationTitle}>
                         {item.titulo}{"\n"}
-                        {/*
-                        <Text style={styles.presentationMicroResume}>
-                            {item.categoria} - {item.fecha}
-                        </Text>
-                        */}
                     </Text>
                 </View>
             </TouchableOpacity>
@@ -155,7 +139,6 @@ class Presentaciones extends Component{
                     />
                     <Image
                         style={styles.titleseccion}
-                        //source={require('../Img/Presentaciones/encabezado-presentaciones.png')}
                         source={this.state.imageHeaderUrl}
                     />
                     <View style={styles.menuSection}>
@@ -197,10 +180,10 @@ const styles = StyleSheet.create({
     },
 
     presentationTitle: {
-        //padding: 20,
-        paddingTop: 20,
+        paddingTop: Platform.OS === 'ios' ? 20 : 10,
+        paddingBottom: Platform.OS === 'ios' ? 0 : 5,
         paddingLeft: 15,
-        fontSize: 20,
+        fontSize: Platform.OS === 'ios' ? 20 : 15,
       	backgroundColor: '#1b313a',
       	color: '#ffffff',
       	fontWeight: 'bold',

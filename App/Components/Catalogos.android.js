@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
   	    backgroundColor: '#e91e53',
   	    color: '#ffffff',
   	    fontWeight: 'bold',
+        marginTop: -.3,
     },
     presentationSub:{
   	    fontWeight: 'normal',

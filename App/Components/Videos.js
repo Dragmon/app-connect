@@ -22,14 +22,6 @@ import {
     heightMenuSection
 } from '../api/shared';
 
-/*
-var totalHeight = Dimensions.get('window').height;
-var totalWidth = Dimensions.get('window').width;
-var heightCont = totalHeight*.25;
-var widhtCont = totalWidth*.45;
-var topSection = totalHeight * .130;
-var heightHeader = totalHeight *.20;
-*/
 const api = require('../api/api');
 
 class Videos extends Component{
@@ -164,6 +156,7 @@ const styles = StyleSheet.create({
       	backgroundColor: '#1b313a',
       	color: '#ffffff',
       	fontWeight: 'bold',
+        marginTop: Platform.OS === 'ios' ? 0 : -.3,
     },
 
     videoMicroResume: {

@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import HeaderInterno from './HeaderInterno';
-import Jsonplancomercia from '../api/plancomercial.json';
 import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableHighlight,
-  TouchableOpacity,
-  Dimensions,
-  ScrollView,
-  ListView,
-  Alert,
-  Image
+    StyleSheet,
+    Text,
+    View,
+    TouchableHighlight,
+    TouchableOpacity,
+    Dimensions,
+    ScrollView,
+    ListView,
+    Alert,
+    Image,
+    Platform
 } from 'react-native';
 import FooterInterno from "./Footer-Option";
 import { NavigationActions } from 'react-navigation';
@@ -23,13 +23,7 @@ import {
 } from '../api/shared';
 
 var api = require('../api/api');
-//var totalHeiHeight = Dimensions.get('window').height;
-//var totalWidth = Dimensions.get('window').width;
-var heightCont = totalHeight*.25;
-var widhtCont = totalWidth*.45;
-var topSection = totalHeight * .135;
-var topSectionTwo = totalHeight * .450;
-var data = Jsonplancomercia;
+var heightFooter = totalHeight *.08;
 
 class PlanComercial extends Component{
 
@@ -39,7 +33,9 @@ class PlanComercial extends Component{
     	dataSource: new ListView.DataSource({
     		rowHasChanged: (row1, row2) => row1 !== row2
     	}),
-       isLoading:false,
+        isLoading:false,
+        url: 'https://televisa.plancomercial.com/',
+        textorigin: 'IR AL SITIO DE PLAN COMERCIAL',
     }
   }
 
@@ -120,7 +116,11 @@ class PlanComercial extends Component{
 						/>
 					</ScrollView>
 				</View>
-
+                <FooterInterno
+                    urlnav={this.state.url}
+                    textorigin={this.state.textorigin}
+                    style={styles.containerFooter}
+                />
             </View>
         )
     }
@@ -128,15 +128,16 @@ class PlanComercial extends Component{
 
 const styles = StyleSheet.create({
     menuPresentaciones:{
-        position: 'absolute',
         flexDirection: 'row',
-        top: topSection,
+        height: heightMenuSection - heightFooter,
+        justifyContent: 'center',
     },
     presentationMeta:{
   	    padding: 20,
   	    backgroundColor: '#e91e53',
   	    color: '#ffffff',
   	    fontWeight: 'bold',
+        marginTop: -.3,
     },
     presentationSub:{
   	    fontWeight: 'normal',
