@@ -20,7 +20,7 @@ var widthImg =  (totalWidth / 6.5);
 var heightImgRat = ((totalWidth / 4.5) * 0.5130);
 var widthImgRat =  (totalWidth / 4.5);
 var heightFooter = totalHeight *.10;
-var footerAndRat19 = totalHeight *.15;
+var footerAndRat19 = totalHeight *.10;
 
 class Footer extends Component{
     render(){
@@ -56,7 +56,8 @@ var styles = StyleSheet.create({
                 height: heightFooter,
             },
             android:{
-                marginTop: 3,
+                marginTop: aspectRatio == 1.9 ? 15 : 3,
+                marginBottom: aspectRatio == 1.9 ? -15 : 0,
                 height: aspectRatio == 1.9 ? footerAndRat19 : heightFooter,
             }
         }),
