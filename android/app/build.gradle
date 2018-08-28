@@ -94,13 +94,18 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
+    /*
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
+    */
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
         applicationId "com.connect_havas"
         minSdkVersion 16
-        targetSdkVersion 22
+        /*targetSdkVersion 22*/
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         ndk {
