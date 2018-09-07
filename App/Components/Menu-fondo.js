@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 //import Browser from 'react-native-browser';
 import{
+    Button,
     Dimensions,
     StyleSheet,
     View,
     Text,
+    TextInput,
     TouchableOpacity,
     Image,
     SafeAreaView,
@@ -17,71 +19,39 @@ var aspectRatio = totalHeight/toatlWidth;
 
 class Menu extends Component{
 
-  render(){
+    render(){
 
-    const{navigate} = this.props.navigation;
+        const{navigate} = this.props.navigation;
 
-    return(
-      <SafeAreaView style={styles.contmenu}>
-          {/*
-        <View style={styles.contbackgroundimage}>
-          <Image
-              style={styles.backgroundimg}
-              source={require('../Img/Menu/background_menu.png')}
-          />
-        </View>
-        */}
-        <View style={styles.containermenu}>
-
-        </View>
-      </SafeAreaView>
-    )
-  }
+        return(
+            <SafeAreaView style={styles.contmenu}>
+                <View>
+                    <TextInput
+                        style={styles.textsearch}
+                    />
+                </View>
+                <Button
+                    title={'Search'}
+                />
+            </SafeAreaView>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
-    backgroundimg:{
-        flex:1,
-        height: totalHeight,
-    },
     contmenu:{
         flex: 1,
     },
-    contbackgroundimage:{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: totalHeight,
+    textsearch:{
+        height: 30,
+        width: toatlWidth - 50,
+        borderWidth: 1,
+        borderColor: '#4084ff',
+        backgroundColor:'#FFFFFF',
+        marginLeft: 10,
+        marginRight: 10,
+        marginTop: 10,
     },
-    containermenu:{
-        flex: 1,
-        flexDirection: 'column',
-    },
-    innerRow:{
-        flexDirection: 'row'
-    },
-    innerIconStyle:{
-        left: 30,
-        alignSelf: 'center',
-
-    },
-    innerTextStyle:{
-        ...Platform.select({
-            ios:{
-                //condición para aplicar css en ipad y iphone
-                fontSize: aspectRatio <= 1.6 ? 14 : 20,
-                padding: aspectRatio <= 1.6 ? 11 : 20,
-            },
-            android:{
-                fontSize: 15,
-                padding: 12,
-            }
-        }),
-        left: 30,
-        color: 'white',
-        backgroundColor: 'rgba(0, 0, 0, 0.0)'
-    }
 })
 
 export default Menu

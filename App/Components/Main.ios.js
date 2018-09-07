@@ -22,7 +22,7 @@ import {
 
 var totalWidth = Dimensions.get('window').width;
 var totalHeight = Dimensions.get('window').height;
-var slideMenudisplace = totalWidth*.90;
+var slideMenudisplace = totalWidth*.95;
 var heightHeader = totalHeight *.10;
 
 export default class App extends Component<{}> {
@@ -91,7 +91,7 @@ export default class App extends Component<{}> {
 
                 <SideMenu
                     menu={<Menu navigation={this.props.navigation} toggle={this.toggle.bind(this)}/>}
-                    //isOpen={this.state.isOpen}
+                    isOpen={this.state.isOpen}
                     openMenuOffset={slideMenudisplace}
                     onChange={(isOpen) => this.updateMenu(isOpen)}
                 >

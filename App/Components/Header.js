@@ -21,16 +21,14 @@ var headerAndRat19 = totalHeight * .10;
 
 const Header = props => (
     <SafeAreaView style={styles.containerheader}>
-        {/*
         <TouchableWithoutFeedback onPress={() => props.toggle()}>
             <Icon
-                name="bars"
+                name="search"
                 color="#ffffff"
                 size={25}
                 style={styles.iconbars}
             />
         </TouchableWithoutFeedback>
-        */}
         <Image
             style={styles.logoApp}
             source={require('../Img/Header/logo-connect.png')}
@@ -61,6 +59,7 @@ const styles = StyleSheet.create({
     },
     iconbars: {
         marginLeft: 10,
+        width: totalWidth /10,
     },
     logoTelevisa: {
         marginRight: 10,
@@ -74,7 +73,7 @@ const styles = StyleSheet.create({
         */
         ...Platform.select({
             ios:{
-                marginLeft: totalWidth * .35,
+                marginRight: totalWidth * .33,
                 width: totalWidth /3,
                 height: (totalWidth /3) * .2043,
             },
