@@ -3,7 +3,7 @@ import NavigationBar from 'react-native-navbar';
 import SideMenu from 'react-native-side-menu';
 import Header from './Header';
 import Body from './Body';
-import Menu from './Menu-fondo';
+import Search from './Search';
 import Footer from './Footer';
 import api from '../api/api';
 
@@ -22,7 +22,7 @@ import {
 
 var totalWidth = Dimensions.get('window').width;
 var totalHeight = Dimensions.get('window').height;
-var slideMenudisplace = totalWidth*.95;
+var slideMenudisplace = totalWidth*.90;
 var heightHeader = totalHeight *.10;
 
 export default class App extends Component<{}> {
@@ -90,14 +90,16 @@ export default class App extends Component<{}> {
             <SafeAreaView style={styles.container}>
 
                 <SideMenu
-                    menu={<Menu navigation={this.props.navigation} toggle={this.toggle.bind(this)}/>}
+                    menu={<Search navigation={this.props.navigation} toggle={this.toggle.bind(this)}/>}
                     isOpen={this.state.isOpen}
                     openMenuOffset={slideMenudisplace}
                     onChange={(isOpen) => this.updateMenu(isOpen)}
+                    style={styles.sideMenu}
                 >
                     <Header
                         style={styles.containerHeader}
                         navigation={this.props.navigation} toggle={this.toggle.bind(this)}/>
+
                     <Body
                         style={styles.containerBody}
                         navigation={this.props.navigation} />
@@ -105,16 +107,6 @@ export default class App extends Component<{}> {
                         style={styles.containerFooter}
                     />
                 </SideMenu>
-
-                {/*Prueba del uso de flexbox*/
-                /*
-                <View style={styles.containerHeader}></View>
-                <View style={styles.containerBody}>
-                    <View style={styles.container1}></View>
-                    <View style={styles.container2}></View>
-                </View>
-                <View style={styles.containerFooter}></View>
-                */}
             </SafeAreaView>
         );
     }
@@ -141,15 +133,6 @@ const styles = StyleSheet.create({
         //height: heightHeader,
         //flex: 1,
         //backgroundColor: '#e3aa1a',
-    }
-/*
-    container1:{
-        flex: 1,
-        backgroundColor: '#b9a8e3',
     },
-    container2:{
-        flex: 2,
-        backgroundColor: '#8daae3',
-    },
-*/
+
 });

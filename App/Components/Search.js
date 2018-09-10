@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 //import Browser from 'react-native-browser';
+//import { Button } from 'react-native-elements'
 import{
     Button,
     Dimensions,
@@ -17,21 +18,21 @@ var totalHeight = Dimensions.get('window').height;
 var toatlWidth = Dimensions.get('window').width;
 var aspectRatio = totalHeight/toatlWidth;
 
-class Menu extends Component{
+class Search extends Component{
 
     render(){
-
-        const{navigate} = this.props.navigation;
-
         return(
             <SafeAreaView style={styles.contmenu}>
                 <View>
                     <TextInput
+                        placeholder={'Buscar'}
+                        placeholderTextColor={'#000'}
                         style={styles.textsearch}
                     />
                 </View>
                 <Button
                     title={'Search'}
+                    color='#FFF'
                 />
             </SafeAreaView>
         )
@@ -52,6 +53,9 @@ const styles = StyleSheet.create({
         marginRight: 10,
         marginTop: 10,
     },
+    buttonSearch:{
+        backgroundColor: '#FFF'
+    },
 })
 
-export default Menu
+export default Search

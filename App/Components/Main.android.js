@@ -3,7 +3,7 @@ import NavigationBar from 'react-native-navbar';
 import SideMenu from 'react-native-side-menu';
 import Header from './Header';
 import Body from './Body';
-import Menu from './Menu-fondo';
+import Search from './Search';
 import Footer from './Footer';
 import api from '../api/api';
 
@@ -92,7 +92,7 @@ export default class App extends Component<{}> {
             <SafeAreaView style={styles.container}>
 
                 <SideMenu
-                    menu={<Menu navigation={this.props.navigation} toggle={this.toggle.bind(this)}/>}
+                    menu={<Search navigation={this.props.navigation} toggle={this.toggle.bind(this)}/>}
                     //isOpen={this.state.isOpen}
                     openMenuOffset={slideMenudisplace}
                     onChange={(isOpen) => this.updateMenu(isOpen)}
