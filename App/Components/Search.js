@@ -12,7 +12,8 @@ import{
     Image,
     SafeAreaView,
     Platform,
-    NativeModules
+    NativeModules,
+    TouchableHighlight
 } from 'react-native'
 var totalHeight = Dimensions.get('window').height;
 var toatlWidth = Dimensions.get('window').width;
@@ -30,10 +31,13 @@ class Search extends Component{
                         style={styles.textsearch}
                     />
                 </View>
-                <Button
-                    title={'Search'}
-                    color='#FFF'
-                />
+                <TouchableHighlight style={styles.tounchButton}>
+                    <View style={styles.buttonSearch}>
+                        <Text style={styles.textButton}>
+                            Search
+                        </Text>
+                    </View>
+                </TouchableHighlight>
             </SafeAreaView>
         )
     }
@@ -52,9 +56,23 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         marginTop: 10,
+        fontSize:20,
+    },
+    tounchButton:{
+        alignItems: 'center',
+        marginTop: 5,
     },
     buttonSearch:{
-        backgroundColor: '#FFF'
+        backgroundColor: '#FFF',
+        width: toatlWidth - 100,
+        borderRadius: 5,
+    },
+    textButton:{
+        paddingTop: 5,
+        paddingBottom: 5,
+        fontSize: 18,
+        textAlign: 'center',
+        fontWeight: 'bold',
     },
 })
 
