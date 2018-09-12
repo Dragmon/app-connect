@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-//import Browser from 'react-native-browser';
-//import { Button } from 'react-native-elements'
 import{
     Button,
     Dimensions,
@@ -15,29 +13,49 @@ import{
     NativeModules,
     TouchableHighlight
 } from 'react-native'
+const api = require('../api/api');
 var totalHeight = Dimensions.get('window').height;
 var toatlWidth = Dimensions.get('window').width;
 var aspectRatio = totalHeight/toatlWidth;
 
 class Search extends Component{
 
+    constructor(props){
+        super(props);
+        this.state ={
+            dataSearch: " ",
+        }
+        console.log("estado inicial de busqueda : ",this.state.dataSearch);
+    }
+
+    _getValue = () =>{
+        const {dataSearch} = this.state;
+        console.log("valor del textinput: ", dataSearch);
+    }
+
     render(){
         return(
             <SafeAreaView style={styles.contmenu}>
-                <View>
+                <View style={styles.contSearch}>
                     <TextInput
-                        placeholder={'Buscar'}
-                        placeholderTextColor={'#000'}
+                        placeholder={'Buscar por Título'}
+                        placeholderTextColor={'#808080'}
+                        autoCorrect={false}
+                        autoCapitalize="none"
+                        onChangeText={dataSearch => this.setState({dataSearch})}
                         style={styles.textsearch}
                     />
-                </View>
-                <TouchableHighlight style={styles.tounchButton}>
                     <View style={styles.buttonSearch}>
-                        <Text style={styles.textButton}>
-                            Search
-                        </Text>
+                        <TouchableHighlight onPress={this._getValue}>
+                            <Text style={styles.textButton}>
+                                Search
+                            </Text>
+                        </TouchableHighlight>
                     </View>
-                </TouchableHighlight>
+                </View>
+                <View style={styles.contInfoSearch}>
+
+                </View>
             </SafeAreaView>
         )
     }
@@ -46,6 +64,9 @@ class Search extends Component{
 const styles = StyleSheet.create({
     contmenu:{
         flex: 1,
+    },
+    contSearch:{
+        alignItems: 'center',
     },
     textsearch:{
         height: 30,
@@ -57,6 +78,7 @@ const styles = StyleSheet.create({
         marginRight: 10,
         marginTop: 10,
         fontSize:20,
+        textAlign: 'center',
     },
     tounchButton:{
         alignItems: 'center',
@@ -66,6 +88,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
         width: toatlWidth - 100,
         borderRadius: 5,
+        //alignItems: 'center',
+        marginTop: 5,
     },
     textButton:{
         paddingTop: 5,
