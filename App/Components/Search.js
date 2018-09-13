@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import{
+import {
     Button,
     Dimensions,
     StyleSheet,
@@ -11,7 +11,7 @@ import{
     SafeAreaView,
     Platform,
     NativeModules,
-    TouchableHighlight
+    TouchableHighlight, ListView
 } from 'react-native'
 const api = require('../api/api');
 var totalHeight = Dimensions.get('window').height;
@@ -24,13 +24,31 @@ class Search extends Component{
         super(props);
         this.state ={
             dataSearch: " ",
+            dataPresentations: new ListView.DataSource({
+                rowHasChanged: (row1, row2) => row1 != row2
+            }),
         }
         console.log("estado inicial de busqueda : ",this.state.dataSearch);
     }
 
-    _getValue = () =>{
+    _getValueSearch = () =>{
         const {dataSearch} = this.state;
         console.log("valor del textinput: ", dataSearch);
+        api
+            .getSearch(dataSearch)
+            .then((response) => this.handleResponse(response))
+            .catch((error) => {
+                console.log(error)
+                this.setState({ isLoading: false })
+            })
+    }
+
+    handleResponse(response) {
+        this.setState({
+            isLoading: true,
+            dataPresentations: this.state.dataPresentations.cloneWithRows(response)
+        })
+        console.log(this.state.dataPresentations)
     }
 
     render(){
@@ -46,7 +64,7 @@ class Search extends Component{
                         style={styles.textsearch}
                     />
                     <View style={styles.buttonSearch}>
-                        <TouchableHighlight onPress={this._getValue}>
+                        <TouchableHighlight onPress={() => this._getValueSearch()}>
                             <Text style={styles.textButton}>
                                 Search
                             </Text>

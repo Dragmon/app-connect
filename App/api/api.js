@@ -109,6 +109,7 @@ const api = {
         return fetch(url).then((res) => res.json())
     },
     getSearch(query) {
+        console.log("Api Search :", query)
         tracker.trackEvent('API', 'Obtener Busqueda');
         const url = `https://adminconnect.televisaventas.tv/api/v1/search/obtener`;
         return fetch(url,{
