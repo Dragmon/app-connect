@@ -48,6 +48,7 @@ class Search extends Component{
             isLoading: true,
             dataPresentations: this.state.dataPresentations.cloneWithRows(response)
         })
+        console.log("llamado a la funcion handleResponse")
         console.log(this.state.dataPresentations)
     }
 
