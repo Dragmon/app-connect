@@ -108,7 +108,7 @@ const api = {
         var url = `https://adminconnect.televisaventas.tv/api/v1/imghome/obtener`;
         return fetch(url).then((res) => res.json())
     },
-    getSearch(query) {
+    getSearchIOS(query) {
         console.log("Api Search :", query)
         tracker.trackEvent('API', 'Obtener Busqueda');
         const url = `https://adminconnect.televisaventas.tv/api/v1/search/obtener`;
@@ -119,7 +119,8 @@ const api = {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                query:query
+                query:query,
+                system: 'ios'
             })
         }).then((response) => response.json())
     },

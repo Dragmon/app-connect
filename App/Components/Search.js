@@ -11,12 +11,21 @@ import {
     SafeAreaView,
     Platform,
     NativeModules,
-    TouchableHighlight, ListView
+    TouchableHighlight, ListView, ScrollView
 } from 'react-native'
+
+import {
+    totalWidth,
+    totalHeight,
+    heightMenuSection
+} from '../api/shared';
+
 const api = require('../api/api');
+/*
 var totalHeight = Dimensions.get('window').height;
 var toatlWidth = Dimensions.get('window').width;
 var aspectRatio = totalHeight/toatlWidth;
+*/
 
 class Search extends Component{
 
@@ -35,7 +44,7 @@ class Search extends Component{
         const {dataSearch} = this.state;
         console.log("valor del textinput: ", dataSearch);
         api
-            .getSearch(dataSearch)
+            .getSearchIOS(dataSearch)
             .then((response) => this.handleResponse(response))
             .catch((error) => {
                 console.log(error)
@@ -50,6 +59,22 @@ class Search extends Component{
         })
         console.log("llamado a la funcion handleResponse")
         console.log(this.state.dataPresentations)
+    }
+
+    _renderPresentationsList(item) {
+        return (
+            <TouchableOpacity onPress={() => this._showPresentation(item)}>
+                <View>
+                    <Image
+                        style={styles.presentationItemImage}
+                        source={{uri: item.imagen}}
+                    />
+                    <Text style={styles.presentationTitle}>
+                        {item.titulo}{"\n"}
+                    </Text>
+                </View>
+            </TouchableOpacity>
+        );
     }
 
     render(){
@@ -72,8 +97,17 @@ class Search extends Component{
                         </TouchableHighlight>
                     </View>
                 </View>
-                <View style={styles.contInfoSearch}>
-
+                <View style={styles.menuSection}>
+                    <View style={{height: totalHeight - 100}}>
+                        <ScrollView bounces={true}>
+                            <ListView
+                                dataSource={this.state.dataPresentations}
+                                renderRow={this._renderPresentationsList.bind(this)}
+                                enableEmptySections={true}
+                                style={styles.listPresentations}
+                            />
+                        </ScrollView>
+                    </View>
                 </View>
             </SafeAreaView>
         )
@@ -89,7 +123,7 @@ const styles = StyleSheet.create({
     },
     textsearch:{
         height: 30,
-        width: toatlWidth - 50,
+        width: totalWidth - 50,
         borderWidth: 1,
         borderColor: '#4084ff',
         backgroundColor:'#FFFFFF',
@@ -104,8 +138,8 @@ const styles = StyleSheet.create({
         marginTop: 5,
     },
     buttonSearch:{
-        backgroundColor: '#FFF',
-        width: toatlWidth - 100,
+        backgroundColor: '#e91e53',
+        width: totalWidth - 100,
         borderRadius: 5,
         //alignItems: 'center',
         marginTop: 5,
@@ -115,6 +149,35 @@ const styles = StyleSheet.create({
         paddingBottom: 5,
         fontSize: 18,
         textAlign: 'center',
+        fontWeight: 'bold',
+        color:'#FFF',
+    },
+    menuSection:{
+        left: 0,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        height: heightMenuSection,
+        marginTop: 10,
+    },
+
+    contInfoSearch:{
+        marginTop: 5,
+        height: totalHeight,
+    },
+
+    presentationItemImage: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        height: totalWidth*.55555,
+        width: totalWidth
+    },
+    presentationTitle: {
+        paddingTop: Platform.OS === 'ios' ? 20 : 10,
+        paddingBottom: Platform.OS === 'ios' ? 0 : 5,
+        paddingLeft: 15,
+        fontSize: Platform.OS === 'ios' ? 20 : 15,
+        backgroundColor: '#1b313a',
+        color: '#ffffff',
         fontWeight: 'bold',
     },
 })

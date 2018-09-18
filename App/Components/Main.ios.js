@@ -1,3 +1,7 @@
+/*
+Para la opacidad del componente al abrir el buscador se edita el componente react-native-slide-menu/
+/build/styles.js overlay, cambiando el color y agregando opacidad
+*/
 import React, { Component } from 'react';
 import NavigationBar from 'react-native-navbar';
 import SideMenu from 'react-native-side-menu';
