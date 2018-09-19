@@ -61,7 +61,8 @@ export default class App extends Component<{}> {
             [{
                 text: 'Ver más',
                 //onPress: () => this.navigate('Notifications', 'Notificaciones')
-                onPress: () => navigate('Notificaciones'),
+                //onPress: () => navigate('Notificaciones'),
+                onPress: () => this.props.navigation.navigate('Notificaciones'),
             }]
         );
     }

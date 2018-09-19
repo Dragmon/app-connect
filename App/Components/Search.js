@@ -11,7 +11,10 @@ import {
     SafeAreaView,
     Platform,
     NativeModules,
-    TouchableHighlight, ListView, ScrollView
+    TouchableHighlight,
+    ListView,
+    ScrollView,
+    Alert
 } from 'react-native'
 
 import {
@@ -21,6 +24,7 @@ import {
 } from '../api/shared';
 
 const api = require('../api/api');
+const urldomain = 'https://adminconnect.televisaventas.tv/global/';
 /*
 var totalHeight = Dimensions.get('window').height;
 var toatlWidth = Dimensions.get('window').width;
@@ -63,7 +67,7 @@ class Search extends Component{
 
     _renderPresentationsList(item) {
         return (
-            <TouchableOpacity onPress={() => this._showPresentation(item)}>
+            <TouchableOpacity onPress={() => this._showListSeacrh(item)}>
                 <View>
                     <Image
                         style={styles.presentationItemImage}
@@ -75,6 +79,39 @@ class Search extends Component{
                 </View>
             </TouchableOpacity>
         );
+    }
+
+    _showListSeacrh(item) {
+        switch (item.slug) {
+            case 'videos' :
+                this.props.navigation.navigate('ShowVideo', {video: item})
+                break;
+            case 'hot-results' :
+                let data = [urldomain.concat(item.url), item.titulo];
+                this.props.navigation.navigate('ImageView', {data: data})
+                break;
+            case 'envios-cliente' :
+            case 'news-mensual' :
+                item.url = urldomain.concat(item.url);
+                this.props.navigation.navigate('NewsletterDetail', {detail: item})
+                break;
+            case 'presentaciones' :
+            case 'circulares' :
+            case 'parrillas-regional':
+            case 'parrillas-networks':
+            case 'parrillas-abierta':
+            case 'parrillas-paga':
+                this.props.navigation.navigate('ShowPresentation', {presentation: item})
+                break;
+            case 'ibooks' :
+                this.props.navigation.navigate('Catalogos')
+                break;
+            default:
+                Alert.alert(
+                    'Este contenido no puede ser abierto por el momento'
+                )
+
+        }
     }
 
     render(){
@@ -158,6 +195,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         height: heightMenuSection,
         marginTop: 10,
+        width: totalWidth *.90,
     },
 
     contInfoSearch:{
@@ -169,7 +207,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         height: totalWidth*.55555,
-        width: totalWidth
+        width: totalWidth *.90,
     },
     presentationTitle: {
         paddingTop: Platform.OS === 'ios' ? 20 : 10,

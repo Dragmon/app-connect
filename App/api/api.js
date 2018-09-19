@@ -124,6 +124,22 @@ const api = {
             })
         }).then((response) => response.json())
     },
+    getSearchAndroid(query) {
+        console.log("Api Search :", query)
+        tracker.trackEvent('API', 'Obtener Busqueda');
+        const url = `https://adminconnect.televisaventas.tv/api/v1/search/obtener`;
+        return fetch(url,{
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                query:query,
+                system: 'android'
+            })
+        }).then((response) => response.json())
+    },
 }
 
 
