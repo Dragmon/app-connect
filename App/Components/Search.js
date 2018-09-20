@@ -103,14 +103,13 @@ class Search extends Component{
             case 'parrillas-paga':
                 this.props.navigation.navigate('ShowPresentation', {presentation: item})
                 break;
-            case 'ibooks' :
+            case 'catalogos' :
                 this.props.navigation.navigate('Catalogos')
                 break;
             default:
                 Alert.alert(
                     'Este contenido no puede ser abierto por el momento'
                 )
-
         }
     }
 

@@ -73,7 +73,7 @@ const api = {
       return fetch(url).then((res) => res.json())
     },
 
-    getCatalogs(){
+    getCatalogosAndroid(){
       tracker.trackEvent('API', 'Obtener Catalogos');
       var url = `https://adminconnect.televisaventas.tv/api/v1/catalogo-android/obtener`;
       return fetch(url).then((res) => res.json())
@@ -93,9 +93,9 @@ const api = {
       const url = 'https://adminconnect.televisaventas.tv/api/v1/catalogo-android/regional/obtener';
       return fetch(url).then((response) => response.json())
     },
-    getIbooks(){
+    getCatalogosIOS(){
         tracker.trackEvent('API', 'Obtener Ibooks');
-        var url = `https://adminconnect.televisaventas.tv/api/v1/ibooks/obtener`;
+        var url = `https://adminconnect.televisaventas.tv/api/v1/catalogos/obtener`;
         return fetch(url).then((res) => res.json())
     },
     getCircular(){

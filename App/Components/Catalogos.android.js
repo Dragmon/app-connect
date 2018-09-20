@@ -40,7 +40,7 @@ class Catalogos extends Component{
   };
 
   componentWillMount(){
-    api.getCatalogs().then((jsonRes) => this.handleResponse(jsonRes)).catch((error) => {
+    api.getCatalogosAndroid().then((jsonRes) => this.handleResponse(jsonRes)).catch((error) => {
       this.setState({
         isLoading: false
       })

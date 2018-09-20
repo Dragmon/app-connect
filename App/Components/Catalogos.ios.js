@@ -56,7 +56,7 @@ class Catalogos extends Component{
 
     componentWillMount() {
         api
-            .getIbooks()
+            .getCatalogosIOS()
             .then((response) => this.handleResponse(response))
             .catch((rejection) => { this.setState({ isLoading: false }) })
     }
