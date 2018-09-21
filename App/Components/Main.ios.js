@@ -44,6 +44,12 @@ export default class App extends Component<{}> {
         PushNotificationIOS.addEventListener('notification', this._onNotification.bind(this));
         // Add listener for register
         PushNotificationIOS.addEventListener('register', this._regToken);
+
+        //var initNotif = PushNotificationIOS.popInitialNotification();
+        var initNotif = PushNotificationIOS.getInitialNotification();
+        if (initNotif != null) {
+            this._onNotification(initNotif);
+        }
     }
 
     componentWillUnmount() {
@@ -59,8 +65,7 @@ export default class App extends Component<{}> {
         GoogleAnalytics.trackEvent('APP', 'Notificación recibida', {texto: msg });
 
         AlertIOS.alert(
-            'Notificación',
-            notification.getMessage(),
+            'Notificación' + notification.getMessage(),
             [{
                 text: 'Ver más',
                 onPress: () => this.props.navigation.navigate('Notificaciones'),
