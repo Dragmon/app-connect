@@ -11,6 +11,10 @@ import Search from './Search';
 import Footer from './Footer';
 import api from '../api/api';
 
+import {GoogleAnalyticsTracker} from "react-native-google-analytics-bridge";
+import Analytics from '../api/analytics';
+let tracker = new GoogleAnalyticsTracker(Analytics.Metric.CodeAnalytics);
+
 import {
     Platform,
     StyleSheet,
@@ -41,37 +45,62 @@ export default class App extends Component<{}> {
     componentWillMount() {
         PushNotificationIOS.requestPermissions();
         // Add listener for push notifications
-        PushNotificationIOS.addEventListener('notification', this._onNotification.bind(this));
+        //PushNotificationIOS.addEventListener('notification', this._onNotification.bind(this));
+        PushNotificationIOS.addEventListener('notification', this._onRemoteNotification.bind(this));
         // Add listener for register
         PushNotificationIOS.addEventListener('register', this._regToken);
 
         //var initNotif = PushNotificationIOS.popInitialNotification();
+
+        /*
         var initNotif = PushNotificationIOS.getInitialNotification();
         if (initNotif != null) {
-            this._onNotification(initNotif);
+            //this._onNotification(initNotif);
+            this._onRemoteNotification(initNotif)
         }
+        */
+
     }
 
     componentWillUnmount() {
         // Remove listener for push notifications
-        PushNotificationIOS.removeEventListener('notification', this._onNotification.bind(this));
+        //PushNotificationIOS.removeEventListener('notification', this._onNotification.bind(this));
+        PushNotificationIOS.removeEventListener('notification', this._onRemoteNotification.bind(this));
         // Remove listener for register
         PushNotificationIOS.removeEventListener('register',this._regToken);
     }
 
-    _onNotification(notification) {
-        msg = notification.getMessage();
+    _onRemoteNotification(notification) {
+        const result = `${notification.getMessage()}`;
 
-        GoogleAnalytics.trackEvent('APP', 'Notificación recibida', {texto: msg });
+        tracker.trackEvent('APP', 'Notificación recibida', {texto: result });
+
+        AlertIOS.alert('Nueva Notificación', result, [
+            {
+                text: 'Ir a las notificaciones',
+                onPress: () => this.props.navigation.navigate('Notificaciones'),
+            },
+        ]);
+    }
+
+    /*
+    _onNotification(notification) {
+        //const result = `Message: ${notification.getMessage()}`
+        //msg = notification.getMessage();
+
+        //GoogleAnalytics.trackEvent('APP', 'Notificación recibida', {texto: msg });
 
         AlertIOS.alert(
-            'Notificación' + notification.getMessage(),
+            //'Notificación' + notification.getMessage(),
+            //'Notificación', result
+            'Notificacion'
             [{
                 text: 'Ver más',
                 onPress: () => this.props.navigation.navigate('Notificaciones'),
             }]
         );
     }
+    */
 
     _regToken(token){
         api.regDeviceNotifications(token)
