@@ -35,7 +35,9 @@ class Search extends Component{
 
     constructor(props){
         super(props);
+        this.myTextInput = React.createRef();
         this.state ={
+            isLoading:false,
             dataSearch: " ",
             dataPresentations: new ListView.DataSource({
                 rowHasChanged: (row1, row2) => row1 != row2
@@ -47,6 +49,19 @@ class Search extends Component{
     _getValueSearch = () =>{
         const {dataSearch} = this.state;
         console.log("valor del textinput: ", dataSearch);
+        api
+            .getSearchIOS(dataSearch)
+            .then((response) => this.handleResponse(response))
+            .catch((error) => {
+                console.log(error)
+                this.setState({ isLoading: false })
+            })
+    }
+    _getCleanSearch = () =>{
+        this.setState({
+            dataSearch: "",
+        })
+        const {dataSearch} = this.state.dataSearch;
         api
             .getSearchIOS(dataSearch)
             .then((response) => this.handleResponse(response))
@@ -118,19 +133,30 @@ class Search extends Component{
             <SafeAreaView style={styles.contmenu}>
                 <View style={styles.contSearch}>
                     <TextInput
-                        placeholder={'Buscar por Título'}
+                        //placeholder={'Buscar por Título'}
                         placeholderTextColor={'#808080'}
                         autoCorrect={false}
                         autoCapitalize="none"
                         onChangeText={dataSearch => this.setState({dataSearch})}
+                        value={this.state.dataSearch}
                         style={styles.textsearch}
                     />
-                    <View style={styles.buttonSearch}>
-                        <TouchableHighlight onPress={() => this._getValueSearch()}>
-                            <Text style={styles.textButton}>
-                                Search
-                            </Text>
-                        </TouchableHighlight>
+                    <View style={styles.buttonContent}>
+                        <View style={styles.buttonSearch}>
+                            <TouchableHighlight onPress={() => this._getValueSearch()}>
+                                <Text style={styles.textButton}>
+                                    Buscar
+                                </Text>
+                            </TouchableHighlight>
+                        </View>
+                        <View style={styles.buttonClean}>
+                            <TouchableHighlight onPress={() => this._getCleanSearch()}>
+                                <Text style={styles.textButton}>
+                                    Limpiar
+                                </Text>
+                            </TouchableHighlight>
+                        </View>
+
                     </View>
                 </View>
                 <View style={styles.menuSection}>
@@ -169,16 +195,26 @@ const styles = StyleSheet.create({
         fontSize:20,
         textAlign: 'center',
     },
+    buttonContent:{
+        flexDirection: 'row',
+    },
     tounchButton:{
         alignItems: 'center',
         marginTop: 5,
     },
     buttonSearch:{
         backgroundColor: '#e91e53',
-        width: totalWidth - 100,
+        width: (totalWidth - 60)/2,
         borderRadius: 5,
-        //alignItems: 'center',
         marginTop: 5,
+        marginRight: 5,
+    },
+    buttonClean:{
+        backgroundColor: '#e91e53',
+        width: (totalWidth - 60)/2,
+        borderRadius: 5,
+        marginTop: 5,
+        marginLeft: 5,
     },
     textButton:{
         paddingTop: 5,

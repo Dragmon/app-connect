@@ -33,7 +33,8 @@ export default class App extends Component<{}> {
     constructor(props){
         super(props)
         this.state = {
-        isOpen: false
+            isOpen: false,
+            iconHeader: 'search'
         }
     }
 
@@ -54,14 +55,14 @@ export default class App extends Component<{}> {
 
     _onNotification(notification) {
         msg = notification.getMessage();
+
         GoogleAnalytics.trackEvent('APP', 'Notificación recibida', {texto: msg });
+
         AlertIOS.alert(
             'Notificación',
             notification.getMessage(),
             [{
                 text: 'Ver más',
-                //onPress: () => this.navigate('Notifications', 'Notificaciones')
-                //onPress: () => navigate('Notificaciones'),
                 onPress: () => this.props.navigation.navigate('Notificaciones'),
             }]
         );
@@ -82,7 +83,8 @@ export default class App extends Component<{}> {
 
     toggle(){
         this.setState({
-        isOpen: !this.state.isOpen
+            isOpen: !this.state.isOpen,
+            //iconHeader: 'times',
         })
     }
 

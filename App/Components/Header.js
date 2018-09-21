@@ -24,6 +24,7 @@ const Header = props => (
         <TouchableWithoutFeedback onPress={() => props.toggle()}>
             <Icon
                 name="search"
+                //name={this.state.iconHeader}
                 color="#ffffff"
                 size={25}
                 style={styles.iconbars}
