@@ -19,7 +19,7 @@ var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
 var heightCont = totalHeight*.25;
 var widhtCont = totalWidth*.45;
-var topSection = totalHeight * .135;
+var topSection = totalHeight * .128;
 var topSectionTwo = totalHeight * .450;
 var heightView = totalHeight - 100;
 

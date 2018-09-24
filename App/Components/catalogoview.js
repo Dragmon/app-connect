@@ -77,7 +77,7 @@ class PresentationsShowPresentation extends Component{
 
                 <WebView
                     //source={{uri: 'http://docs.google.com/gview?embedded=true&url='+this.props.presentation.url}}
-                    source={{uri: 'http://docs.google.com/gview?embedded=true&url=https://apihavas.televisaventas.tv/global/uploads/' + UrlFile}} //Produccion
+                    source={{uri: 'http://docs.google.com/gview?embedded=true&url=https://adminconnect.televisaventas.tv/global/uploads/' + UrlFile}} //Produccion
                     //source={{uri: 'http://docs.google.com/gview?embedded=true&url=http://dev.ioncom.com.mx/havasDashboard/global/uploads/' + UrlFile}} //Desarrollo
                     style={{flex: 1}}
                     onLoad={this._updateGoBackCapabilities.bind(this)}

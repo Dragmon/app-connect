@@ -31,7 +31,7 @@ var toatlWidth = Dimensions.get('window').width;
 var aspectRatio = totalHeight/toatlWidth;
 */
 
-class Search extends Component{
+class SearchIos extends Component{
 
     constructor(props){
         super(props);
@@ -50,7 +50,7 @@ class Search extends Component{
         const {dataSearch} = this.state;
         console.log("valor del textinput: ", dataSearch);
         api
-            .getSearchIOS(dataSearch)
+            .getSearchAndroid(dataSearch)
             .then((response) => this.handleResponse(response))
             .catch((error) => {
                 console.log(error)
@@ -116,10 +116,8 @@ class Search extends Component{
             case 'parrillas-networks':
             case 'parrillas-abierta':
             case 'parrillas-paga':
+            case 'catalogos-android':
                 this.props.navigation.navigate('ShowPresentation', {presentation: item})
-                break;
-            case 'catalogos' :
-                this.props.navigation.navigate('Catalogos')
                 break;
             default:
                 Alert.alert(
@@ -139,6 +137,7 @@ class Search extends Component{
                         autoCapitalize="none"
                         onChangeText={dataSearch => this.setState({dataSearch})}
                         value={this.state.dataSearch}
+                        underlineColorAndroid={'transparent'}
                         style={styles.textsearch}
                     />
                     <View style={styles.buttonContent}>
@@ -194,6 +193,8 @@ const styles = StyleSheet.create({
         marginTop: 10,
         fontSize:20,
         textAlign: 'center',
+        paddingBottom: 5,
+        paddingTop: 5,
     },
     buttonContent:{
         flexDirection: 'row',
@@ -243,16 +244,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         height: totalWidth*.55555,
         width: totalWidth *.90,
+        marginBottom: -2,
     },
     presentationTitle: {
         paddingTop: Platform.OS === 'ios' ? 20 : 10,
         paddingBottom: Platform.OS === 'ios' ? 0 : 5,
         paddingLeft: 15,
         fontSize: Platform.OS === 'ios' ? 20 : 15,
-        backgroundColor: '#1b313a',
+        backgroundColor: '#e91e53',
         color: '#ffffff',
         fontWeight: 'bold',
     },
 })
 
-export default Search
+export default SearchIos

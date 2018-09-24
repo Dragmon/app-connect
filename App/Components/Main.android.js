@@ -93,7 +93,7 @@ export default class App extends Component<{}> {
 
                 <SideMenu
                     menu={<Search navigation={this.props.navigation} toggle={this.toggle.bind(this)}/>}
-                    //isOpen={this.state.isOpen}
+                    isOpen={this.state.isOpen}
                     openMenuOffset={slideMenudisplace}
                     onChange={(isOpen) => this.updateMenu(isOpen)}
                 >
