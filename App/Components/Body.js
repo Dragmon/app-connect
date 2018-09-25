@@ -21,6 +21,7 @@ var heightBody = (aspectRatio == 2.2 ? totalHeight *.72 : totalHeight *.80);
 var heightAndroid = totalHeight * .85;
 var heightAndRat = totalHeight * .75;
 var heightFirstModule = totalWidth *.5281;
+//var heightFirstModule = (totalWidth/3) *.5281; para tablet
 var heightSecondModule = (totalWidth *.4672)/3;
 var heightThirdModule = totalWidth *.1312;
 var heightFourthModule = (totalWidth *.8692)/3;

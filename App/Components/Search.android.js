@@ -159,7 +159,7 @@ class SearchIos extends Component{
                     </View>
                 </View>
                 <View style={styles.menuSection}>
-                    <View style={{height: totalHeight - 100}}>
+                    <View style={{height: totalHeight - 120}}>
                         <ScrollView bounces={true}>
                             <ListView
                                 dataSource={this.state.dataPresentations}

@@ -26,7 +26,8 @@ const Header = props => (
                 name="search"
                 //name={this.state.iconHeader}
                 color="#ffffff"
-                size={25}
+                //size={25}
+                size={aspectRatio == 1.9 ? 25 : 19}
                 style={styles.iconbars}
             />
         </TouchableWithoutFeedback>
