@@ -65,6 +65,13 @@ var styles = StyleSheet.create({
     imgFooter:{
         resizeMode : 'contain',
         ...Platform.select({
+            //se agrego para tablet ios
+            ios:{
+                height: aspectRatio == 1.3 ? ((totalWidth / 6) * 0.5130) : ((totalWidth / 4) * 0.5130),
+                width:  aspectRatio == 1.3 ? (totalWidth / 6): (totalWidth / 4),
+                marginTop: aspectRatio == 1.3 ? 15 : 0,
+            },
+            //se agrego para tablet ios
             android:{
                 marginTop: 3,
                 height: aspectRatio == 1.9 ? heightImgRat :heightImg,

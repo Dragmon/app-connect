@@ -15,9 +15,11 @@ var totalWidth = Dimensions.get('window').width;
 var totalHeight = Dimensions.get('window').height;
 var aspectRatio = (totalHeight/totalWidth).toFixed(1);
 //var heightHeader = totalHeight *.15;
-var heightHeader = (aspectRatio == 2.2 ? totalHeight *.18 : totalHeight *.12);
 var headerAndroid = totalHeight * .05;
 var headerAndRat19 = totalHeight * .10;
+
+//var heightHeader = (aspectRatio == 2.2 ? totalHeight *.18 : totalHeight *.12);
+var heightHeader = (aspectRatio == 2.2 ? totalHeight *.18 : aspectRatio == 1.3 ? totalHeight * .08 : totalHeight *.12);
 
 const Header = props => (
     <SafeAreaView style={styles.containerheader}>
@@ -27,7 +29,7 @@ const Header = props => (
                 //name={this.state.iconHeader}
                 color="#ffffff"
                 //size={25}
-                size={aspectRatio == 1.9 ? 25 : 19}
+                size={aspectRatio == 1.9 ? 25 : aspectRatio == 1.3 ? 28 : 19}
                 style={styles.iconbars}
             />
         </TouchableWithoutFeedback>
@@ -75,9 +77,12 @@ const styles = StyleSheet.create({
         */
         ...Platform.select({
             ios:{
-                marginRight: totalWidth * .33,
-                width: totalWidth /3,
-                height: (totalWidth /3) * .2043,
+                //marginRight: totalWidth * .33, //moviles
+                marginRight: aspectRatio == 1.3 ? (totalWidth * .40) : (totalWidth * .33),
+                //width: totalWidth /3,
+                width: aspectRatio == 1.3 ? (totalWidth /4) : (totalWidth /3),
+                //height: (totalWidth /3) * .2043, //moviles
+                height: aspectRatio == 1.3 ? (totalWidth /4) * .2043 : (totalWidth /3) * .2043,
             },
             android:{
                 marginRight: aspectRatio == 1.9 ? totalWidth * .33 : totalWidth * .40,

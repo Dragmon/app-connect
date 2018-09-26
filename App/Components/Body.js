@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import ImageViewHome from './ImageViewHome';
 import {
     Text,
     View,
@@ -8,6 +9,8 @@ import {
     Alert,
     Image,
     Platform,
+    Modal,
+    Button,
 } from 'react-native'
 var api = require('../api/api');
 import ImageView from "./ImageView";
@@ -17,11 +20,15 @@ var totalWidth = Dimensions.get('window').width;
 var widthOption = (totalWidth / 3);
 var heightModuleIcon = (totalHeight * .08);
 var aspectRatio = (totalHeight/totalWidth).toFixed(1);
-var heightBody = (aspectRatio == 2.2 ? totalHeight *.72 : totalHeight *.80);
+//var heightBody = (aspectRatio == 2.2 ? totalHeight *.72 : totalHeight *.80); //movil
+var heightBody = (aspectRatio == 2.2 ? totalHeight *.72 : aspectRatio == 1.3 ? totalHeight *.82 :totalHeight *.80);
 var heightAndroid = totalHeight * .85;
 var heightAndRat = totalHeight * .75;
-var heightFirstModule = totalWidth *.5281;
-//var heightFirstModule = (totalWidth/3) *.5281; para tablet
+
+//var heightFirstModule = totalWidth *.5281; //para movil
+//var heightFirstModule = (totalWidth/2.35) *.5281; //para tablet
+var heightFirstModule = aspectRatio == 1.3 ? (totalWidth/2.35) *.5281 : totalWidth *.5281;
+
 var heightSecondModule = (totalWidth *.4672)/3;
 var heightThirdModule = totalWidth *.1312;
 var heightFourthModule = (totalWidth *.8692)/3;
@@ -37,10 +44,19 @@ class Body extends Component{
         super(props);
         this.state ={
             urlImage: "https://adminconnect.televisaventas.tv/logo-televisa.png",
+            modalVisible : false,
+            hideViewImage : aspectRatio == 1.3 ? true : false,
         }
         console.log("estado inicial : ",this.state.urlImage);
+        console.log("estado hideViewImage : ",this.state.hideViewImage);
     }
 
+    setModalVisible(visible) {
+
+        this.setState({modalVisible: visible});
+
+    }
+/*
     componentWillMount(){
         console.log("componentWillMount");
         api.getImgHome()
@@ -56,7 +72,7 @@ class Body extends Component{
                 this.setState({urlImage:imgurl});
             }.bind(this));
     }
-
+*/
   render(){
 
     const{navigate} = this.props.navigation;
@@ -68,6 +84,31 @@ class Body extends Component{
 	  <View style={styles.mainContainer}>
 
           {/* Primer módulo */}
+
+          {this.state.hideViewImage == false ? <ImageViewHome/> :
+              <Button onPress={() => { this.setModalVisible(true) }} title="Click Here To Show Modal" />
+          }
+
+          <Modal
+              transparent={false}
+              animationType={'slide'}
+              visible={this.state.modalVisible}
+              onRequestClose={()=>{
+                  Alert.alert('Modal hass been closed')
+              }}
+          >
+              <View style={{marginTop: 22}}>
+                  <Text>Hello word</Text>
+                  <TouchableHighlight
+                      onPress={() => {
+                          this.setModalVisible(!this.state.modalVisible);
+                      }}>
+                      <Text>Hide Modal</Text>
+                  </TouchableHighlight>
+              </View>
+          </Modal>
+
+          {/*
           <View style={styles.containerImage}>
               <Image
                   style={styles.mainImage}
@@ -75,6 +116,7 @@ class Body extends Component{
                   source={{uri: this.state.urlImage}}
               />
           </View>
+          */}
 		  {/* Segundo módulo */}
 		  <View style={[styles.blockModule, styles.secondModule]}>
 
@@ -219,16 +261,9 @@ var styles = StyleSheet.create({
     },
     mainImage:{
         width:totalWidth,
-        resizeMode : 'contain',
+        resizeMode : 'contain', //movil
+        //resizeMode : 'cover', //tablet
         height: heightFirstModule,
-        //height: Platform.OS === 'ios' ? ((totalHeight == 568) ? (totalHeight * .31): 'auto'): 'auto',
-        //height: totalHeight * .31,
-        //marginBottom : -10,
-        //marginTop: Platform.OS === 'ios' ? ((totalHeight == 568) ? 0: -10): 0,
-
-        //marginTop: (aspectRatio <= 1.8 && totalWidth == 320) ? 20 : aspectRatio <= 1.8 ? -10 : 0
-        //marginBottom: aspectRatio <= 1.8 ? -10 : 0,
-        //marginBottom: aspectRatio <= 1.8 ? -10 : aspectRatio <= 2.2 ? -10 : 0,
     },
     moduleIcon:{
         justifyContent: 'center',
@@ -285,17 +320,6 @@ var styles = StyleSheet.create({
         alignItems: 'center',
         height: heightFourthModule,
     },
-    /*
-    buttonNotifications:{
-        backgroundColor: '#2F5062',
-    },
-    buttonTools:{
-        backgroundColor: '#1b313a',
-    },
-    buttonPlanComercial:{
-        backgroundColor:'#036666',
-    },
-    */
 });
 
 export default Body
