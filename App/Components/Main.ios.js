@@ -7,6 +7,7 @@ import NavigationBar from 'react-native-navbar';
 import SideMenu from 'react-native-side-menu';
 import Header from './Header';
 import Body from './Body';
+import BodyTablet from './Body-tablet';
 import Search from './Search';
 import Footer from './Footer';
 import api from '../api/api';
@@ -32,14 +33,17 @@ var totalWidth = Dimensions.get('window').width;
 var totalHeight = Dimensions.get('window').height;
 var slideMenudisplace = totalWidth*.90;
 var heightHeader = totalHeight *.10;
+var aspectRatio = (totalHeight/totalWidth).toFixed(1);
 
 export default class App extends Component<{}> {
     constructor(props){
         super(props)
         this.state = {
             isOpen: false,
-            iconHeader: 'search'
+            iconHeader: 'search',
+            hideViewImage : aspectRatio == 1.3 ? true : false,
         }
+        console.log("estado hideViewImage : ",this.state.hideViewImage);
     }
 
     componentWillMount() {
@@ -141,9 +145,21 @@ export default class App extends Component<{}> {
                         style={styles.containerHeader}
                         navigation={this.props.navigation} toggle={this.toggle.bind(this)}/>
 
+                    {
+                        this.state.hideViewImage == false ?
+                            <Body
+                                style={styles.containerBody}
+                                navigation={this.props.navigation} />
+                            :
+                            <BodyTablet
+                                style={styles.containerBody}
+                                navigation={this.props.navigation} />
+                    }
+                    {/*
                     <Body
                         style={styles.containerBody}
                         navigation={this.props.navigation} />
+                    */}
                     <Footer
                         style={styles.containerFooter}
                     />

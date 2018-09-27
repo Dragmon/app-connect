@@ -18,8 +18,10 @@ import {GoogleAnalyticsTracker} from "react-native-google-analytics-bridge";
 import Analytics from '../api/analytics';
 let tracker = new GoogleAnalyticsTracker(Analytics.Metric.CodeAnalytics);
 
-import { NavigationActions } from 'react-navigation'
+
+var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
+var aspectRatio = (totalHeight/totalWidth).toFixed(1);
 
 class NewsletterDetail extends Component{
   constructor(props){
@@ -86,7 +88,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#1b313a',
     },
     textcontainer :{
-        fontSize: 22,
+        fontSize: (aspectRatio == 1.3 ? 28 : 22),
         color: '#f3f3f3',
         fontWeight: 'bold',
     }

@@ -10,11 +10,10 @@ import {
   processColor,
   Image
 } from 'react-native';
-import {totalHeight} from "../api/shared";
+import {totalHeight,totalWidth,aspectRatio} from "../api/shared";
 
 
 var Modal   = require('react-native-modalbox');
-var totalWidth = Dimensions.get('window').width;
 var totalHeiHeight = Dimensions.get('window').height * .824;
 var heightFooter = totalHeight *.08;
 var titleConfig = {
@@ -75,25 +74,26 @@ class SectionArrayNewsClients extends React.Component {
 };
 
 var styles = StyleSheet.create({
-  imageRow:{
-   flexDirection: 'row',
-   justifyContent: 'center',
-   height: totalWidth*.555555,
-   width: totalWidth
-  },
-  singleArrayTitleAndHourContainer:{
-    alignSelf:'center',
-    width: totalWidth
-  },
-  resourceMeta:{
-  	padding: 20,
-  	backgroundColor: '#1b313a',
-  	color: '#ffffff',
-  	fontWeight: 'bold',
-  },
-  resourceMetaSub:{
-  	fontWeight: 'normal'
-  }
+    imageRow:{
+        flexDirection: 'row',
+        justifyContent: 'center',
+        height: totalWidth*.555555,
+        width: totalWidth
+    },
+    singleArrayTitleAndHourContainer:{
+        alignSelf:'center',
+        width: totalWidth
+    },
+    resourceMeta:{
+  	    padding: 20,
+  	    backgroundColor: '#1b313a',
+  	    color: '#ffffff',
+  	    fontWeight: 'bold',
+        fontSize : (aspectRatio== 1.3 ? 25: 15),
+    },
+    resourceMetaSub:{
+  	    fontWeight: 'normal'
+    }
 })
 
 export default SectionArrayNewsClients;

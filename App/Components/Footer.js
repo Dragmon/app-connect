@@ -19,7 +19,7 @@ var heightImg = ((totalWidth / 6.5) * 0.5130);
 var widthImg =  (totalWidth / 6.5);
 var heightImgRat = ((totalWidth / 4.5) * 0.5130);
 var widthImgRat =  (totalWidth / 4.5);
-var heightFooter = totalHeight *.10;
+var heightFooter = (aspectRatio == 1.3 ? totalHeight *.09 : totalHeight *.10);
 var footerAndRat19 = totalHeight *.10;
 
 class Footer extends Component{
@@ -69,7 +69,7 @@ var styles = StyleSheet.create({
             ios:{
                 height: aspectRatio == 1.3 ? ((totalWidth / 6) * 0.5130) : ((totalWidth / 4) * 0.5130),
                 width:  aspectRatio == 1.3 ? (totalWidth / 6): (totalWidth / 4),
-                marginTop: aspectRatio == 1.3 ? 15 : 0,
+                marginTop: aspectRatio == 1.3 ? 10 : 0,
             },
             //se agrego para tablet ios
             android:{

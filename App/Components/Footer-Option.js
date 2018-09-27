@@ -7,7 +7,8 @@ import {
     TouchableOpacity,
     Dimensions,
     Linking,
-    Text
+    Text,
+    Platform
 } from 'react-native';
 
 let totalHeight = Dimensions.get('window').height;
@@ -16,6 +17,7 @@ let marginFooter = (totalHeight * .015);
 let widthImgFooter = (totalWidth * .10);
 //var heightFooter = totalHeight *.15;
 var heightFooter = totalHeight *.10;
+var aspectRatio = (totalHeight/totalWidth).toFixed(1);
 
 class Footer extends Component{
     render(){
@@ -61,7 +63,7 @@ var styles = StyleSheet.create({
     },
     textfooter:{
         color: '#FFFFFF',
-        fontSize: 20,
+        fontSize: (aspectRatio == 1.3 ? 30 : 20),
 
     }
 });

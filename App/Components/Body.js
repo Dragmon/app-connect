@@ -45,10 +45,10 @@ class Body extends Component{
         this.state ={
             urlImage: "https://adminconnect.televisaventas.tv/logo-televisa.png",
             modalVisible : false,
-            hideViewImage : aspectRatio == 1.3 ? true : false,
+            //hideViewImage : aspectRatio == 1.3 ? true : false,
         }
         console.log("estado inicial : ",this.state.urlImage);
-        console.log("estado hideViewImage : ",this.state.hideViewImage);
+        //console.log("estado hideViewImage : ",this.state.hideViewImage);
     }
 
     setModalVisible(visible) {
@@ -56,7 +56,6 @@ class Body extends Component{
         this.setState({modalVisible: visible});
 
     }
-/*
     componentWillMount(){
         console.log("componentWillMount");
         api.getImgHome()
@@ -72,7 +71,6 @@ class Body extends Component{
                 this.setState({urlImage:imgurl});
             }.bind(this));
     }
-*/
   render(){
 
     const{navigate} = this.props.navigation;
@@ -84,8 +82,8 @@ class Body extends Component{
 	  <View style={styles.mainContainer}>
 
           {/* Primer módulo */}
-
-          {this.state.hideViewImage == false ? <ImageViewHome/> :
+          {/*
+          {this.state.hideViewImage == true ? <ImageViewHome/> :
               <Button onPress={() => { this.setModalVisible(true) }} title="Click Here To Show Modal" />
           }
 
@@ -107,8 +105,8 @@ class Body extends Component{
                   </TouchableHighlight>
               </View>
           </Modal>
+          */}
 
-          {/*
           <View style={styles.containerImage}>
               <Image
                   style={styles.mainImage}
@@ -116,7 +114,7 @@ class Body extends Component{
                   source={{uri: this.state.urlImage}}
               />
           </View>
-          */}
+
 		  {/* Segundo módulo */}
 		  <View style={[styles.blockModule, styles.secondModule]}>
 
