@@ -20,7 +20,8 @@ import {
 import {
     totalWidth,
     totalHeight,
-    heightMenuSection
+    heightMenuSection,
+    aspectRatio
 } from '../api/shared';
 
 const api = require('../api/api');
@@ -132,6 +133,18 @@ class SearchIos extends Component{
         return(
             <SafeAreaView style={styles.contmenu}>
                 <View style={styles.contSearch}>
+                    <View style={styles.contTextInput}>
+                        <TextInput
+                            //placeholder={'Buscar por Título'}
+                            placeholderTextColor={'#808080'}
+                            autoCorrect={false}
+                            autoCapitalize="none"
+                            onChangeText={dataSearch => this.setState({dataSearch})}
+                            value={this.state.dataSearch}
+                            style={styles.textsearch}
+                        />
+                    </View>
+                    {/*
                     <TextInput
                         //placeholder={'Buscar por Título'}
                         placeholderTextColor={'#808080'}
@@ -141,6 +154,7 @@ class SearchIos extends Component{
                         value={this.state.dataSearch}
                         style={styles.textsearch}
                     />
+                    */}
                     <View style={styles.buttonContent}>
                         <View style={styles.buttonSearch}>
                             <TouchableHighlight onPress={() => this._getValueSearch()}>
@@ -183,35 +197,44 @@ const styles = StyleSheet.create({
     contSearch:{
         alignItems: 'center',
     },
+    contTextInput:{
+        width: (aspectRatio == 1.3 ? totalWidth - 100 : totalWidth - 50),
+        marginTop: 5,
+    },
     textsearch:{
         height: 30,
-        width: totalWidth - 50,
+        //width: (aspectRatio == 1.3 ? totalWidth - 100 : totalWidth - 50),
         borderWidth: 1,
         borderColor: '#4084ff',
         backgroundColor:'#FFFFFF',
-        marginLeft: 10,
-        marginRight: 10,
-        marginTop: 10,
+        //marginLeft: 10,
+        //marginRight: 10,
+        //marginTop: 10,
         fontSize:20,
         textAlign: 'center',
     },
     buttonContent:{
         flexDirection: 'row',
+        marginTop: 10,
     },
+    /*
     tounchButton:{
         alignItems: 'center',
         marginTop: 5,
     },
+    */
     buttonSearch:{
         backgroundColor: '#e91e53',
-        width: (totalWidth - 60)/2,
+        //width: (totalWidth - 60)/2,
+        width: (aspectRatio == 1.3 ? (totalWidth - 115)/2 : (totalWidth - 60)/2 ),
         borderRadius: 5,
         marginTop: 5,
         marginRight: 5,
     },
     buttonClean:{
         backgroundColor: '#e91e53',
-        width: (totalWidth - 60)/2,
+        //width: (totalWidth - 60)/2,
+        width: (aspectRatio == 1.3 ? (totalWidth - 115)/2 : (totalWidth - 60)/2 ),
         borderRadius: 5,
         marginTop: 5,
         marginLeft: 5,
