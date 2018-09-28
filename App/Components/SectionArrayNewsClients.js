@@ -89,7 +89,7 @@ var styles = StyleSheet.create({
   	    backgroundColor: '#1b313a',
   	    color: '#ffffff',
   	    fontWeight: 'bold',
-        fontSize : (aspectRatio== 1.3 ? 25: 15),
+        fontSize : (aspectRatio== 1.3 ? 20: 15),
     },
     resourceMetaSub:{
   	    fontWeight: 'normal'

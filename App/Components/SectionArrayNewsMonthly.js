@@ -10,6 +10,7 @@ import {
     processColor,
     Image
 } from 'react-native';
+import {aspectRatio} from "../api/shared";
 
 var Modal   = require('react-native-modalbox');
 var totalWidth = Dimensions.get('window').width;
@@ -93,7 +94,7 @@ var styles = StyleSheet.create({
         backgroundColor: '#e91e53',
         color: '#ffffff',
         fontWeight: 'bold',
-        fontSize: 16,
+        fontSize : (aspectRatio== 1.3 ? 20: 15),
     },
 
     resourceMetaSub:{

@@ -18,14 +18,11 @@ import {
     totalHeight,
     totalWidth,
     heightTitle,
-    heightMenuSection
+    heightMenuSection,
+    aspectRatio
 } from '../api/shared';
 
-/*
-var totalHeight = Dimensions.get('window').height;
-var totalWidth = Dimensions.get('window').width;
-var heightHeader = ((totalHeight == 568) ? totalHeight *.20 : totalHeight *.20);
-*/
+
 
 const api = require('../api/api');
 
@@ -162,6 +159,7 @@ const styles = StyleSheet.create({
       	color: '#ffffff',
       	fontWeight: 'bold',
         marginTop: Platform.OS === 'ios' ? 0 : -3,
+        fontSize: (aspectRatio == 1.3 ? 20 : 15),
     },
 
     presentationMicroResume: {

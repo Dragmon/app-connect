@@ -19,7 +19,8 @@ import {
     totalHeight,
     totalWidth,
     heightTitle,
-    heightMenuSection
+    heightMenuSection,
+    aspectRatio
 } from '../api/shared';
 
 const api = require('../api/api');
