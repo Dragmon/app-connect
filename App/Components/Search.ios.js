@@ -266,6 +266,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         height: totalWidth*.55555,
         width: totalWidth *.90,
+        marginBottom: (aspectRatio == 1.3 ? -3 : 0),
     },
     presentationTitle: {
         paddingTop: Platform.OS === 'ios' ? 20 : 10,

@@ -19,7 +19,7 @@ import {
     totalHeight,
     totalWidth,
     heightTitle,
-    heightMenuSection
+    heightMenuSection, aspectRatio
 } from '../api/shared';
 
 import { NavigationActions } from 'react-navigation';
@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
       	backgroundColor: '#1b313a',
   	    color: '#ffffff',
   	    fontWeight: 'bold',
+        fontSize: (aspectRatio == 1.3? 20: 15 ),
         marginTop: Platform.OS === 'ios' ? 0 : -.3,
     },
     presentationSub:{

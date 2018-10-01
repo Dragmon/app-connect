@@ -84,25 +84,6 @@ class Body extends Component{
           {this.state.hideViewImage == true ? <ImageViewHome/> :
               <Button onPress={() => { this.setModalVisible(true) }} title="Click Here To Show Modal" />
           }
-
-          <Modal
-              transparent={false}
-              animationType={'slide'}
-              visible={this.state.modalVisible}
-              onRequestClose={()=>{
-                  Alert.alert('Modal hass been closed')
-              }}
-          >
-              <View style={{marginTop: 22}}>
-                  <Text>Hello word</Text>
-                  <TouchableHighlight
-                      onPress={() => {
-                          this.setModalVisible(!this.state.modalVisible);
-                      }}>
-                      <Text>Hide Modal</Text>
-                  </TouchableHighlight>
-              </View>
-          </Modal>
           */}
 
           <View style={styles.containerImage}>

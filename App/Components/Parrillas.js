@@ -14,21 +14,21 @@ import {
 import {
     totalWidth,
     heightTitle,
-    heightMenuSection
+    heightMenuSection,
+    aspectRatio
 } from '../api/shared';
 
 import { NavigationActions } from 'react-navigation';
 
-/*
-var totalHeiHeight = Dimensions.get('window').height;
-var totalWidth = Dimensions.get('window').width;
-var heightCont = totalHeiHeight*.25;
-var widhtCont = totalWidth*.45;
-var topSection = totalHeiHeight * .200;
-var topSectionTwo = totalHeiHeight * .450;
-*/
-
 class Parrillas extends Component{
+
+    constructor(props){
+        super(props)
+        this.state = {
+            resolution : aspectRatio == 1.3 ? true : false,
+        }
+        console.log("resolucion :",this.state.resolution)
+    }
 
   static navigationOptions = {
     header: null,
@@ -65,16 +65,28 @@ class Parrillas extends Component{
                   {/*<TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ExcelView',{origin:excelnetworks})}>*/}
                   <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ListGrills',{origin:networks})}>
                       <View style={styles.imageContentSection}>
-                          <Image
-                              source={require('../Img/Parrillas/icono-networks.png')}
-                          />
+                          {this.state.resolution == true ?
+                              <Image
+                                  source={require('../Img/Parrillas-tablet/icono-networks.png')}
+                              />
+                              :
+                              <Image
+                                  source={require('../Img/Parrillas/icono-networks.png')}
+                              />
+                          }
                       </View>
                   </TouchableHighlight>
                   <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ListGrills',{origin:regional})} >
                       <View style={styles.imageContentSection}>
-                          <Image
-                              source={require('../Img/Parrillas/icono-regional.png')}
-                          />
+                          {this.state.resolution == true ?
+                              <Image
+                                  source={require('../Img/Parrillas-tablet/icono-regional.png')}
+                              />
+                              :
+                              <Image
+                                  source={require('../Img/Parrillas/icono-regional.png')}
+                              />
+                          }
                       </View>
                   </TouchableHighlight>
               </View>
@@ -82,16 +94,28 @@ class Parrillas extends Component{
               <View style={styles.menuSection}>
                   <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ListGrills',{origin:tvabierta})}>
                       <View style={styles.imageContentSection}>
-                          <Image
-                              source={require('../Img/Parrillas/icono-abierta.png')}
-                          />
+                          {this.state.resolution == true ?
+                              <Image
+                                  source={require('../Img/Parrillas-tablet/icono-abierta.png')}
+                              />
+                              :
+                              <Image
+                                  source={require('../Img/Parrillas/icono-abierta.png')}
+                              />
+                          }
                       </View>
                   </TouchableHighlight>
                   <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ListGrills',{origin:tvpaga})}>
                       <View style={styles.imageContentSection}>
-                          <Image
-                              source={require('../Img/Parrillas/icono-paga.png')}
-                          />
+                          {this.state.resolution == true ?
+                              <Image
+                                  source={require('../Img/Parrillas-tablet/icono-paga.png')}
+                              />
+                              :
+                              <Image
+                                  source={require('../Img/Parrillas/icono-paga.png')}
+                              />
+                          }
                       </View>
                   </TouchableHighlight>
               </View>

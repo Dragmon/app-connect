@@ -19,7 +19,8 @@ import {
     totalHeight,
     totalWidth,
     heightTitle,
-    heightMenuSection
+    heightMenuSection,
+    aspectRatio
 } from '../api/shared';
 
 const api = require('../api/api');
@@ -156,10 +157,12 @@ const styles = StyleSheet.create({
       	backgroundColor: '#1b313a',
       	color: '#ffffff',
       	fontWeight: 'bold',
+        fontSize: (aspectRatio == 1.3? 20: 15 ),
         marginTop: Platform.OS === 'ios' ? 0 : -.3,
     },
 
     videoMicroResume: {
+        fontSize: (aspectRatio == 1.3? 15: 11 ),
         fontWeight: 'normal',
     },
 
