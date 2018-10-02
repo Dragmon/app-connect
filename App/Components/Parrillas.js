@@ -25,7 +25,7 @@ class Parrillas extends Component{
     constructor(props){
         super(props)
         this.state = {
-            resolution : aspectRatio == 1.3 ? true : false,
+            resolution : aspectRatio == 1.3 || 1.4 ? true : false,
         }
         console.log("resolucion :",this.state.resolution)
     }

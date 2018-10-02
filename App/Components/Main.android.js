@@ -19,9 +19,15 @@ import {
     PushNotificationIOS,
     NetInfo
 } from 'react-native';
+import BodyTablet from "./Body-tablet";
+import {
+    totalWidth,
+    totalHeight,
+    aspectRatio
+} from '../api/shared';
 
-var totalWidth = Dimensions.get('window').width;
-var totalHeight = Dimensions.get('window').height;
+//var totalWidth = Dimensions.get('window').width;
+//var totalHeight = Dimensions.get('window').height;
 var slideMenudisplace = totalWidth*.90;
 var heightHeader = totalHeight *.10;
 
@@ -29,49 +35,11 @@ export default class App extends Component<{}> {
     constructor(props){
         super(props)
         this.state = {
-        isOpen: false
+            isOpen: false,
+            hideViewImage : aspectRatio == 1.3 || 1.4 ? true : false,
         }
     }
 
-    /*
-    componentWillMount() {
-        PushNotificationIOS.requestPermissions();
-        // Add listener for push notifications
-        PushNotificationIOS.addEventListener('notification', this._onNotification.bind(this));
-        // Add listener for register
-        PushNotificationIOS.addEventListener('register', this._regToken);
-    }
-
-    componentWillUnmount() {
-        // Remove listener for push notifications
-        PushNotificationIOS.removeEventListener('notification', this._onNotification.bind(this));
-        // Remove listener for register
-        PushNotificationIOS.removeEventListener('register',this._regToken);
-    }
-
-    _onNotification(notification) {
-        msg = notification.getMessage();
-        GoogleAnalytics.trackEvent('APP', 'Notificación recibida', {texto: msg });
-        AlertIOS.alert(
-            'Notificación',
-            notification.getMessage(),
-            [{
-                text: 'Ver más',
-                //onPress: () => this.navigate('Notifications', 'Notificaciones')
-                onPress: () => navigate('Notificaciones'),
-            }]
-        );
-    }
-
-    _regToken(token){
-        api.regDeviceNotifications(token)
-            .then((responseData) => {
-            })
-            .catch(function(error) {
-                AlertIOS.alert('No tenemos acceso a Internet','Para poder mantenerte actualizado con notificaciones necesitamos mantengas tu conexión a Internet activa')
-            });
-    }
-    */
 
     static navigationOptions = {
         header: null,
@@ -100,23 +68,25 @@ export default class App extends Component<{}> {
                     <Header
                         style={styles.containerHeader}
                         navigation={this.props.navigation} toggle={this.toggle.bind(this)}/>
+                    {
+                        this.state.hideViewImage == false ?
+                            <Body
+                                style={styles.containerBody}
+                                navigation={this.props.navigation} />
+                            :
+                            <BodyTablet
+                                style={styles.containerBody}
+                                navigation={this.props.navigation} />
+                    }
+                    {/*
                     <Body
                         style={styles.containerBody}
                         navigation={this.props.navigation} />
+                    */}
                     <Footer
                         style={styles.containerFooter}
                     />
                 </SideMenu>
-
-                {/*Prueba del uso de flexbox*/
-                /*
-                <View style={styles.containerHeader}></View>
-                <View style={styles.containerBody}>
-                    <View style={styles.container1}></View>
-                    <View style={styles.container2}></View>
-                </View>
-                <View style={styles.containerFooter}></View>
-                */}
             </SafeAreaView>
         );
     }
