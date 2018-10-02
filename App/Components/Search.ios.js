@@ -174,7 +174,7 @@ class SearchIos extends Component{
                     </View>
                 </View>
                 <View style={styles.menuSection}>
-                    <View style={{height: totalHeight - 100}}>
+                    <View style={{height: totalHeight - 120}}>
                         <ScrollView bounces={true}>
                             <ListView
                                 dataSource={this.state.dataPresentations}
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     },
     contTextInput:{
         width: (aspectRatio == 1.3 ? totalWidth - 100 : totalWidth - 50),
-        marginTop: 5,
+        marginTop: 20,
     },
     textsearch:{
         height: 30,
