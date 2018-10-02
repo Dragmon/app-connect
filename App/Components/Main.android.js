@@ -20,6 +20,7 @@ import {
     NetInfo
 } from 'react-native';
 import BodyTablet from "./Body-tablet";
+
 import {
     totalWidth,
     totalHeight,
@@ -36,8 +37,9 @@ export default class App extends Component<{}> {
         super(props)
         this.state = {
             isOpen: false,
-            hideViewImage : aspectRatio == 1.3 || 1.4 ? true : false,
+            hideViewImage : aspectRatio == 1.3 ? true : aspectRatio == 1.4 ? true : false,
         }
+        console.log("hideViewImage : ", this.state.hideViewImage);
     }
 
 
