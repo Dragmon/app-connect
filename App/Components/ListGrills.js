@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import HeaderInterno from './HeaderInterno';
+import ButtonsStyles from '../styles/ButtonsStyles';
 import {
     StyleSheet,
     Text,
@@ -20,8 +21,8 @@ import {
     totalWidth,
     heightTitle,
     heightMenuSection,
-    aspectRatio
 } from '../api/shared';
+
 
 const api = require('../api/api');
 
@@ -110,6 +111,33 @@ class Presentaciones extends Component{
 
     _renderPresentationsList(item) {
         return (
+            <View>
+                <Image
+                    style={styles.presentationItemImage}
+                    source={{uri: item.imagen}}
+                />
+                <Text style={styles.presentationTitle}>
+                    {item.titulo}{"\n"}
+                </Text>
+                <View style={ButtonsStyles.infoDocument}>
+                    <TouchableOpacity onPress={() => this._showPresentation(item)}>
+                        <View style={ButtonsStyles.buttonView}>
+                            <Text style={ButtonsStyles.textButtonDocument}>
+                                Ver Documento
+                            </Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => this._showPresentation(item)}>
+                        <View style={ButtonsStyles.buttonDownload}>
+                            <Text style={ButtonsStyles.textButtonDocument}>
+                                Descargar Documento
+                            </Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+            </View>
+
+            /*
             <TouchableOpacity onPress={() => this._showPresentation(item)}>
                 <View>
                     <Image
@@ -121,6 +149,8 @@ class Presentaciones extends Component{
                     </Text>
                 </View>
             </TouchableOpacity>
+            */
+
         );
     }
 
