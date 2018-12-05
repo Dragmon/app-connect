@@ -1,22 +1,35 @@
 import {Alert} from "react-native";
 import RNFetchBlob from "react-native-fetch-blob";
 
-export function showIbook(presentation) {
-    var urldownload = presentation.url;
-    var namefile = presentation.titulo;
-    var dirfile = dirs.DocumentDir + '/'+ 'ibooks' +'/'+ namefile + extencion;
+export function downloadFile(file) {
 
+    console.log("file :", file);
+
+    const dirs = RNFetchBlob.fs.dirs;
+    var urldownload = file.url;
+    var arrayUrl = urldownload.split('/');
+    var namefile = arrayUrl[arrayUrl.length -1];
+    //var namefile = file.titulo;
+    //var dirfile = dirs.DocumentDir + '/'+ 'Documents' +'/'+ namefile + extencion;
+    var dirfile = dirs.DocumentDir + '/'+ 'Documents' +'/'+ namefile;
+
+    console.log(arrayUrl);
+    console.log(namefile);
     console.log("dirfile : " , dirfile);
     console.log("urldonwload : ",urldownload);
+
+    /*
+    //sin uso por el momento
 
     this.setState({
         changeimage : true,
     })
 
     console.log("estado en el showpresntation", this.state.changeimage)
+    */
 
     /* Descarga del archivo si no existe*/
-
+/*
     RNFetchBlob.fs.exists(dirfile)
         .then((exist) => {
             if (!exist){
@@ -62,4 +75,5 @@ export function showIbook(presentation) {
                 console.log("ruta del archivo", dirfile)
             }
         })
+    */
 };

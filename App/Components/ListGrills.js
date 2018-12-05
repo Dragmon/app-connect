@@ -23,6 +23,7 @@ import {
     heightMenuSection,
 } from '../api/shared';
 
+import {downloadFile} from '../api/donwloadfile';
 
 const api = require('../api/api');
 
@@ -110,6 +111,7 @@ class Presentaciones extends Component{
     }
 
     _renderPresentationsList(item) {
+        console.log("item-url :",item.url);
         return (
             <View>
                 <Image
@@ -127,7 +129,7 @@ class Presentaciones extends Component{
                             </Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this._showPresentation(item)}>
+                    <TouchableOpacity onPress={() => downloadFile(item)}>
                         <View style={ButtonsStyles.buttonDownload}>
                             <Text style={ButtonsStyles.textButtonDocument}>
                                 Descargar Documento

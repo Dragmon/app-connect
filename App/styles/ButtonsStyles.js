@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import {
     StyleSheet,
-    Dimensions,
 } from 'react-native';
+import {
+    totalWidth,
+} from '../api/shared';
 
 const ButtonStyles = StyleSheet.create({
     infoDocument:{
@@ -11,15 +13,21 @@ const ButtonStyles = StyleSheet.create({
     buttonView:{
         justifyContent: 'center',
         alignItems: 'center',
-        width: (Dimensions.get('window').width)/2,
+        width: (totalWidth)/2,
+        height: 40,
+        backgroundColor: '#E91E53',
     },
     buttonDownload:{
         justifyContent: 'center',
         alignItems: 'center',
-        width: (Dimensions.get('window').width)/2
+        width: (totalWidth)/2,
+        height: 40,
+        backgroundColor: '#429999',
     },
     textButtonDocument:{
-
+        color: '#FFFFFF',
+        fontSize: 18,
+        fontWeight: 'bold',
     },
 });
 
