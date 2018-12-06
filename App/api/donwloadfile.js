@@ -29,21 +29,20 @@ export function downloadFile(file) {
     */
 
     /* Descarga del archivo si no existe*/
-/*
+
     RNFetchBlob.fs.exists(dirfile)
         .then((exist) => {
-            if (!exist){
+            if (!exist){/*
                 Alert.alert(
-                    'Descarga de Ibook',
-                    'La descarga del ibook a comenzado'
+                    'Descarga de Archivo',
+                    'La descarga de su archivo a comenzado'
                 )
-
+                */
                 RNFetchBlob
                     .config({
                         // add this option that makes response data to be stored as a file,
                         // this is much more performant.
                         fileCache : true,
-                        //appendExt : 'ibooks',
                         path: dirfile
                     })
                     .fetch('GET', urldownload, {
@@ -75,5 +74,4 @@ export function downloadFile(file) {
                 console.log("ruta del archivo", dirfile)
             }
         })
-    */
 };
