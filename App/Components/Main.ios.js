@@ -29,6 +29,8 @@ import {
     NetInfo
 } from 'react-native';
 
+import {deleteFiles} from '../api/deletefile';
+
 var totalWidth = Dimensions.get('window').width;
 var totalHeight = Dimensions.get('window').height;
 var slideMenudisplace = totalWidth*.90;
@@ -49,26 +51,15 @@ export default class App extends Component<{}> {
     componentWillMount() {
         PushNotificationIOS.requestPermissions();
         // Add listener for push notifications
-        //PushNotificationIOS.addEventListener('notification', this._onNotification.bind(this));
         PushNotificationIOS.addEventListener('notification', this._onRemoteNotification.bind(this));
         // Add listener for register
         PushNotificationIOS.addEventListener('register', this._regToken);
-
-        //var initNotif = PushNotificationIOS.popInitialNotification();
-
-        /*
-        var initNotif = PushNotificationIOS.getInitialNotification();
-        if (initNotif != null) {
-            //this._onNotification(initNotif);
-            this._onRemoteNotification(initNotif)
-        }
-        */
-
+        //Borrado de archivos
+        deleteFiles();
     }
 
     componentWillUnmount() {
         // Remove listener for push notifications
-        //PushNotificationIOS.removeEventListener('notification', this._onNotification.bind(this));
         PushNotificationIOS.removeEventListener('notification', this._onRemoteNotification.bind(this));
         // Remove listener for register
         PushNotificationIOS.removeEventListener('register',this._regToken);
@@ -86,25 +77,6 @@ export default class App extends Component<{}> {
             },
         ]);
     }
-
-    /*
-    _onNotification(notification) {
-        //const result = `Message: ${notification.getMessage()}`
-        //msg = notification.getMessage();
-
-        //GoogleAnalytics.trackEvent('APP', 'Notificación recibida', {texto: msg });
-
-        AlertIOS.alert(
-            //'Notificación' + notification.getMessage(),
-            //'Notificación', result
-            'Notificacion'
-            [{
-                text: 'Ver más',
-                onPress: () => this.props.navigation.navigate('Notificaciones'),
-            }]
-        );
-    }
-    */
 
     _regToken(token){
         api.regDeviceNotifications(token)

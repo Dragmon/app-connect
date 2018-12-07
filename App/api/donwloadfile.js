@@ -9,7 +9,7 @@ export function downloadFile(file) {
     var urldownload = file.url;
     var arrayUrl = urldownload.split('/');
     var namefile = arrayUrl[arrayUrl.length -1];
-    var dirfile = dirs.DocumentDir + '/'+ 'Documents' +'/'+ namefile;
+    var dirfile = dirs.DocumentDir + '/'+ 'DownloadDocuments' +'/'+ namefile;
 
     console.log(arrayUrl);
     console.log(namefile);

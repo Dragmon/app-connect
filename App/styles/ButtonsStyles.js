@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import {
     totalWidth,
+    aspectRatio
 } from '../api/shared';
 
 const ButtonStyles = StyleSheet.create({
@@ -26,7 +27,7 @@ const ButtonStyles = StyleSheet.create({
     },
     textButtonDocument:{
         color: '#FFFFFF',
-        fontSize: 18,
+        fontSize: (aspectRatio == 1.8 ? 15 : 18),
         fontWeight: 'bold',
     },
 });

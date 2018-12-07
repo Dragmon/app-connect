@@ -20,7 +20,7 @@ import {
     totalHeight,
     totalWidth,
     heightTitle,
-    heightMenuSection,
+    heightMenuSection
 } from '../api/shared';
 
 import {downloadFile} from '../api/donwloadfile';
