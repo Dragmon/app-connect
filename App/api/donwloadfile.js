@@ -9,8 +9,6 @@ export function downloadFile(file) {
     var urldownload = file.url;
     var arrayUrl = urldownload.split('/');
     var namefile = arrayUrl[arrayUrl.length -1];
-    //var namefile = file.titulo;
-    //var dirfile = dirs.DocumentDir + '/'+ 'Documents' +'/'+ namefile + extencion;
     var dirfile = dirs.DocumentDir + '/'+ 'Documents' +'/'+ namefile;
 
     console.log(arrayUrl);
@@ -32,11 +30,12 @@ export function downloadFile(file) {
 
     RNFetchBlob.fs.exists(dirfile)
         .then((exist) => {
-            if (!exist){/*
+            if (!exist){
+                /*
                 Alert.alert(
                     'Descarga de Archivo',
-                    'La descarga de su archivo a comenzado'
-                )
+                    'La descarga de su archivo a comenzado',
+                );
                 */
                 RNFetchBlob
                     .config({

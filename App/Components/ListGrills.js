@@ -111,7 +111,6 @@ class Presentaciones extends Component{
     }
 
     _renderPresentationsList(item) {
-        console.log("item-url :",item.url);
         return (
             <View>
                 <Image
