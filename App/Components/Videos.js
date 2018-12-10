@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import HeaderInterno from './HeaderInterno';
+import ButtonsStyles from "../styles/ButtonsStyles";
+import {downloadFile} from "../api/donwloadfile";
 import {
     StyleSheet,
     Text,
@@ -75,6 +77,7 @@ class Videos extends Component{
 
     _renderVideosList(item) {
         return (
+            /*
             <TouchableOpacity onPress={() => this._playVideo(item)}>
                 <View>
                     <Image
@@ -89,6 +92,32 @@ class Videos extends Component{
                     </Text>
                 </View>
             </TouchableOpacity>
+            */
+            <View>
+                <Image
+                    style={styles.videoItemImage}
+                    source={{uri: item.imagen}}
+                />
+                <Text style={styles.videoTitle}>
+                    {item.titulo}
+                </Text>
+                <View style={ButtonsStyles.infoDocument}>
+                    <TouchableOpacity onPress={() => this._playVideo(item)}>
+                        <View style={ButtonsStyles.buttonView}>
+                            <Text style={ButtonsStyles.textButtonDocument}>
+                                Ver Video
+                            </Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => downloadFile(item)}>
+                        <View style={ButtonsStyles.buttonDownload}>
+                            <Text style={ButtonsStyles.textButtonDocument}>
+                                Descargar Video
+                            </Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+            </View>
         );
     }
 
@@ -157,7 +186,7 @@ const styles = StyleSheet.create({
       	backgroundColor: '#1b313a',
       	color: '#ffffff',
       	fontWeight: 'bold',
-        fontSize: (aspectRatio == 1.3? 20: 15 ),
+        fontSize: (aspectRatio == 1.3? 20: 16 ),
         marginTop: Platform.OS === 'ios' ? 0 : -.3,
     },
 

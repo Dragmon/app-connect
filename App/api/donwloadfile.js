@@ -4,12 +4,19 @@ import RNFetchBlob from "react-native-fetch-blob";
 export function downloadFile(file) {
 
     console.log("file :", file);
+    console.log("file titulo :", file.titulo);
 
     const dirs = RNFetchBlob.fs.dirs;
     var urldownload = file.url;
-    var arrayUrl = urldownload.split('/');
-    var namefile = arrayUrl[arrayUrl.length -1];
-    var dirfile = dirs.DocumentDir + '/'+ 'DownloadDocuments' +'/'+ namefile;
+
+    if (file.categoria === 'Videos'){
+        var namefile = file.titulo;
+        var dirfile = dirs.DocumentDir + '/'+ 'DownloadDocuments' +'/'+ namefile + '.mp4';
+    }else{
+        var arrayUrl = urldownload.split('/');
+        var namefile = arrayUrl[arrayUrl.length -1];
+        var dirfile = dirs.DocumentDir + '/'+ 'DownloadDocuments' +'/'+ namefile;
+    }
 
     console.log(arrayUrl);
     console.log(namefile);
