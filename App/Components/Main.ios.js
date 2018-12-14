@@ -115,7 +115,9 @@ export default class App extends Component<{}> {
                 >
                     <Header
                         style={styles.containerHeader}
-                        navigation={this.props.navigation} toggle={this.toggle.bind(this)}/>
+                        toggle={this.toggle.bind(this)}
+                        navigation={this.props.navigation}
+                    />
 
                     {
                         this.state.hideViewImage == false ?
@@ -127,11 +129,6 @@ export default class App extends Component<{}> {
                                 style={styles.containerBody}
                                 navigation={this.props.navigation} />
                     }
-                    {/*
-                    <Body
-                        style={styles.containerBody}
-                        navigation={this.props.navigation} />
-                    */}
                     <Footer
                         style={styles.containerFooter}
                     />

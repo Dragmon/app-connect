@@ -5,13 +5,7 @@ export function deleteFiles() {
     console.log("entra a la funcion delete");
 
     const dirs = RNFetchBlob.fs.dirs;
-    /*
-    var urldownload = file.url;
-    var arrayUrl = urldownload.split('/');
-    var namefile = arrayUrl[arrayUrl.length -1];
-    console.log(namefile);
-    console.log(arrayUrl);
-    */
+
     var dirfile = dirs.DocumentDir + '/'+ 'DownloadDocuments';
 
     console.log("dirfile : " , dirfile);

@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import ImageViewHome from './ImageViewHome';
 import {
     Text,
     View,
@@ -13,7 +12,6 @@ import {
     Button,
 } from 'react-native'
 var api = require('../api/api');
-import ImageView from "./ImageView";
 
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
@@ -82,30 +80,6 @@ class Body extends Component{
 	  <View style={styles.mainContainer}>
 
           {/* Primer módulo */}
-          {/*
-          {this.state.hideViewImage == true ? <ImageViewHome/> :
-              <Button onPress={() => { this.setModalVisible(true) }} title="Click Here To Show Modal" />
-          }
-
-          <Modal
-              transparent={false}
-              animationType={'slide'}
-              visible={this.state.modalVisible}
-              onRequestClose={()=>{
-                  Alert.alert('Modal hass been closed')
-              }}
-          >
-              <View style={{marginTop: 22}}>
-                  <Text>Hello word</Text>
-                  <TouchableHighlight
-                      onPress={() => {
-                          this.setModalVisible(!this.state.modalVisible);
-                      }}>
-                      <Text>Hide Modal</Text>
-                  </TouchableHighlight>
-              </View>
-          </Modal>
-          */}
 
           <View style={styles.containerImage}>
               <Image

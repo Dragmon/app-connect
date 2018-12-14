@@ -60,6 +60,8 @@ import Circulares from './Components/Circulares';
 
 import ListGrills from './Components/ListGrills';
 
+import GalleryImage from './Components/GalleryImages';
+
 {/* Turns this.props.navigation.state.params into this.params.<x>  */}
 const paramsToProps = (MyComponent) => {
     return class extends React.Component {
@@ -125,7 +127,9 @@ const Index = StackNavigator({
 
     //Herramientas: {screen:Herramientas}
 
-    ListGrills:{screen:ListGrills}
+    ListGrills:{screen:ListGrills},
+
+    GalleryImage:{screen:GalleryImage}
 
 },{
   headerMode: 'screen'
