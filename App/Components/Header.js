@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
                 height: aspectRatio == 1.3 ? (totalWidth /4) * .2043 : (totalWidth /3) * .2043,
             },
             android:{
-                marginRight: aspectRatio == 1.9 ? totalWidth * .33 : totalWidth * .40,
+                //marginRight: aspectRatio == 1.9 ? totalWidth * .33 : totalWidth * .40,
                 width: aspectRatio == 1.9 ? totalWidth /3 : totalWidth /5,
                 height: aspectRatio == 1.9 ? (totalWidth /3) * .2043 : (totalWidth /5) * .2043,
             },
