@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {
     Text,
@@ -9,7 +9,7 @@ import {
     SafeAreaView,
     Dimensions,
     Platform,
-    TouchableHighlight
+    TouchableHighlight, TouchableOpacity, Linking
 } from 'react-native';
 
 var totalWidth = Dimensions.get('window').width;
@@ -20,6 +20,7 @@ var headerAndRat19 = totalHeight * .10;
 
 var heightHeader = (aspectRatio == 2.2 ? totalHeight *.18 : aspectRatio == 1.3 ? totalHeight * .08 : totalHeight *.12);
 
+{/*
 const Header = props => (
 
     <SafeAreaView style={styles.containerheader}>
@@ -35,7 +36,7 @@ const Header = props => (
             style={styles.logoApp}
             source={require('../Img/Header/logo-connect.png')}
         />
-        <TouchableHighlight onPress={() => navigate('GalleryImage')}>
+        <TouchableHighlight onPress={() => navigate('GalleryImages')}>
             <Icon
                 name="image"
                 color="#ffffff"
@@ -45,6 +46,42 @@ const Header = props => (
         </TouchableHighlight>
     </SafeAreaView>
 )
+*/}
+
+class Header extends Component{
+    render(){
+
+        const{navigate} = this.props.navigation;
+
+        return(
+
+            <SafeAreaView style={styles.containerheader}>
+                <TouchableWithoutFeedback onPress={() => this.props.toggle()}>
+                    <Icon
+                        name="search"
+                        color="#ffffff"
+                        size={aspectRatio == 1.9 ? 25 : aspectRatio == 1.3 ? 28 : 19}
+                        style={styles.iconbars}
+                    />
+                </TouchableWithoutFeedback>
+                <Image
+                    style={styles.logoApp}
+                    source={require('../Img/Header/logo-connect.png')}
+                />
+                <TouchableHighlight onPress={() => navigate('GalleryImages')}>
+                    <Icon
+                        name="image"
+                        color="#ffffff"
+                        size={aspectRatio == 1.9 ? 25 : aspectRatio == 1.3 ? 28 : 19}
+                        style={styles.iconbars}
+                    />
+                </TouchableHighlight>
+            </SafeAreaView>
+        )
+    }
+
+};
+
 
 const styles = StyleSheet.create({
     containerheader: {

@@ -7,11 +7,14 @@ var heightHeader = (aspectRatio == 2.2 ? totalHeight *.15 : totalHeight *.09);
 var heightTitle = totalWidth * 0.1136;
 var heightMenuSection = totalHeight - (heightHeader + heightTitle + (aspectRatio == 2.2 ? 30 : 20));
 
+const domainUrl = 'https://adminconnect.televisaventas.tv/global/';
+
 export {
     totalHeight,
     totalWidth,
     aspectRatio,
     heightHeader,
     heightTitle,
-    heightMenuSection
+    heightMenuSection,
+    domainUrl
 };

@@ -16,13 +16,16 @@ import {
 } from 'react-native';
 
 import {
-    totalHeight,
     totalWidth,
     heightTitle,
-    heightMenuSection, aspectRatio
+    heightMenuSection,
+    aspectRatio,
+    domainUrl
 } from '../api/shared';
 
-import { NavigationActions } from 'react-navigation';
+import {downloadFile} from '../api/donwloadfile';
+import ButtonsStyles from "../styles/ButtonsStyles";
+
 var api = require('../api/api');
 
 class GalleryImages extends Component{
@@ -58,18 +61,51 @@ class GalleryImages extends Component{
   }
 
   _renderpresentation(presentation){
-    const{navigate} = this.props.navigation;
-    let data = [presentation.url, presentation.titulo];
+
+      presentation.url = domainUrl + presentation.url;
+      console.log("presentation :", presentation);
+
+      const{navigate} = this.props.navigation;
+      let data = [presentation.url, presentation.titulo];
+      console.log("data :", data);
 
   	return(
+        <View>
+            <Image
+                style={styles.presentationRow}
+                source={{uri:presentation.imagen}}
+            />
+            <Text style={styles.presentationMeta}>
+                {presentation.titulo}
+            </Text>
+            <View style={ButtonsStyles.infoDocument}>
+                <TouchableOpacity onPress={() => navigate('ImageView',{data:data})}>
+                    <View style={ButtonsStyles.buttonView}>
+                        <Text style={ButtonsStyles.textButtonDocument}>
+                            Ver Imagen
+                        </Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => downloadFile(presentation)}>
+                    <View style={ButtonsStyles.buttonDownload}>
+                        <Text style={ButtonsStyles.textButtonDocument}>
+                            Descargar Imagen
+                        </Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
+        </View>
+        /*
   		<TouchableOpacity onPress={() => navigate('ImageView',{data:data})}>
   			<View>
   				<Image source={{uri:presentation.imagen}} style={styles.presentationRow}>
   				</Image>
-  				<Text style={styles.presentationMeta}>{presentation.titulo}{"\n"}
+  				<Text style={styles.presentationMeta}>
+                    {presentation.titulo}
   				</Text>
   			</View>
   		</TouchableOpacity>
+  		*/
   	)
   }
 
@@ -84,7 +120,7 @@ class GalleryImages extends Component{
         <View style={styles.containerTitle}>
             <Image
                 style={styles.titleseccion}
-                source={require('../Img/Hot-results/encabezado-hotresults.png')}
+                source={require('../Img/Galeria/encabezado-galeria.png')}
             />
         </View>
 
@@ -115,11 +151,12 @@ const styles = StyleSheet.create({
         height: heightMenuSection,
     },
     presentationMeta:{
+        textAlign: 'center',
   	    padding: 20,
       	backgroundColor: '#1b313a',
   	    color: '#ffffff',
   	    fontWeight: 'bold',
-        fontSize: (aspectRatio == 1.3? 20: 15 ),
+        fontSize: (aspectRatio == 1.3? 23: 18 ),
         marginTop: Platform.OS === 'ios' ? 0 : -.3,
     },
     presentationSub:{
