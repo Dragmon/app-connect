@@ -1047,7 +1047,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 75MGMTXMCH;
+						DevelopmentTeam = 7RW925JJ59;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1813,7 +1813,7 @@
 				CODE_SIGN_ENTITLEMENTS = connect_havas/connect_havas.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 75MGMTXMCH;
+				DEVELOPMENT_TEAM = 7RW925JJ59;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
@@ -1837,7 +1837,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = televisa.connect.2018;
+				PRODUCT_BUNDLE_IDENTIFIER = televisa.connect.2019;
 				PRODUCT_NAME = connect_havas;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1851,7 +1851,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = connect_havas/connect_havas.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 75MGMTXMCH;
+				DEVELOPMENT_TEAM = 7RW925JJ59;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
@@ -1875,7 +1875,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = televisa.connect.2018;
+				PRODUCT_BUNDLE_IDENTIFIER = televisa.connect.2019;
 				PRODUCT_NAME = connect_havas;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
