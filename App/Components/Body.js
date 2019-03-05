@@ -181,12 +181,24 @@ class Body extends Component{
                   </View>
               </TouchableHighlight>
 
-              {/* Circulares */}
+              {/* Hot Reults */}
+              {/*
               <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('HotResults')}>
                   <View style={styles.menuModule}>
                       <Image
                           style={styles.imgOption}
                           source={require('../Img/Home/icono-hot-results.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
+              */}
+                
+              {/* Data 15 */}
+              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('DataFifteen')}>
+                  <View style={styles.menuModule}>
+                      <Image
+                          style={styles.imgOption}
+                          source={require('../Img/Home/icono-data15.png')}
                       />
                   </View>
               </TouchableHighlight>

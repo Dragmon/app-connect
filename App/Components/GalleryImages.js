@@ -82,14 +82,14 @@ class GalleryImages extends Component{
                 <TouchableOpacity onPress={() => navigate('ImageView',{data:data})}>
                     <View style={ButtonsStyles.buttonView}>
                         <Text style={ButtonsStyles.textButtonDocument}>
-                            Ver Imagen
+                            Ver
                         </Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => downloadFile(presentation)}>
                     <View style={ButtonsStyles.buttonDownload}>
                         <Text style={ButtonsStyles.textButtonDocument}>
-                            Descargar Imagen
+                            Descargar
                         </Text>
                     </View>
                 </TouchableOpacity>

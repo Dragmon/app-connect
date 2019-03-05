@@ -73,6 +73,12 @@ const api = {
       return fetch(url).then((res) => res.json())
     },
 
+    getDataFifteen(){
+      tracker.trackEvent('API', 'Obtener HotResults');
+      var url = `https://adminconnect.televisaventas.tv/api/v1/data15/obtener`;
+      return fetch(url).then((res) => res.json())
+    },
+
     getCatalogosAndroid(){
       tracker.trackEvent('API', 'Obtener Catalogos');
       var url = `https://adminconnect.televisaventas.tv/api/v1/catalogo-android/obtener`;

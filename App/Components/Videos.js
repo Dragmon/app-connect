@@ -105,14 +105,14 @@ class Videos extends Component{
                     <TouchableOpacity onPress={() => this._playVideo(item)}>
                         <View style={ButtonsStyles.buttonView}>
                             <Text style={ButtonsStyles.textButtonDocument}>
-                                Ver Video
+                                Ver
                             </Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => downloadFile(item)}>
                         <View style={ButtonsStyles.buttonDownload}>
                             <Text style={ButtonsStyles.textButtonDocument}>
-                                Descargar Video
+                                Descargar
                             </Text>
                         </View>
                     </TouchableOpacity>

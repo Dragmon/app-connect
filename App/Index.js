@@ -62,6 +62,8 @@ import ListGrills from './Components/ListGrills';
 
 import GalleryImages from './Components/GalleryImages';
 
+import DataFifteen from './Components/DataFifteen';
+
 {/* Turns this.props.navigation.state.params into this.params.<x>  */}
 const paramsToProps = (MyComponent) => {
     return class extends React.Component {
@@ -129,7 +131,9 @@ const Index = StackNavigator({
 
     ListGrills:{screen:ListGrills},
 
-    GalleryImages:{screen:GalleryImages}
+    GalleryImages:{screen:GalleryImages},
+
+    DataFifteen: { screen: DataFifteen }
 
 },{
   headerMode: 'screen'

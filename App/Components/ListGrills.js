@@ -124,14 +124,14 @@ class Presentaciones extends Component{
                     <TouchableOpacity onPress={() => this._showPresentation(item)}>
                         <View style={ButtonsStyles.buttonView}>
                             <Text style={ButtonsStyles.textButtonDocument}>
-                                Ver Documento
+                                Ver
                             </Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => downloadFile(item)}>
                         <View style={ButtonsStyles.buttonDownload}>
                             <Text style={ButtonsStyles.textButtonDocument}>
-                                Descargar Documento
+                                Descargar
                             </Text>
                         </View>
                     </TouchableOpacity>
