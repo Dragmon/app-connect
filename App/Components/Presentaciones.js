@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
 import HeaderInterno from './HeaderInterno';
+import ButtonsStyles from '../styles/ButtonsStyles';
 import {
     StyleSheet,
     Text,
     View,
     TouchableOpacity,
-    Dimensions,
-    Alert,
     Image,
     ListView,
     ScrollView,
-    StatusBar,
     SafeAreaView,
     Platform,
 } from 'react-native';
@@ -21,6 +19,8 @@ import {
     heightTitle,
     heightMenuSection, aspectRatio
 } from '../api/shared';
+
+import {downloadFile} from '../api/donwloadfile';
 
 const api = require('../api/api');
 
@@ -75,6 +75,34 @@ class Presentaciones extends Component{
 
     _renderPresentationsList(item) {
         return (
+
+            <View>
+                <Image
+                    style={styles.presentationItemImage}
+                    source={{ uri: item.imagen }}
+                />
+                <Text style={styles.presentationTitle}>
+                    {item.titulo}{"\n"}
+                </Text>
+                <View style={ButtonsStyles.infoDocument}>
+                    <TouchableOpacity onPress={() => this._showPresentation(item)}>
+                        <View style={ButtonsStyles.buttonView}>
+                            <Text style={ButtonsStyles.textButtonDocument}>
+                                Ver
+                            </Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => downloadFile(item)}>
+                        <View style={ButtonsStyles.buttonDownload}>
+                            <Text style={ButtonsStyles.textButtonDocument}>
+                                Descargar
+                            </Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+            </View>
+
+            /*
             <TouchableOpacity onPress={() => this._showPresentation(item)}>
                 <View>
                     <Image
@@ -82,10 +110,11 @@ class Presentaciones extends Component{
                         source={{uri: item.imagen}}
                     />
                     <Text style={styles.presentationTitle}>
-                        {item.titulo}{/*{"\n"}*/}
+                        {item.titulo}
                     </Text>
                 </View>
             </TouchableOpacity>
+            */            
         );
     }
 
