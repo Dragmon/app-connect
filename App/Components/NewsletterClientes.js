@@ -33,7 +33,7 @@ class NewsletterClientes extends Component{
     super(props)
     this.state = {
         isLoading: false,
-        url: 'https://televisaventas.tv/detrasdelaestrategia/',
+        url: 'https://www.frentecreativo.com/',
         textorigin: 'VER MÁS CONTENIDO',
     }
   }
@@ -63,7 +63,7 @@ class NewsletterClientes extends Component{
             />
             <Image
                 style={styles.titleseccion}
-                source={require('../Img/detras-estrategia/encabezado-detras.png')}
+                source={require('../Img/frente-creativo/encabezado-frente-creativo.png')}
             />
             <View style={styles.contentInfo}>
                 <SectionArrayNewsClients newsletterClientsArray={this.state.newsletterClientsArray} nav={this.props.navigation}/>

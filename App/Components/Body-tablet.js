@@ -142,17 +142,17 @@ class Body extends Component{
           {/* Cuarto módulo */}
           <View style={[styles.blockModule, styles.fourtModule]}>
 
-              {/* Networks */}
+              {/* Frente Creativo */}
               <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('NewsletterClientes')}>
                   <View style={styles.menuModule}>
                       <Image
                           style={styles.imgOption}
-                          source={require('../Img/Home-tablet/icono-detras.png')}
+                          source={require('../Img/Home-tablet/icono-frente.png')}
                       />
                   </View>
               </TouchableHighlight>
 
-              {/* Regional */}
+              {/* Afiches */}
               <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('NewsletterMensual')}>
                   <View style={styles.menuModule}>
                       <Image
