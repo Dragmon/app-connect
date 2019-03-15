@@ -175,14 +175,15 @@ const styles = StyleSheet.create({
     },
 
     presentationTitle: {
-        paddingTop: 20,
+        paddingTop: Platform.OS === 'ios' ? 20 : 10,
         paddingLeft: 20,
         paddingRight: 20,
+        paddingBottom: Platform.OS === 'ios' ? 0 : 10,
       	backgroundColor: '#1b313a',
       	color: '#ffffff',
       	fontWeight: 'bold',
         fontSize: (aspectRatio == 1.3? 20: 15 ),
-        marginTop: Platform.OS === 'ios' ? 0 : -.3,
+        marginTop: Platform.OS === 'ios' ? 0 : 0,
     },
 
     presentationMicroResume: {

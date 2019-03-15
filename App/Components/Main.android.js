@@ -27,6 +27,8 @@ import {
     aspectRatio
 } from '../api/shared';
 
+import { deleteFiles } from '../api/deletefile';
+
 //var totalWidth = Dimensions.get('window').width;
 //var totalHeight = Dimensions.get('window').height;
 var slideMenudisplace = totalWidth*.90;
@@ -45,6 +47,10 @@ export default class App extends Component<{}> {
 
     static navigationOptions = {
         header: null,
+    }
+
+    componentWillMount(){
+        deleteFiles();
     }
 
     toggle(){
