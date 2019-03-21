@@ -117,6 +117,7 @@ class SearchIos extends Component{
             case 'parrillas-abierta':
             case 'parrillas-paga':
             case 'catalogos-android':
+            case 'data15':
                 this.props.navigation.navigate('ShowPresentation', {presentation: item})
                 break;
             default:
