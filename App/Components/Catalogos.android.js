@@ -1,26 +1,25 @@
 import React, {Component} from 'react';
 import HeaderInterno from './HeaderInterno';
+import ButtonsStyles from '../styles/ButtonsStyles';
 import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight,
+  Platform,
   TouchableOpacity,
   Dimensions,
   ScrollView,
   ListView,
-  Alert,
   Image
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
-import {heightTitle} from "../api/shared";
+import {heightTitle,aspectRatio} from "../api/shared";
+import { downloadFile } from '../api/donwloadfile';
+
 var api = require('../api/api');
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
-var heightCont = totalHeight*.25;
-var widhtCont = totalWidth*.45;
 var topSection = totalHeight * .128;
-var topSectionTwo = totalHeight * .450;
 var heightView = totalHeight - 100;
 
 class Catalogos extends Component{
@@ -63,6 +62,7 @@ class Catalogos extends Component{
     //console.log(newUrlFile);
 
   	return(
+      /*
   		<TouchableOpacity onPress={() => navigate('CatalogoView',{origin:newUrlFile})}>
   			<View>
   				<Image source={{uri:presentation.imagen}} style={styles.presentationRow}>
@@ -70,7 +70,33 @@ class Catalogos extends Component{
   				<Text style={styles.presentationMeta}>{presentation.titulo}{"\n"}
   				</Text>
   			</View>
-  		</TouchableOpacity>
+      </TouchableOpacity>
+      */
+      <View>
+        <Image
+          style={styles.presentationRow}
+          source={{ uri: presentation.imagen }}
+        />
+        <Text style={styles.presentationMeta}>
+          {presentation.titulo}{"\n"}
+        </Text>
+        <View style={ButtonsStyles.infoDocument}>
+          <TouchableOpacity onPress={() => navigate('CatalogoView',{origin:newUrlFile})}>
+            <View style={ButtonsStyles.buttonView}>
+              <Text style={ButtonsStyles.textButtonDocument}>
+                Ver
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => downloadFile(presentation)}>
+            <View style={ButtonsStyles.buttonDownload}>
+              <Text style={ButtonsStyles.textButtonDocument}>
+                Descargar
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      </View>
   	)
   }
 
@@ -117,11 +143,14 @@ const styles = StyleSheet.create({
         height: heightView
     },
     presentationMeta:{
-      	padding: 20,
-  	    backgroundColor: '#e91e53',
+        paddingTop: Platform.OS === 'ios' ? 20 : 10,
+        paddingLeft: 20,
+        paddingRight: 20,
+        paddingBottom: Platform.OS === 'ios' ? 0 : 10,
+      	backgroundColor: '#1b313a',
   	    color: '#ffffff',
   	    fontWeight: 'bold',
-        marginTop: -.3,
+        fontSize: (aspectRatio == 1.3 ? 20: 15 ),
     },
     presentationSub:{
   	    fontWeight: 'normal',
