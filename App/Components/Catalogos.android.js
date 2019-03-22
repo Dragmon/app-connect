@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import {heightTitle,aspectRatio} from "../api/shared";
-import { downloadFile } from '../api/donwloadfile';
+import { downloadFile } from '../api/donwloadfileandroid';
 
 var api = require('../api/api');
 var totalHeight = Dimensions.get('window').height;

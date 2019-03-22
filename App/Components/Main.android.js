@@ -27,7 +27,7 @@ import {
     aspectRatio
 } from '../api/shared';
 
-import { deleteFiles } from '../api/deletefile';
+import { deleteFiles } from '../api/deletefileandroid';
 
 //var totalWidth = Dimensions.get('window').width;
 //var totalHeight = Dimensions.get('window').height;
