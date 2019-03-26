@@ -10,13 +10,24 @@ export function downloadFile(file) {
     const dirs = RNFetchBlob.fs.dirs;
     var urldownload = file.url;
 
+    if (systemOperative === 'android') {
+        var dirsDownload = dirs.DCIMDir;
+        var android = RNFetchBlob.android;
+    } else {
+        var dirsDownload = dirs.DocumentDir;
+    }
+
+    console.log("ruta de descarga ", dirsDownload);
+
     if (file.categoria === 'Videos'){
         var namefile = file.titulo;
-        var dirfile = dirs.DocumentDir + '/'+ 'DownloadDocuments' +'/'+ namefile + '.mp4';
+        //var dirfile = dirs.DocumentDir + '/DownloadDocuments/'+ namefile + '.mp4';
+        var dirfile = dirsDownload + '/DownloadDocuments/' + namefile + '.mp4';
     }else{
         var arrayUrl = urldownload.split('/');
         var namefile = arrayUrl[arrayUrl.length -1];
-        var dirfile = dirs.DocumentDir + '/'+ 'DownloadDocuments' +'/'+ namefile;
+        //var dirfile = dirs.DocumentDir + '/DownloadDocuments/'+ namefile;
+        var dirfile = dirsDownload + '/DownloadDocuments/' + namefile;
     }
 
     console.log(systemOperative);
@@ -32,6 +43,7 @@ export function downloadFile(file) {
         RNFetchBlob.fs.exists(dirfile)
             .then((exist) => {
                 if (!exist) {
+                    console.log("validar si existe el archivo")
                     RNFetchBlob
                         .config({
                             // add this option that makes response data to be stored as a file,
@@ -39,9 +51,11 @@ export function downloadFile(file) {
                             fileCache: true,
                             path: dirfile,
                             addAndroidDownloads: {
+                                useDownloadManager: false,
                                 notification: true,
                                 title: namefile,
                                 description: 'An file.',
+                                mediaScannable: true,
                             }
                         })
                         .fetch('GET', urldownload, {
@@ -53,6 +67,7 @@ export function downloadFile(file) {
                         })
                         .then((res) => {
                             console.log('The file saved to ', res.path())
+                            android.actionViewIntent(res.path())
                         })
                         .catch((err) => {
                             console.log("error ", err)

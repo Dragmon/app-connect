@@ -5,19 +5,10 @@ import Header from './Header';
 import Body from './Body';
 import Search from './Search';
 import Footer from './Footer';
-import api from '../api/api';
 
 import {
-    Platform,
     StyleSheet,
-    Text,
-    Dimensions,
-    View,
-    Alert,
-    AlertIOS,
     SafeAreaView,
-    PushNotificationIOS,
-    NetInfo
 } from 'react-native';
 import BodyTablet from "./Body-tablet";
 
@@ -28,6 +19,7 @@ import {
 } from '../api/shared';
 
 import { deleteFiles } from '../api/deletefileandroid';
+import { requestPermission } from '../api/permissionsandroid';
 
 //var totalWidth = Dimensions.get('window').width;
 //var totalHeight = Dimensions.get('window').height;
@@ -50,6 +42,7 @@ export default class App extends Component<{}> {
     }
 
     componentWillMount(){
+        requestPermission();
         deleteFiles();
     }
 

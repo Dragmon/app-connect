@@ -1,13 +1,17 @@
 import RNFetchBlob from "react-native-fetch-blob";
+import {Platform} from "react-native";
 
 export function deleteFiles() {
 
-    console.log("entra a la funcion delete");
+    console.log("entra a la funcion delete para ios y android");
 
     const dirs = RNFetchBlob.fs.dirs;
 
-    var dirfile = dirs.DocumentDir + '/'+ 'DownloadDocuments';
-
+    if (Platform.OS === 'android') {
+        var dirfile = dirs.DCIMDir + '/DownloadDocuments';
+    } else {
+        var dirfile = dirs.DocumentDir + '/DownloadDocuments';
+    }
     console.log("dirfile : " , dirfile);
 
     /* Borrado de archivos */
