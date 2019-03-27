@@ -18,8 +18,8 @@ import {
     aspectRatio
 } from '../api/shared';
 
-import { deleteFiles } from '../api/deletefileandroid';
-import { requestPermission } from '../api/permissionsandroid';
+import { deleteFiles } from '../api/deletefile';
+import { requestReadPermission, requestWritePermission } from '../api/permissionsandroid';
 
 //var totalWidth = Dimensions.get('window').width;
 //var totalHeight = Dimensions.get('window').height;
@@ -42,7 +42,8 @@ export default class App extends Component<{}> {
     }
 
     componentWillMount(){
-        requestPermission();
+        requestReadPermission();
+        requestWritePermission();
         deleteFiles();
     }
 

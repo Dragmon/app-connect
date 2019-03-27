@@ -22,12 +22,12 @@ export function downloadFile(file) {
     if (file.categoria === 'Videos'){
         var namefile = file.titulo;
         //var dirfile = dirs.DocumentDir + '/DownloadDocuments/'+ namefile + '.mp4';
-        var dirfile = dirsDownload + '/DownloadDocuments/' + namefile + '.mp4';
+        var dirfile = dirsDownload + '/AppConnect/' + namefile + '.mp4';
     }else{
         var arrayUrl = urldownload.split('/');
         var namefile = arrayUrl[arrayUrl.length -1];
         //var dirfile = dirs.DocumentDir + '/DownloadDocuments/'+ namefile;
-        var dirfile = dirsDownload + '/DownloadDocuments/' + namefile;
+        var dirfile = dirsDownload + '/AppConnect/' + namefile;
     }
 
     console.log(systemOperative);
@@ -67,7 +67,7 @@ export function downloadFile(file) {
                         })
                         .then((res) => {
                             console.log('The file saved to ', res.path())
-                            android.actionViewIntent(res.path())
+                            //android.actionViewIntent(res.path())
                         })
                         .catch((err) => {
                             console.log("error ", err)
