@@ -1,22 +1,18 @@
 import React, {Component} from 'react'
 import {
-    Text,
     View,
     StyleSheet,
     TouchableHighlight,
     Dimensions,
-    Alert,
+    Linking,
     Image,
     Platform,
-    Modal,
-    Button,
 } from 'react-native'
 var api = require('../api/api');
 
 var totalHeight = Dimensions.get('window').height;
 var totalWidth = Dimensions.get('window').width;
 var widthOption = (totalWidth / 3);
-var heightModuleIcon = (totalHeight * .08);
 var aspectRatio = (totalHeight/totalWidth).toFixed(1);
 //var heightBody = (aspectRatio == 2.2 ? totalHeight *.72 : totalHeight *.80); //movil
 var heightBody = (aspectRatio == 2.2 ? totalHeight *.72 : aspectRatio == 1.3 ? totalHeight *.82 :totalHeight *.80);
@@ -41,7 +37,10 @@ class Body extends Component{
     constructor(props){
         super(props);
         this.state ={
-            urlImage: "https://adminconnect.televisaventas.tv/logo-televisa.png",
+            urlImage: 'https://adminconnect.televisaventas.tv/logo-televisa.png',
+            urlVentas: 'https://televisaventas.tv/',
+            urlPrensa: 'https://www.televisa.com/sala-de-prensa/',
+            urlPlanComercial: 'https://televisa.plancomercial.com/',
             modalVisible : false,
             //hideViewImage : aspectRatio == 1.3 ? true : false,
         }
@@ -84,7 +83,6 @@ class Body extends Component{
           <View style={styles.containerImage}>
               <Image
                   style={styles.mainImage}
-                  //source={require('../Img/Home/image-home.png')}
                   source={{uri: this.state.urlImage}}
               />
           </View>
@@ -93,17 +91,27 @@ class Body extends Component{
 		  <View style={[styles.blockModule, styles.secondModule]}>
 
               {/* Notificaciones */}
-              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Notificaciones')}>
+              {/* <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Notificaciones')}>
                   <View style={styles.moduleIcon}>
                       <Image
                           style={styles.imgIcon}
                           source={require('../Img/Home/notificaciones.png')}
                       />
                   </View>
+              </TouchableHighlight> */}
+
+              {/* Ventas */}
+              <TouchableHighlight underlayColor="#036566" onPress={() => Linking.openURL(this.state.urlVentas)}>
+                  <View style={styles.moduleIcon}>
+                      <Image
+                          style={styles.imgIcon}
+                          source={require('../Img/Home/ventas.png')}
+                      />
+                  </View>
               </TouchableHighlight>
 
               {/* Plan Comercial */}
-              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PlanComercial')}>
+              <TouchableHighlight underlayColor="#1B323A" onPress={() => Linking.openURL(this.state.urlPlanComercial)}>
                   <View style={styles.moduleIcon}>
                       <Image
                           style={styles.imgIcon}
@@ -113,11 +121,21 @@ class Body extends Component{
               </TouchableHighlight>
 
               {/* Circulares */}
-              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Circulares')}>
+              {/* <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Circulares')}>
                   <View style={styles.moduleIcon}>
                       <Image
                           style={styles.imgIcon}
                           source={require('../Img/Home/circulares.png')}
+                      />
+                  </View>
+              </TouchableHighlight> */}
+
+              {/* Prensa */}
+              <TouchableHighlight underlayColor="#036566" onPress={() => Linking.openURL(this.state.urlPrensa)}>
+                  <View style={styles.moduleIcon}>
+                      <Image
+                          style={styles.imgIcon}
+                          source={require('../Img/Home/Prensa.png')}
                       />
                   </View>
               </TouchableHighlight>
