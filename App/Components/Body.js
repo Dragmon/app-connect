@@ -165,22 +165,22 @@ class Body extends Component{
                   </View>
               </TouchableHighlight>
 
-              {/* Afiches */}
+              {/* Casos de exito */}
               <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('NewsletterMensual')}>
                   <View style={styles.menuModule}>
                       <Image
                           style={styles.imgOption}
-                          source={require('../Img/Home/icono-afiches.png')}
+                          source={require('../Img/Home/icono-casos-exito.png')}
                       />
                   </View>
               </TouchableHighlight>
 
-              {/* Catalogos */}
+              {/* Quick Update */}
               <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Catalogos')}>
                   <View style={styles.menuModule}>
                       <Image
                           style={styles.imgOption}
-                          source={require('../Img/Home/icono-catalogo.png')}
+                          source={require('../Img/Home/icono-quick-update.png')}
                       />
                   </View>
               </TouchableHighlight>
@@ -210,16 +210,6 @@ class Body extends Component{
                   </View>
               </TouchableHighlight>
               */}
-                
-              {/* Data 15 */}
-              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('DataFifteen')}>
-                  <View style={styles.menuModule}>
-                      <Image
-                          style={styles.imgOption}
-                          source={require('../Img/Home/icono-data15.png')}
-                      />
-                  </View>
-              </TouchableHighlight>
 
               {/* Presentaciones */}
               <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Presentaciones')}>
@@ -227,6 +217,16 @@ class Body extends Component{
                       <Image
                           style={styles.imgOption}
                           source={require('../Img/Home/icono-presentaciones.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
+
+              {/* Reporte de audiencia */}
+              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('DataFifteen')}>
+                  <View style={styles.menuModule}>
+                      <Image
+                          style={styles.imgOption}
+                          source={require('../Img/Home/icono-reporte-audiencia.png')}
                       />
                   </View>
               </TouchableHighlight>
