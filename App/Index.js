@@ -64,6 +64,10 @@ import GalleryImages from './Components/GalleryImages';
 
 import DataFifteen from './Components/DataFifteen';
 
+import HearingReport from './Components/Hearing-Report';
+
+import QuickUpdate from './Components/QuickUpdate';
+
 {/* Turns this.props.navigation.state.params into this.params.<x>  */}
 const paramsToProps = (MyComponent) => {
     return class extends React.Component {
@@ -133,7 +137,11 @@ const Index = StackNavigator({
 
     GalleryImages:{screen:GalleryImages},
 
-    DataFifteen: { screen: DataFifteen }
+    DataFifteen: { screen: DataFifteen },
+
+    HearingReport: {screen: HearingReport},
+
+    QuickUpdate: {screen: QuickUpdate},
 
 },{
   headerMode: 'screen'

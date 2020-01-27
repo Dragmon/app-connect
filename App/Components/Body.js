@@ -176,7 +176,7 @@ class Body extends Component{
               </TouchableHighlight>
 
               {/* Quick Update */}
-              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Catalogos')}>
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('QuickUpdate')}>
                   <View style={styles.menuModule}>
                       <Image
                           style={styles.imgOption}
@@ -222,7 +222,8 @@ class Body extends Component{
               </TouchableHighlight>
 
               {/* Reporte de audiencia */}
-              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('DataFifteen')}>
+              {/* <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('DataFifteen')}> */}
+              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('HearingReport')}>
                   <View style={styles.menuModule}>
                       <Image
                           style={styles.imgOption}
