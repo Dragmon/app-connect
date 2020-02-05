@@ -1,16 +1,13 @@
 import React, {Component} from 'react'
 import ImageViewHome from './ImageViewHome';
 import {
-    Text,
+    Linking,
     View,
     StyleSheet,
     TouchableHighlight,
     Dimensions,
-    Alert,
     Image,
     Platform,
-    Modal,
-    Button,
 } from 'react-native'
 var api = require('../api/api');
 import ImageView from "./ImageView";
@@ -42,6 +39,9 @@ class Body extends Component{
         super(props);
         this.state ={
             urlImage: "https://adminconnect.televisaventas.tv/logo-televisa.png",
+            urlVentas: 'https://televisaventas.tv/',
+            urlPrensa: 'https://www.televisa.com/sala-de-prensa/',
+            urlPlanComercial: 'https://televisa.plancomercial.com/',
             modalVisible : false,
         }
         console.log("estado inicial : ",this.state.urlImage);
@@ -98,34 +98,65 @@ class Body extends Component{
 		  <View style={[styles.blockModule, styles.secondModule]}>
 
               {/* Notificaciones */}
-              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Notificaciones')}>
+              {/* <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Notificaciones')}>
                   <View style={styles.moduleIcon}>
                       <Image
                           style={styles.imgIcon}
                           source={require('../Img/Home-tablet/notificaciones.png')}
                       />
                   </View>
-              </TouchableHighlight>
+              </TouchableHighlight> */}
 
               {/* Plan Comercial */}
-              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PlanComercial')}>
+              {/* <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('PlanComercial')}>
                   <View style={styles.moduleIcon}>
                       <Image
                           style={styles.imgIcon}
                           source={require('../Img/Home-tablet/plancomercial.png')}
                       />
                   </View>
-              </TouchableHighlight>
+              </TouchableHighlight> */}
 
               {/* Circulares */}
-              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Circulares')}>
+              {/* <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Circulares')}>
                   <View style={styles.moduleIcon}>
                       <Image
                           style={styles.imgIcon}
                           source={require('../Img/Home-tablet/circulares.png')}
                       />
                   </View>
+              </TouchableHighlight> */}
+
+              {/* Ventas */}
+              <TouchableHighlight underlayColor="#036566" onPress={() => Linking.openURL(this.state.urlVentas)}>
+                  <View style={styles.moduleIcon}>
+                      <Image
+                        style={styles.imgIcon}
+                        source={require('../Img/Home-tablet/ventas-tablet.png')}
+                      />
+                  </View>
               </TouchableHighlight>
+
+              {/* Plan Comercial */}
+              <TouchableHighlight underlayColor="#1B323A" onPress={() => Linking.openURL(this.state.urlPlanComercial)}>
+                  <View style={styles.moduleIcon}>
+                      <Image
+                        style={styles.imgIcon}
+                        source={require('../Img/Home-tablet/plancomercial-tablet.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
+
+              {/* Prensa */}
+              <TouchableHighlight underlayColor="#036566" onPress={() => Linking.openURL(this.state.urlPrensa)}>
+                  <View style={styles.moduleIcon}>
+                      <Image
+                        style={styles.imgIcon}
+                        source={require('../Img/Home-tablet/prensa-tablet.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
+
           </View>
 
           {/* Tercer módulo */}
@@ -153,24 +184,45 @@ class Body extends Component{
               </TouchableHighlight>
 
               {/* Afiches */}
-              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('NewsletterMensual')}>
+              {/* <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('NewsletterMensual')}>
                   <View style={styles.menuModule}>
                       <Image
                           style={styles.imgOption}
                           source={require('../Img/Home-tablet/icono-afiches.png')}
                       />
                   </View>
-              </TouchableHighlight>
+              </TouchableHighlight> */}
 
               {/* Catalogos */}
-              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Catalogos')}>
+              {/* <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Catalogos')}>
                   <View style={styles.menuModule}>
                       <Image
                           style={styles.imgOption}
                           source={require('../Img/Home-tablet/icono-catalogo.png')}
                       />
                   </View>
+              </TouchableHighlight> */}
+
+              {/* Casos de exito */}
+              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('CasosExito')}>
+                  <View style={styles.menuModule}>
+                      <Image
+                        style={styles.imgOption}
+                        source={require('../Img/Home-tablet/icono-casos-exito-tablet.png')}
+                      />
+                  </View>
               </TouchableHighlight>
+
+              {/* Quick Update */}
+              <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('QuickUpdate')}>
+                  <View style={styles.menuModule}>
+                      <Image
+                        style={styles.imgOption}
+                        source={require('../Img/Home-tablet/icono-quick-update-tablet.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
+
           </View>
 
           {/* Quinto módulo */}
@@ -180,8 +232,8 @@ class Body extends Component{
               <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('Videos')}>
                   <View style={styles.menuModule}>
                       <Image
-                          style={styles.imgOption}
-                          source={require('../Img/Home-tablet/icono-videos.png')}
+                        style={styles.imgOption}
+                        source={require('../Img/Home-tablet/icono-videos.png')}
                       />
                   </View>
               </TouchableHighlight>
@@ -198,25 +250,27 @@ class Body extends Component{
               </TouchableHighlight>
               */}
 
-              {/* Data 15 */}
-              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('DataFifteen')}>
-                  <View style={styles.menuModule}>
-                      <Image
-                          style={styles.imgOption}
-                          source={require('../Img/Home-tablet/icono-data15.png')}
-                      />
-                  </View>
-              </TouchableHighlight>
-
               {/* Presentaciones */}
               <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('Presentaciones')}>
                   <View style={styles.menuModule}>
                       <Image
-                          style={styles.imgOption}
-                          source={require('../Img/Home-tablet/icono-presentaciones.png')}
+                        style={styles.imgOption}
+                        source={require('../Img/Home-tablet/icono-presentaciones-tablet.png')}
                       />
                   </View>
               </TouchableHighlight>
+
+              {/* Reporte de audiencia */}
+              {/* <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('DataFifteen')}> */}
+              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('HearingReport')}>
+                  <View style={styles.menuModule}>
+                      <Image
+                        style={styles.imgOption}
+                        source={require('../Img/Home-tablet/icono-reporte-audiencia-tablet.png')}
+                      />
+                  </View>
+              </TouchableHighlight>
+
           </View>
 
 	  </View>
