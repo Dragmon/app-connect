@@ -30,6 +30,13 @@ const api = {
       return fetch(url).then((response) => response.json())
     },
 
+    getCasosExito() {
+      tracker.trackEvent('API', 'Obtener Casos Exito');
+      //const url = 'https://connect.televisaventas.tv/api/v1/videos/obtener'
+        const url = `https://adminconnect.televisaventas.tv/api/v1/casos-exito/obtener`;
+      return fetch(url).then((response) => response.json())
+    },
+
     getPresentations(){
       tracker.trackEvent('API', 'Obtener Presentaciones');
       const url = `https://adminconnect.televisaventas.tv/api/v1/presentaciones/obtener`;
@@ -116,6 +123,11 @@ const api = {
     },
     getGalleryImage(){
         var url = `https://adminconnect.televisaventas.tv/api/v1/gallery/obtener`;
+        return fetch(url).then((res) => res.json())
+    },
+    getQuickUpdate(){
+        tracker.trackEvent('API', 'Obtener Quick Update');
+        var url = `https://adminconnect.televisaventas.tv/api/v1/quick-update/obtener`;
         return fetch(url).then((res) => res.json())
     },
     getSearchIOS(query) {

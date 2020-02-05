@@ -68,6 +68,8 @@ import HearingReport from './Components/Hearing-Report';
 
 import QuickUpdate from './Components/QuickUpdate';
 
+import CasosExito from './Components/CasosExito';
+
 {/* Turns this.props.navigation.state.params into this.params.<x>  */}
 const paramsToProps = (MyComponent) => {
     return class extends React.Component {
@@ -142,6 +144,8 @@ const Index = StackNavigator({
     HearingReport: {screen: HearingReport},
 
     QuickUpdate: {screen: QuickUpdate},
+
+    CasosExito: { screen: CasosExito},
 
 },{
   headerMode: 'screen'

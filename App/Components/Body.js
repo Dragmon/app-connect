@@ -166,7 +166,7 @@ class Body extends Component{
               </TouchableHighlight>
 
               {/* Casos de exito */}
-              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('NewsletterMensual')}>
+              <TouchableHighlight underlayColor="#2F284B" onPress={() => navigate('CasosExito')}>
                   <View style={styles.menuModule}>
                       <Image
                           style={styles.imgOption}
