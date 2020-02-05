@@ -42,7 +42,7 @@ class QuickUpdate extends Component{
   };
 
   componentWillMount(){
-    api.getDataFifteen().then((jsonRes) => this.handleResponse(jsonRes)).catch((error) => {
+    api.getQuickUpdate().then((jsonRes) => this.handleResponse(jsonRes)).catch((error) => {
       this.setState({
         isLoading: false
       })
