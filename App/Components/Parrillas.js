@@ -61,35 +61,6 @@ class Parrillas extends Component{
               source={require('../Img/Parrillas/encabezado-parrillas.png')}
           />
           <View style={styles.contParrilla}>
-              <View style={styles.menuSection}>
-                  {/*<TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ExcelView',{origin:excelnetworks})}>*/}
-                  <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ListGrills',{origin:networks})}>
-                      <View style={styles.imageContentSection}>
-                          {this.state.resolution == true ?
-                              <Image
-                                  source={require('../Img/Parrillas-tablet/icono-networks.png')}
-                              />
-                              :
-                              <Image
-                                  source={require('../Img/Parrillas/icono-networks.png')}
-                              />
-                          }
-                      </View>
-                  </TouchableHighlight>
-                  <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ListGrills',{origin:regional})} >
-                      <View style={styles.imageContentSection}>
-                          {this.state.resolution == true ?
-                              <Image
-                                  source={require('../Img/Parrillas-tablet/icono-regional.png')}
-                              />
-                              :
-                              <Image
-                                  source={require('../Img/Parrillas/icono-regional.png')}
-                              />
-                          }
-                      </View>
-                  </TouchableHighlight>
-              </View>
 
               <View style={styles.menuSection}>
                   <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ListGrills',{origin:tvabierta})}>
@@ -105,7 +76,7 @@ class Parrillas extends Component{
                           }
                       </View>
                   </TouchableHighlight>
-                  <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ListGrills',{origin:tvpaga})}>
+                  {/* <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ListGrills',{origin:tvpaga})}>
                       <View style={styles.imageContentSection}>
                           {this.state.resolution == true ?
                               <Image
@@ -117,8 +88,40 @@ class Parrillas extends Component{
                               />
                           }
                       </View>
+                  </TouchableHighlight> */}
+              </View>
+
+              <View style={styles.menuSection}>
+                  <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ListGrills',{origin:regional})} >
+                      <View style={styles.imageContentSection}>
+                          {this.state.resolution == true ?
+                              <Image
+                                  source={require('../Img/Parrillas-tablet/icono-regional.png')}
+                              />
+                              :
+                              <Image
+                                  source={require('../Img/Parrillas/icono-regional.png')}
+                              />
+                          }
+                      </View>
+                  </TouchableHighlight>
+                  
+                  {/*<TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ExcelView',{origin:excelnetworks})}>*/}
+                  <TouchableHighlight underlayColor="#E0214F" onPress={() => navigate('ListGrills',{origin:networks})}>
+                      <View style={styles.imageContentSection}>
+                          {this.state.resolution == true ?
+                              <Image
+                                  source={require('../Img/Parrillas-tablet/icono-networks.png')}
+                              />
+                              :
+                              <Image
+                                  source={require('../Img/Parrillas/icono-networks.png')}
+                              />
+                          }
+                      </View>
                   </TouchableHighlight>
               </View>
+
           </View>
       </SafeAreaView>
     )
@@ -131,7 +134,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     menuSection:{
-        flexDirection: 'row',
+        flexDirection: 'column',
         justifyContent: 'center',
     },
     safeArea:{
