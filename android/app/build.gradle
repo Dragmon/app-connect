@@ -156,6 +156,7 @@ android {
 }
 
 dependencies {
+    compile project(':rn-fetch-blob')
     compile project(':react-native-fs')
     compile project(':react-native-google-analytics-bridge')
     compile project(':react-native-fetch-blob')
